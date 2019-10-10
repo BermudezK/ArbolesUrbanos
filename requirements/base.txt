@@ -1,0 +1,2 @@
+Django >= 2.26
+psycopg2 == 2.8.3
