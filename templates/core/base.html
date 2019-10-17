@@ -3,70 +3,80 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>{% block title %}{% endblock title%} | Arboles Urbanos</title>
 
-    <title>{% block title %}{% endblock title%} | Arboles Urbanos</title>
+  {% load static %}
 
-    {% load static %}
-
-    <!-- Bootstrap -->
-    <link href="#" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="#" rel="stylesheet">
 
 
-    <!-- Fuentes -->
+  <!-- Fuentes -->
 
-    <!-- Estilos -->
-    <link href="#" rel="stylesheet">
+  <!-- Estilos -->
+  <link href="#" rel="stylesheet">
 
 </head>
+
 <body>
-    <h1 class="site-heading text-center text-white d-none d-lg-block">
-        <span class="site-heading-upper text-primary mb-3">Arboles Urbanos</span>
-    </h1> 
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+    <span class="site-heading-upper text-primary mb-3">Arboles Urbanos</span>
+  </h1>
 
-    <!-- Cabecera -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <div class="collapse navbar-collapse" id="ned">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Inicio</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-              {% if not request.user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">Acceder</a>
-                </li>
-              {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Salir</a>
-                </li>
-              {% endif %}         
-            </ul>
-          </div>
-        </div>
-      </nav>
-        {% block header %}
-                
-        {% endblock header %}    
+  <!-- Cabecera -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="ned">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          {% if not request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Acceder</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% block header %}
 
-    <!-- Contenido -->
+  {% endblock header %}
 
-        {% block content %}
-        
-        {% endblock content %} 
+  <!-- Contenido -->
 
-    <!-- Pié de página -->
-    <footer class="footer text-faded text-center py-5">
-        <div class="container">
-            <p class="m-0 mbt1">&copy; Arboles Urbanos</p>
-        </div>
-    </footer>
+  {% block content %}
 
-    <!-- Bootstrap -->
+  {% endblock content %}
 
+  <!-- Pié de página -->
+  <footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 mbt1">&copy; Arboles Urbanos</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
