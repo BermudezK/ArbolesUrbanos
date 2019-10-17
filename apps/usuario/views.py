@@ -5,9 +5,9 @@ from django.urls import reverse_lazy
 
 class CreateUser(CreateView):
 	model = User
-	template_name = 'resgister'
+	template_name = 'registerUser.html'
 	succes_url = reverse_lazy('usuario:home')
-	fields = ''
+	fields = '__all__'
 
 class UpdateUser(UpdateView):
 	model = User

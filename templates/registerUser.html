@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/registerUserStyle.css' %}">
+    <script src="https://kit.fontawesome.com/d0dc8f6bcc.js" crossorigin="anonymous"></script>
+    <title>Bienvenido</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="rowGral">
+            <div class="col-5" id="registro">
+                <h3>Registro</h3>
+                <h5>Ingrese sus datos para acceder al sistema:</h5>
+            </div>
+            <div class="col-5" id="formRegistro">
+                <form class="formulario">
+                    <div class="row" id="rowNameLastname">
+                        <div class="col">
+                            <div class="form-group" id="name">
+                                <label for="inputName">Nombre:</label>
+                                <input type="text" class="form-control" id="inputName" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group" id="lastName">
+                                <label for="inputLastName">Apellido:</label>
+                                <input type="text" class="form-control" id="inputLastName" placeholder="Apellido">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="rowUsernameEmail">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="inputUsername">Nombre de Usuario:</label>
+                                <input type="text" class="form-control" id="inputUsername"
+                                    placeholder="Nombre de Usuario">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="inputEmail">Email:</label>
+                                <input type="email" class="form-control" id="inputEmail"
+                                    placeholder="ejemplo@gmail.com">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="rowBirthdateCellphone">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="inputBirthDate">Fecha de Nacimiento:</label>
+                                <input type="email" class="form-control" id="inputBirthDate"
+                                    placeholder="31/12/1999">
+                            </div>
+                        </div>
+                        <div class=col>
+                            <div class="form-group">
+                                <label for="inputCellphone">Teléfono:</label>
+                                <input type="text" class="form-control" id="inputCellphone" placeholder="3624110011">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="pass">
+                        <label for="inputPassword">Contraseña:</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-primary btn-block" href="#" role="button" id="btnFacebook"><i class="fab fa-facebook fa-lg"></i>Ingresar con Facebook</a>
+                        <a class="btn btn-primary btn-block" href="#" role="button" id="btnGoogle"><i class="fab fa-google fa-lg"></i>Ingresar con Google</a>
+                        <a class="btn btn-primary btn-success" href="#" role="button" id="btnRegistro">Registrarse</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
