@@ -4,41 +4,24 @@
 {% block title %}Inicio{% endblock title %}
 
 {% block content %}
+<style>label{display: none;}</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 col-sm-12 abs-center">
             <!-- ESTA ES LA PARTE DEL FORMULARIO PARA EL LOGUIN -->
             <div class=" col-md-8">
                 <div class="inicioSesion">
-
                     <img src="{% static 'img/user.png' %}" alt="usuario avatar" class="mx-auto d-block img-avatar mb-3">
+                    {% if 'register' in request.GET %}
+                        <p style="color:green;">Usuario registrado correctamente, ya puedes identificarte</p>
+                    {% endif %}
                     <form action="" method="post" class="needs-validation" novalidate>{% csrf_token %}
-                        <div class="form-grup row">
-                            <input type="text" name="username" autofocus minlength="6" maxlength="254" required
-                                id="username" class="form-control " placeholder="Ingrese su usuario..." />
-                            <div class="invalid-feedback">
-                                Por favor ingrese un usuario válido.
-                            </div>
-                            <input type="password" name="contrasenia" required id="password" minlength="6" maxlength="8"
-                                placeholder="Insgrese su contraseña..." class="form-control mt-3 mb-3">
-                            <div class="invalid-feedback">
-                                Por favor ingrese una contraseña válida.
-                            </div>
-                            {% if form.errors%}
-                            <small style="color: red;">
-                                El usuario o la contraseña ingresada son incorrectas
-                                <br>
-                                Intentelo nuevamente.
-                            </small>
-                            {% endif %}
-                            <button type="submit" class="mx-auto btn btn-success">Ingresar</button>
-                        </div>
+                       <h3>Registro</h3>
+                       {{form}}
+                       <p><input type="submit" class ="btn btn-primary" value="Confirmar"></p>
                     </form>
                 </div>
-                <div class="row mt-5">
-                    <a href="http://" class="mx-auto">No recuerdas tu contraseña?</a>
-                    <p class="mx-auto mt-3">¿No estas registrado? <a href="{% url 'signup' %}">Registrate</a></p>
-                </div>
+
             </div>
         </div>
         <div class="col-md-6 col-sm-12 arbol abs-center">
