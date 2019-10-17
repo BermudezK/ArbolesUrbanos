@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario de prueba</h1>
+    <style>.errorlist{color:red;}</style>
+<main role="main">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-9 mx-auto mb-5">
+        <form action="" method="post">{% csrf_token %}
+          <h3 class="mb-4">Iniciar sesión</h3>
+          <!-- {% if form.non_field_errors %}
+            <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+          {% endif %} -->
+          <p>
+            <input type="text" name="username" autofocus maxlength="254" required
+              id="id_username" class="form-control" placeholder="Nombre de usuario"/>
+          </p>
+          <p>
+            <input type="password" name="password" required
+              id="id_password" class="form-control" placeholder="Contraseña"/>
+          </p>
+          <p><input type="submit" class="btn btn-primary btn-block" value="Acceder"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
