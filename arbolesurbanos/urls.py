@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    #urls de core
+    path ('',include('apps.core.urls')),
+    #url principal
     path('admin/', admin.site.urls),
     
     #Path de Auth-Sesion
