@@ -13,3 +13,6 @@ class UpdateUser(UpdateView):
 	model = User
 	template_name = ''
 	fields = ['password', 'birthday', 'cellphone', 'first_name', 'last_name']
+
+class LoginUser():
+	pass
