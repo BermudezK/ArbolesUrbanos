@@ -120,3 +120,4 @@ MEDIA_URL = '/media/'
 
 #Auth redirect
 LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
