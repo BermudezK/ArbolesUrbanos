@@ -12,7 +12,7 @@
                 <div class="inicioSesion">
 
                     <img src="{% static 'img/user.png' %}" alt="usuario avatar" class="mx-auto d-block img-avatar mb-3">
-                    <form action="" method="post" class="needs-validation" novalidate>{% csrf_token %}
+                    <form action="{% url 'home' %}" method="post" class="needs-validation" novalidate>{% csrf_token %}
                         <div class="form-grup row">
                             <input type="text" name="username" autofocus minlength="6" maxlength="254" required
                                 id="username" class="form-control " placeholder="Ingrese su usuario..." />
@@ -31,7 +31,7 @@
                                 Intentelo nuevamente.
                             </small>
                             {% endif %}
-                            <button type="submit" class="mx-auto btn btn-success">Ingresar</button>
+                            <button type="submit" class="mx-auto btn btn-success">Ingresar</a></button>
                         </div>
                     </form>
                 </div>
