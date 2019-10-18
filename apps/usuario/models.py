@@ -7,7 +7,7 @@ class User(AbstractUser):
     	'direccion de correo',
     	unique = True,
     	error_messages = {
-    	'unique': 'Ya exise un usuario con ese email'
+    	'unique': 'Ya existe un usuario con ese email'
     	}
     )
 

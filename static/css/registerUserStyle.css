@@ -6,30 +6,22 @@ body {
     font-size: 14px;
 }
 
-#formRegistro {
-    font-weight: bold;
-    background: #a3b847;
-    top: 65px;
-    padding: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    height: 450px;
-
-}
-
-#registro, #formRegistro {
-
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
-}
-
 #registro {
     background: white;
     top: 65px;
     padding: 20px;
-    padding-left: 20px;
     
 }
+
+#formRegistro {
+    font-weight: bold;
+    background: #a3b847;
+    top: 65px;
+    padding-top: 20px;
+    height: 450px;
+    padding-left: 40px;
+}
+
 
 label {
 
@@ -39,11 +31,10 @@ label {
 input {
     font-size: 14px !important;
     height: 33px !important;
+    width: 230px !important;
 }
 
-#rowNameLastname {
-    margin-top: 14px;
-}
+
 
 #rowUsernameEmail, #rowBirthdateCellphone, #pass {
     margin-top: -6px;
@@ -57,17 +48,14 @@ input {
 #btnGoogle {
     margin-top: 10px;
     font-size: 15px;
-    background: #EA4335;
+    background: #ffffff;
+    color: gray;
 }
 
 #btnRegistro {
     margin-top: 15px;
-    margin-left: 160px;
+    margin-left: 180px;
 
-}
-
-.fa-google, .fa-facebook {
-    margin-right: 6px;
 }
 
 #rowGral {
@@ -75,6 +63,7 @@ input {
     margin-left: 100px;
 }
 
-#inputPassword {
-    max-width: 180px;
+#lastname, #email, #cellphone {
+    margin-right: 30px !important;
+
 }
