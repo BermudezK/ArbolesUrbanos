@@ -4,7 +4,11 @@
 	<title>arboles</title>
 </head>
 <body>
-	<h1>Arboles plantados: {{arbol.quantity}}</h1>
+	{% if arbol %}
+		<h1>Arboles plantados: {{arbol.quantity}}</h1>
+	{% else %}
+		<h1>No existe</h1>
+	{% endif %}
 	<form enctype="multipart/form-data" action="arbolArboles" method="POST">
 		<input type="number" name="cantidad">
 		<button type="submit ">Agregar</button>
