@@ -6,83 +6,58 @@ body {
     font-size: 14px;
 }
 
-#registro {
-    background: #a3b847;
-    top: 65px;
-    padding: 20px;
-    
+.abs-center {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 45px;
+    justify-content: center;
 }
 
+.welcome {
+    color: #ffffff;
+}
+
+#registro {
+    background: #a3b847;
+    justify-content: center;
+}
+
+/* logo arboles urbanos */
 #logo {
-    margin-left: 70px;
     width: 100px;
 }
 
 #formRegistro {
     font-weight: bold;
     background: #ffffff;
-    top: 65px;
-    padding-top: 20px;
-    height: 450px;
-    padding-left: 40px;
-}
-
-#registro, #formRegistro {
-    top: 40px;
-    height: 400px;
-}
-
-label {
-
-    margin-bottom: 2px !important;
-}
-
-input {
-    font-size: 14px !important;
-    height: 33px !important;
-    width: 230px !important;
 }
 
 #btnFacebook {
-    font-size: 15px;    
     background: #3E5C9A;
 }
 
 #btnGoogle {
-    margin-top: 10px;
-    font-size: 15px;
     background: #ffffff;
     color: gray;
-    padding-left: 15px;
-    
+    padding-right: 30px;
+
 }
 
-#btnFacebook, #btnGoogle {
-    margin-left: 130px;
-    padding-left: 25px;
-    padding-right: 17px;
-    width: 229px;
-    margin-top: 11px;
+.btn-primary {
+    margin-top: 15px;
+    margin-left: 95px;
 }
 
 #btnRegistro {
-    margin-top: 15px;
-    margin-left: 205px;
-
+    margin-top: 35px;
+    margin-left: 160px;
 }
 
-#rowGral {
-    margin-top: 23px;
-    margin-left: 100px;
-}
-
-#logoGoogle {
-    width: 18px;
-    height: 18px;
-    margin-bottom: 3px;
-    margin-right: 6px;
+#logoFace, #logoGoogle {
+    width: 24px;
+    margin-right: 7px;
 }
 
 #logoFace {
-    padding-right: 6px;
+    background-color: white;
 }

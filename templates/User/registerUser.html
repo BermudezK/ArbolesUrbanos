@@ -14,18 +14,22 @@
 <body>
     <div class="container">
         <div class="row" id="rowGral">
-            <div class="col-3" id="registro">
+            <div class="col-md-6 col-sm-12" id="registro">
                 <img src="{% static 'img/logoarboles.png'%}" alt="" id="logo">
-                <h3>Bienvenido</h3>
-                <h6>Ingrese sus datos para acceder al sistema</h6>
+                <h3 class="welcome">Bienvenido</h3>
+                <h6 class="welcome">Ingrese sus datos para acceder al sistema</h6>
             </div>
-            <div class="col-7" id="formRegistro">
+            <div class="col-md-6 col-sm-12 abs-center" id="formRegistro">
                 <form class="formulario" method="POST" novalidate>{%csrf_token%}
                     <div class="row">
                         <div class="col">
                             <div class="form-group" id="username">
                                 <label for="username">Nombre de Usuario:</label>
-                                {{form.username}}
+                                <input type="text" name="username" autofocus minlength="6" maxlength="254" required
+                                    id="username" class="form-control" placeholder="Ingrese su usuario..." />
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un usuario válido.
+                                </div>
                             </div>
                         </div>
                         <div class="col">
@@ -53,13 +57,21 @@
                         <div class="col">
                             <div class="form-group" id="password1">
                                 <label for="password1">Ingrese su contraseña:</label>
-                                {{form.password1}}
+                                <input type="password" name="contrasenia" required id="password" minlength="6"
+                                    maxlength="8" placeholder="Ingrese su contraseña..." class="form-control">
+                                <div class="invalid-feedback">
+                                    Por favor ingrese una contraseña válida.
+                                </div>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group" id="password2">
                                 <label for="password2">Ingrese de nuevo su contraseña:</label>
-                                {{form.password2}}
+                                <input type="password" name="contrasenia2" required id="password" minlength="6"
+                                maxlength="8" placeholder="Ingrese su contraseña..." class="form-control">
+                            <div class="invalid-feedback">
+                                Las contraseñas no conciden. Inténtelo de nuevo
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -69,14 +81,20 @@
                         </div>
                         <div class="col">
                             <a class="btn btn-primary" href="#" role="button" id="btnFacebook"><img
-                                src="{% static 'img/facebook.png'%}" id="logoFace">Ingresar con Facebook</a>
+                                    src="{% static 'img/facebook1.png'%}" id="logoFace">Ingresar con Facebook</a>
                         </div>
                         <div class="col">
                             <a class="btn btn-primary" href="#" role="button" id="btnGoogle"><img
-                                src="{% static 'img/search.png'%}" id="logoGoogle">Ingresar con Google</a>
-
+                                    src="{% static 'img/search.png'%}" id="logoGoogle">Ingresar con Google</a>
                         </div>
-                        <a class="btn btn-primary btn-success" href="#" role="button" id="btnRegistro">Registrarse</a>
+                        {% if form.errors %}
+                        <small style="color: red">
+                            error
+                            <br>
+                            Intente nuevamente
+                        </small>
+                        {% endif %}
+                        <button type="submit" id="btnRegistro" class=" btn btn-success">Registrarse</button>
                     </div>
                 </form>
 
