@@ -1,6 +1,13 @@
 {% extends 'core/base.html' %}
 
 {% load staticfiles %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+{% endblock styleLink %}
+
 {% block title %}Inicio{% endblock title %}
 
 {% block content %}
@@ -10,34 +17,37 @@
             <!-- ESTA ES LA PARTE DEL FORMULARIO PARA EL LOGUIN -->
             <div class=" col-md-8">
                 <div class="inicioSesion">
-
                     <img src="{% static 'img/user.png' %}" alt="usuario avatar" class="mx-auto d-block img-avatar mb-3">
-                    <form action="{% url 'home' %}" method="post" class="needs-validation" novalidate>{% csrf_token %}
+
+                    {% if form.errors%}
+                    <small style="color: red;">
+                        El usuario o la contraseña ingresada son incorrectas
+                        <br>
+                        Intentelo nuevamente.
+                    </small>
+                    {% endif %}
+                    <form action="{% url 'login' %}" method="POST" class="needs-validation" novalidate>
+                        {% csrf_token %}
                         <div class="form-grup row">
-                            <input type="text" name="username" autofocus minlength="6" maxlength="254" required
-                                id="username" class="form-control " placeholder="Ingrese su usuario..." />
+                            <input type="text" name="username" autofocus minlength="6" maxlength="254" required id="username" class="form-control " placeholder="Ingrese su usuario..." />
                             <div class="invalid-feedback">
                                 Por favor ingrese un usuario válido.
                             </div>
-                            <input type="password" name="contrasenia" required id="password" minlength="6" maxlength="8"
-                                placeholder="Insgrese su contraseña..." class="form-control mt-3 mb-3">
+                            <input type="password" name="password" required id="password" minlength="6" maxlength="254" placeholder="Insgrese su contraseña..." class="form-control mt-3 mb-3">
                             <div class="invalid-feedback">
                                 Por favor ingrese una contraseña válida.
                             </div>
-                            {% if form.errors%}
-                            <small style="color: red;">
-                                El usuario o la contraseña ingresada son incorrectas
-                                <br>
-                                Intentelo nuevamente.
-                            </small>
-                            {% endif %}
-                            <button type="submit" class="mx-auto btn btn-success">Ingresar</a></button>
+                            <button type="submit" class="mx-auto btn btn-success">Ingresar</button>
+                            <input type="hidden" name='next' value='{{next}}'>
                         </div>
                     </form>
                 </div>
-                <div class="row mt-5">
-                    <a href="http://" class="mx-auto">No recuerdas tu contraseña?</a>
-                    <p class="mx-auto mt-3">¿No estas registrado? <a href="{% url 'usuario:register' %}">Registrate</a></p>
+                <div class="row mt-3">
+                    <p class="mx-auto">
+                        <a href="" class="mx-auto">No recuerdas tu contraseña?</a>
+                        <br>
+                        ¿No estas registrado? <a href="{% url 'usuario:register' %}">Registrate</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -67,31 +77,6 @@
         }, false);
     })();
 </script>
-<style>
-    .abs-center {
-        display: flex;
-        min-height: 100vh;
-        align-items: center;
-        justify-content: center;
-    }
 
-    .arbol {
-        background-color: #A5B94A;
-        margin-top: 0px;
-    }
-
-    .inicioSesion {
-        border-radius: 9px;
-        background-color: #88D7D0;
-        padding: 40px;
-    }
-
-    .img-avatar {
-        min-width: 100px;
-        min-height: 100px;
-        max-width: 20%;
-        max-height: 20%
-    }
-</style>
 
 {% endblock content %}
