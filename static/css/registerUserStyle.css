@@ -1,0 +1,80 @@
+body {
+    background: #f2f2f2;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+#formRegistro {
+    font-weight: bold;
+    background: #a3b847;
+    top: 65px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 450px;
+
+}
+
+#registro, #formRegistro {
+
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+
+#registro {
+    background: white;
+    top: 65px;
+    padding: 20px;
+    padding-left: 20px;
+    
+}
+
+label {
+
+    margin-bottom: 2px !important;
+}
+
+input {
+    font-size: 14px !important;
+    height: 33px !important;
+}
+
+#rowNameLastname {
+    margin-top: 14px;
+}
+
+#rowUsernameEmail, #rowBirthdateCellphone, #pass {
+    margin-top: -6px;
+}
+
+#btnFacebook {
+    font-size: 15px;    
+    background: #3E5C9A;
+}
+
+#btnGoogle {
+    margin-top: 10px;
+    font-size: 15px;
+    background: #EA4335;
+}
+
+#btnRegistro {
+    margin-top: 15px;
+    margin-left: 160px;
+
+}
+
+.fa-google, .fa-facebook {
+    margin-right: 6px;
+}
+
+#rowGral {
+    margin-top: 23px;
+    margin-left: 100px;
+}
+
+#inputPassword {
+    max-width: 180px;
+}
