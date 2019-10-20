@@ -9,7 +9,7 @@
 	{% else %}
 		<h1>No existe</h1>
 	{% endif %}
-	<form enctype="multipart/form-data" action="arbolArboles" method="POST">
+	<form enctype="multipart/form-data" action="{% 'url arbol:edit_tree' %}" method="POST">
 		<input type="number" name="cantidad">
 		<button type="submit ">Agregar</button>
 	</form>
