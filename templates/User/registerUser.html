@@ -1,20 +1,17 @@
+
+{% extends 'core/base.html' %}
+
+{% load staticfiles %}
+{% block title %}Registro{% endblock title %}
+
+{% block content %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/registerUserStyle.css' %}">
-    <script src="https://kit.fontawesome.com/d0dc8f6bcc.js" crossorigin="anonymous"></script>
-    <title>Bienvenido</title>
 
 </head>
 
 <body>
+    <style>label{display: none;}</style>
     <div class="container">
         <div class="row" id="rowGral">
             <div class="col-5" id="registro">
@@ -36,3 +33,4 @@
 </body>
 
 </html>
+{% endblock content %}
