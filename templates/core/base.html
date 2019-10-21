@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/registerUserStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}">
   <script src="https://kit.fontawesome.com/d0dc8f6bcc.js" crossorigin="anonymous"></script>
   <title>{% block title %}{% endblock title%} | Arboles Urbanos</title>
 
@@ -62,12 +63,25 @@
   {% endblock content %}
 
   <!-- Pié de página -->
-  <footer class="footer text-faded text-center py-5">
+  <footer class="footer mt-auto py-3">
     <div class="container">
-        <div class="col-12">
-          <p class="m-0 mbt1">&copy; Arboles Urbanos</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div>
+            <p><img class="footer-icon" src="{% static 'img/iconos/telephone.png' %}" alt=""> (3624) 4455267</p>
+            <p><img class="footer-icon" src="{% static 'img/iconos/location.png' %}" alt=""> Arturo Illia 1055,
+              Resistencia, Chaco. República Argentina</p>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div>
+            <p>Seguinos en <img class="footer-icon" src="{% static 'img/iconos/facebook.png' %}" alt=""></p>
+            <p>Copyright (c) 2019 - Software Movement 2.0.<br> All Rights Reserved.</p>
+          </div>
         </div>
       </div>
+
     </div>
   </footer>
 

@@ -1,0 +1,14 @@
+.footer{
+    background-color: gray;
+    color: #eae7e7;
+}
+.footer-icon {
+    min-height: 7%;
+    min-width: 7%;
+    max-height: 9%;
+    max-width: 9%;
+}
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
