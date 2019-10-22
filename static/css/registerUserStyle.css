@@ -61,3 +61,7 @@ body {
 #logoFace {
     background-color: white;
 }
+
+.form-control {
+    background: #f2f2f2;
+}
