@@ -14,8 +14,8 @@
           <div class="col-xl-9 col-lg-10 mx-auto">
             <div class="bg-faded rounded p-5">
               <h2 class="section-heading mb-4">
-                <span class="section-heading-upper">Contacto - </span>
-                <span class="section-heading-lower">Envíanos tus dudas</span>
+                <span class="section-heading-upper">Denuncias - </span>
+                <span class="section-heading-lower">Por favor ingrese aqui su denuncia.</span>
               </h2>
               
               <!-- Formulario de contacto -->
@@ -26,9 +26,9 @@
               <form action="" method="POST">{% csrf_token %}
                   
                   <div class="form-group">
-                      <label>Nombre de Usuario</label>
+                      <label>Nombre *</label>
                       <div class="input-group">
-                          {{request.user}}
+                          {{form.name}}
                       </div>
                       {{form.name.errors}}
                   </div>
