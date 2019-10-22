@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/registerUserStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}">
   {% block styleLink %}
-  
   {% endblock styleLink %}
 
   <script src="https://kit.fontawesome.com/d0dc8f6bcc.js" crossorigin="anonymous"></script>
@@ -48,7 +48,7 @@
           </li>
           {% else %}
           <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
           </li>
           {% endif %}
         </ul>
@@ -66,12 +66,16 @@
   {% endblock content %}
 
   <!-- Pié de página -->
-  <footer class="footer text-faded text-center py-5">
-    <div class="container">
-      <p class="m-0 mbt1">&copy; Arboles Urbanos</p>
+  <footer class="footer text-faded py-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+      </div>
+
     </div>
   </footer>
-
   <!-- Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

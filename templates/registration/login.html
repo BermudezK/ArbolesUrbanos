@@ -1,7 +1,5 @@
 {% extends 'core/base.html' %}
-
-{% load staticfiles %}
-
+{% load static %}
 {% block styleLink %}
 
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
@@ -17,8 +15,7 @@
             <!-- ESTA ES LA PARTE DEL FORMULARIO PARA EL LOGUIN -->
             <div class=" col-md-8">
                 <div class="inicioSesion">
-                    <img src="{% static 'img/user.png' %}" alt="usuario avatar" class="mx-auto d-block img-avatar mb-3">
-
+                    <img src="{% static 'img/iconos/user.png' %}" alt="usuario avatar" class="mx-auto d-block img-avatar mb-3">
                     {% if form.errors%}
                     <small style="color: red;">
                         El usuario o la contraseña ingresada son incorrectas
