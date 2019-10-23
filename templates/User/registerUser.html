@@ -1,11 +1,12 @@
 {% extends 'core/base.html' %}
 
-{% load staticfiles %}
+{% load static %}
+
+{% load bootstrap %}
+
 {% block title %}Registro{% endblock title %}
 
 {% block content %}
-
-{% load static %}
 
 <body>
     <div class="container">
@@ -20,9 +21,10 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group" id="username">
-                                <label for="username">Nombre de Usuario:</label>
-                                <input type="text" name="username" autofocus minlength="6" maxlength="254" required
-                                    id="username" class="form-control" placeholder="Ingrese su usuario" />
+                                <label for="username"></label>
+                                {{form.username|bootstrap}}
+                                <!-- <input type="text" name="username" autofocus minlength="6" maxlength="254" required
+                                    id="username" class="form-control" placeholder="Ingrese su usuario" /> -->
                                 <div class="invalid-feedback">
                                     Por favor ingrese un usuario válido.
                                 </div>
@@ -30,10 +32,9 @@
                         </div>
                         <div class="col">
                             <div class="form-group" id="email">
-                                <label for="email">Email:</label>
+                                <label for="email"></label>
                                 <!-- {{form.email}} -->
-                                <input type="email" class="form-control" id="InputEmail" placeholder="ejemplo@gmail.com"
-                                    required>
+                                {{form.email|bootstrap}}
                                 <div class="invalid-feedback">
                                     Por favor ingrese un email válido.
                                 </div>
@@ -42,11 +43,35 @@
                     </div>
                     <div class="row">
                         <div class="col">
+                            <div class="form-group" id="">
+                                <label for="firstname"></label>
+                                {{form.first_name|bootstrap}}
+                                <!-- <input type="text" name="username" autofocus minlength="6" maxlength="254" required
+                                    id="username" class="form-control" placeholder="Ingrese su usuario" /> -->
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un nombre válido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group" id="">
+                                <label for="lastname"></label>
+                                {{form.last_name|bootstrap}}
+                                <!-- <input type="text" name="username" autofocus minlength="6" maxlength="254" required
+                                    id="username" class="form-control" placeholder="Ingrese su usuario" /> -->
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un apellido válido.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
                             <div class="form-group" id="cellphone">
-                                <label for="cellphone">Celular:</label>
-                                <!-- {{form.cellphone}} -->
-                                <input type="tel" class="form-control" id="validNumber"
-                                    placeholder="3624-112233" required>
+                               <!--  <label for="cellphone">Celular:</label> -->
+                                {{form.cellphone|bootstrap}}
+                                <!-- <input type="tel" class="form-control" id="validNumber"
+                                    placeholder="3624-112233" required> -->
                                 <div class="invalid-feedback">
                                     Por favor, ingrese un número de celular válido.
                                 </div>
@@ -54,9 +79,9 @@
                         </div>
                         <div class="col">
                             <div class="form-group" id="birthday">
-                                <label for="BirthDate">Fecha de Nacimiento:</label>
+                                <!-- <label for="BirthDate">Fecha de Nacimiento:</label> -->
                                 <!-- <input type="text" class="form-control" id="validBirthDate" placeholder="Ingrese su fecha de nacimiento" required> -->
-                                <input size="16" type="text" class="form-control" id="datetime" readonly>
+                                {{form.birthday|bootstrap}}
                                 <div class="invalid-feedback">
                                     Por favor, ingrese una fecha de nacimiento válida.
                                 </div>
@@ -66,9 +91,10 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group" id="password1">
-                                <label for="password1Reg">Ingrese su contraseña:</label>
-                                <input type="password" name="contrasenia" required id="password" minlength="6"
-                                    maxlength="8" placeholder="Ingrese su contraseña" class="form-control">
+                               <!--  <label for="password1Reg">Ingrese su contraseña:</label> -->
+                                {{form.password1|bootstrap}}
+                                <!-- <input type="password" name="contrasenia" required id="password" minlength="6"
+                                    maxlength="8" placeholder="Ingrese su contraseña" class="form-control"> -->
                                 <div class="invalid-feedback">
                                     Por favor ingrese una contraseña válida.
                                 </div>
@@ -76,9 +102,10 @@
                         </div>
                         <div class="col">
                             <div class="form-group" id="password2Reg">
-                                <label for="password2">Ingrese de nuevo su contraseña:</label>
-                                <input type="password" name="contrasenia2" required id="password" minlength="6"
-                                    maxlength="8" placeholder="Ingrese su contraseña..." class="form-control">
+                                <!-- <label for="password2">Ingrese de nuevo su contraseña:</label> -->
+                                {{form.password2|bootstrap}}
+                                <!-- <input type="password" name="contrasenia2" required id="password" minlength="6"
+                                    maxlength="8" placeholder="Ingrese su contraseña..." class="form-control"> -->
                                 <div class="invalid-feedback">
                                     Las contraseñas no conciden. Inténtelo de nuevo
                                 </div>
