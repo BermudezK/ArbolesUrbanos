@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="h-100">
 
 <head>
   <meta charset="UTF-8">
@@ -24,7 +24,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
   <h1 class="site-heading text-center text-white d-none d-lg-block">
     <span class="site-heading-upper text-primary mb-3">Arboles Urbanos</span>
   </h1>
@@ -52,18 +52,21 @@
       </div>
     </div>
   </nav>
-  {% block header %}
 
-  {% endblock header %}
+  <main class="flex-shrink-0">
 
-  <!-- Contenido -->
-
-  {% block content %}
-
-  {% endblock content %}
-
+    {% block header %}
+  
+    {% endblock header %}
+  
+    <!-- Contenido -->
+  
+    {% block content %}
+  
+    {% endblock content %}
+  </main>
   <!-- Pié de página -->
-  <footer class="footer mt-auto py-3">
+  <footer class="py-3 mt-auto">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
