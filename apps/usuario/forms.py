@@ -5,39 +5,27 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import User
 
 class UserCreateFormWithEmail(UserCreationForm):
-	# email = forms.EmailField(required=True, help_text="Campo obligatorio. Maximo de 250 caracteres")
-	# cellphone = forms.CharField(max_length = 17)
-	# birthday = forms.DateField()
+	email = forms.EmailField(required=True, help_text="Campo obligatorio. Maximo de 250 caracteres")
+	cellphone = forms.CharField(max_length = 17)
+	birthday = forms.DateField()
 
-    username =forms.CharField(label="Nombre de Usuario:", required=True, widget=forms.TextInput(
-    attrs={'placeholder':'Escribe tu usuario'}
-    ), min_length=3, max_length=100) 
-    
-    first_name=forms.CharField(label="Nombre:", required=True, widget=forms.TextInput(
-        attrs={'class':'form-control', 'placeholder':'Escribe tu nombre'}
-    ), min_length=3, max_length=30)
+	class Meta(UserCreationForm.Meta):
+		model = User
+		fields = ('email', 'first_name', 'last_name', 'username', 'birthday', 'cellphone')
 
-    last_name=forms.CharField(label="Apellido:", required=True, widget=forms.TextInput(
-        attrs={'class':'form-control', 'placeholder':'Escribe tu apellido'}
-    ), min_length=3, max_length=30)
+	def __init__(self, *args, **kwargs):
+		super(UserCreateFormWithEmail, self).__init__(*args, **kwargs)
+		#Modificar en tiempo real
+		self.fields['username'].widget = forms.TextInput(attrs={'class':'form-control mb-2','placeholder':'Nombre de Usuario'})
 
-    email = forms.EmailField(label="Email:", required=True, widget=forms.EmailInput(
-        attrs={'class':'form-control', 'placeholder':'ejemplo@gmail.com'}
-    ), min_length=3, max_length=100)
+		self.fields['email'].widget = forms.EmailInput(attrs={'class':'form-control mb-2', 'placeholder':'Dirección de Email'})
 
-    cellphone = forms.CharField(label="Celular:", required=True, widget=forms.TextInput(
-        attrs={'class':'form-control', 'placeholder':'3624112233'}
-    ), min_length=3, max_length=30)
-    
-    birthday = forms.DateField(label="Fecha de Nacimiento:", required=True, widget=forms.DateInput(
-      attrs={'class':'form-control', 'rows':2, 'placeholder':'dd/mm/aaaa'}  
-    ))
+		self.fields['cellphone'].widget = forms.TextInput(attrs={'class':'form-control mb-2',' placeholder':'Celular'})
 
-    password1 = forms.CharField(label="Contraseña:", required=True, widget=forms.PasswordInput(
-      attrs={'class':'form-control', 'rows':2, 'placeholder':'Escribe tu contraseña'}  
-    ), min_length=5, max_length=25)
+		self.fields['birthday'].widget = forms.DateInput(attrs={'class':'form-control mb-2',' placeholder':'Fecha de Nacimiento'})
 
-    password2 = forms.CharField(label="Confirmar contraseña:", required=True, widget=forms.PasswordInput(
-      attrs={'class':'form-control', 'rows':2, 'placeholder':'Repite tu contraseña'}  
-    ), min_length=5, max_length=25)
+		self.fields['password1'].widget = forms.PasswordInput(attrs={'class':'form-control mb-2',' placeholder':'Contraseña'})
+
+		self.fields['password2'].widget = forms.PasswordInput(attrs={'class':'form-control mb-2',' placeholder':'Repite la contraseña'})
+
 
