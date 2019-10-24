@@ -20,7 +20,7 @@
                 <h6 class="welcome">Ingrese sus datos para acceder al sistema</h6>
             </div>
             <div class="col-md-6 col-sm-12 abs-center" id="formRegistro">
-                <form class="formulario" method="POST" novalidate>{%csrf_token%}
+                <form class="formulario" enctype="multipart/form-data" method="POST" action="{% url 'usuario:register' %}" novalidate>{%csrf_token%}
                     <div class="row">
                         <div class="col">
                             <div class="form-group" id="username">
@@ -57,7 +57,7 @@
                         <div class="col">
                             <div class="form-group" id="password1">
                                 <label for="password1">Ingrese su contraseña:</label>
-                                <input type="password" name="contrasenia" required id="password" minlength="6"
+                                <input type="password" name="password1" required id="password" minlength="6"
                                     maxlength="8" placeholder="Ingrese su contraseña..." class="form-control">
                                 <div class="invalid-feedback">
                                     Por favor ingrese una contraseña válida.
@@ -67,7 +67,7 @@
                         <div class="col">
                             <div class="form-group" id="password2">
                                 <label for="password2">Ingrese de nuevo su contraseña:</label>
-                                <input type="password" name="contrasenia2" required id="password" minlength="6"
+                                <input type="password" name="password2" required id="password" minlength="6"
                                 maxlength="8" placeholder="Ingrese su contraseña..." class="form-control">
                             <div class="invalid-feedback">
                                 Las contraseñas no conciden. Inténtelo de nuevo
@@ -89,9 +89,8 @@
                         </div>
                         {% if form.errors %}
                         <small style="color: red">
-                            error
+                            {{form.errors}}
                             <br>
-                            Intente nuevamente
                         </small>
                         {% endif %}
                         <button type="submit" id="btnRegistro" class=" btn btn-success">Registrarse</button>
