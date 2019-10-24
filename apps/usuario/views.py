@@ -15,5 +15,5 @@ class UpdateUser(UpdateView):
 class SignUpView(CreateView):
     form_class = UserCreateFormWithEmail
     template_name = 'User/registerUser.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('login')
     

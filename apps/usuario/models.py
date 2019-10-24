@@ -15,7 +15,7 @@ class User(AbstractUser):
     cellphone = models.CharField(max_length = 17, blank = True)
     birthday = models.DateField(auto_now=False, auto_now_add=False)
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'birthday', 'password', 'email']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username','first_name', 'last_name', 'birthday', 'password']
 
     
