@@ -19,7 +19,7 @@ from django.contrib.auth import views as view
 
 urlpatterns = [
     #urls de core
-    path ('home/',include('apps.core.urls')),
+    path ('',include('apps.core.urls')),
     
     #url principal
     path('admin/', admin.site.urls),
