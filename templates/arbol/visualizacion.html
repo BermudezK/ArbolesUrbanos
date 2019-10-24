@@ -4,15 +4,16 @@
 	<title>arboles</title>
 </head>
 <body>
-	{% if arbol %}
-		<h1>Arboles plantados: {{arbol.quantity}}</h1>
-	{% else %}
-		<h1>No existe</h1>
-	{% endif %}
-	<form enctype="multipart/form-data" action="{% 'url arbol:edit_tree' %}" method="POST">
-		<input type="number" name="cantidad">
-		<button type="submit ">Agregar</button>
-	</form>
-
+	<div>
+		{% if arbol %}
+			<h1>Arboles plantados: {{arbol.quantity}}</h1>
+		{% else %}
+			<h1>No existe</h1>
+		{% endif %}
+		<form enctype="multipart/form-data" method="POST">{% csrf_token %}{{form.as_p}}
+			<input type="number" name="quantity">
+			<a href="{% url 'arbol:edit_tree' arbol.pk %}" class="btn btn-primary">Agregar</a>
+		</form>
+	</div>
 </body>
 </html>

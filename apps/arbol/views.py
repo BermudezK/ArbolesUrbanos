@@ -24,7 +24,8 @@ def show_tree(request):
 
 class edit_tree(UpdateView):
 	model = Tree
-	template_name = 'arbol/visualizacion.html'
+	success_url = reverse_lazy('arbol:show_tree')
+	fields = '__all__'
 	
 
 
