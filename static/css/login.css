@@ -1,0 +1,25 @@
+
+.abs-center {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.arbol {
+    background-color: #A5B94A;
+    margin-top: 0px;
+}
+
+.inicioSesion {
+    border-radius: 9px;
+    background-color: #88D7D0;
+    padding: 40px;
+}
+
+.img-avatar {
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 20%;
+    max-height: 20%
+}

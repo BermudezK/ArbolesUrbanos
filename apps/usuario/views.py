@@ -4,6 +4,7 @@ from .models import User
 from django.urls import reverse_lazy
 from django import forms
 from .forms import UserCreateFormWithEmail
+from django.core.mail import EmailMessage
 
 
 class UpdateUser(UpdateView):
