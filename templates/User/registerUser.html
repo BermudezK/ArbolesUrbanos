@@ -1,15 +1,12 @@
 {% extends 'core/base.html' %}
 
-{% load staticfiles %}
+{% load static %}
+
+{% load bootstrap %}
+
 {% block title %}Registro{% endblock title %}
 
 {% block content %}
-
-{% load static %}
-
-<head>
-
-</head>
 
 <body>
     <div class="container">
@@ -20,13 +17,14 @@
                 <h6 class="welcome">Ingrese sus datos para acceder al sistema</h6>
             </div>
             <div class="col-md-6 col-sm-12 abs-center" id="formRegistro">
-                <form class="formulario" enctype="multipart/form-data" method="POST" action="{% url 'usuario:register' %}" novalidate>{%csrf_token%}
+
                     <div class="row">
                         <div class="col">
                             <div class="form-group" id="username">
-                                <label for="username">Nombre de Usuario:</label>
-                                <input type="text" name="username" autofocus minlength="6" maxlength="254" required
-                                    id="username" class="form-control" placeholder="Ingrese su usuario..." />
+                                <label for="username"></label>
+                                {{form.username|bootstrap}}
+                                <!-- <input type="text" name="username" autofocus minlength="6" maxlength="254" required
+                                    id="username" class="form-control" placeholder="Ingrese su usuario" /> -->
                                 <div class="invalid-feedback">
                                     Por favor ingrese un usuario válido.
                                 </div>
@@ -34,44 +32,73 @@
                         </div>
                         <div class="col">
                             <div class="form-group" id="email">
-                                <label for="email">Email:</label>
-                                {{form.email}}
+                                <label for="email"></label>
+                                <!-- {{form.email}} -->
+                                {{form.email|bootstrap}}
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un email válido.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group" id="">
+                                <label for="firstname"></label>
+                                {{form.first_name|bootstrap}}
+                                <!-- <input type="text" name="username" autofocus minlength="6" maxlength="254" required
+                                    id="username" class="form-control" placeholder="Ingrese su usuario" /> -->
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un nombre válido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group" id="">
+                                <label for="lastname"></label>
+                                {{form.last_name|bootstrap}}
+                                <!-- <input type="text" name="username" autofocus minlength="6" maxlength="254" required
+                                    id="username" class="form-control" placeholder="Ingrese su usuario" /> -->
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un apellido válido.
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="form-group" id="cellphone">
-                                <label for="cellphone">Celular:</label>
-                                {{form.cellphone}}
+                               <!--  <label for="cellphone">Celular:</label> -->
+                                {{form.cellphone|bootstrap}}
+                                <!-- <input type="tel" class="form-control" id="validNumber"
+                                    placeholder="3624-112233" required> -->
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese un número de celular válido.
+                                </div>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group" id="birthday">
-                                <label for="username">Fecha de Nacimiento:</label>
-                                {{form.birthday}}
+                                <!-- <label for="BirthDate">Fecha de Nacimiento:</label> -->
+                                <!-- <input type="text" class="form-control" id="validBirthDate" placeholder="Ingrese su fecha de nacimiento" required> -->
+                                {{form.birthday|bootstrap}}
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese una fecha de nacimiento válida.
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="form-group" id="password1">
-                                <label for="password1">Ingrese su contraseña:</label>
-                                <input type="password" name="password1" required id="password" minlength="6"
-                                    maxlength="8" placeholder="Ingrese su contraseña..." class="form-control">
+
                                 <div class="invalid-feedback">
                                     Por favor ingrese una contraseña válida.
                                 </div>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="form-group" id="password2">
-                                <label for="password2">Ingrese de nuevo su contraseña:</label>
-                                <input type="password" name="password2" required id="password" minlength="6"
-                                maxlength="8" placeholder="Ingrese su contraseña..." class="form-control">
-                            <div class="invalid-feedback">
-                                Las contraseñas no conciden. Inténtelo de nuevo
-                            </div>
+
                             </div>
                         </div>
                     </div>
@@ -94,6 +121,7 @@
                         </small>
                         {% endif %}
                         <button type="submit" id="btnRegistro" class=" btn btn-success">Registrarse</button>
+                        <input type="hidden" name='next' value="{{next}}">
                     </div>
                 </form>
 
@@ -103,6 +131,33 @@
     </div>
 
 </body>
+<!-- crear campo fecha de nacimiento  -->
+<!-- <script type="text/javascript">
+    $("#datetime").datetimepicker({
+        format: 'dd-mm-aaaa',
+        autoclose: true,
+        todayBtn: true
+    });
+</script> -->
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 
 </html>
 {% endblock content %}

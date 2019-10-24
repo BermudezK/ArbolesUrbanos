@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,6 +13,8 @@
   <script src="https://kit.fontawesome.com/d0dc8f6bcc.js" crossorigin="anonymous"></script>
   <title>{% block title %}{% endblock title%} | Arboles Urbanos</title>
 
+  {% load bootstrap %}
+
   <!-- Bootstrap -->
   <link href="#" rel="stylesheet">
 
@@ -24,9 +27,16 @@
 </head>
 
 <body>
-  <h1 class="site-heading text-center text-white d-none d-lg-block">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'img/logoarboles1.png'%}" width="40" height="40" class="d-inline-block align-top" alt="">
+      Arboles Urbanos
+    </a>
+  </div>
+
+  <!-- <h1 class="site-heading text-center text-white d-none d-lg-block">
     <span class="site-heading-upper text-primary mb-3">Arboles Urbanos</span>
-  </h1>
+  </h1> -->
 
   <!-- Cabecera -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
