@@ -27,15 +27,27 @@
                             <div class="form-group" id="username">
                                 <label for="username">Nombre de Usuario:</label>
                                 {{form.username}}
-                                <div class="invalid-feedback">
-                                    Por favor ingrese un usuario válido.
-                                </div>
+                                <small id="usernameHelpText" class="text-muted">
+                                    Debe contener cómo minimo 6 y maximo 8 letras o números.
+                                </small>
+                                {% if form.username.errors %}
+                                <small style="color: red">
+                                    <strong>{{form.username.errors}}</strong>
+                                </small>
+                                {% endif %}
                             </div>
+
                         </div>
                         <div class="col">
                             <div class="form-group" id="email">
                                 <label for="email">Email:</label>
                                 {{form.email}}
+                                {% if form.email.errors %}
+                                <small style="color: red">
+                                    <strong>{{form.email.errors}}</strong>
+                                    <br>
+                                </small>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -44,12 +56,25 @@
                             <div class="form-group" id="cellphone">
                                 <label for="cellphone">Celular:</label>
                                 {{form.cellphone}}
+                                <small id="cellphoneHelpText" class="text-muted">
+                                    Debe ingresar solo números, como mínimo 10 caracteres.
+                                </small>
+                                {% if form.cellphone.errors %}
+                                <small style="color: red">
+                                    <strong>{{form.cellphone.errors}}</strong>
+                                </small>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group" id="birthday">
                                 <label for="username">Fecha de Nacimiento:</label>
                                 {{form.birthday}}
+                                {% if form.birthday.errors %}
+                                <small style="color: red">
+                                    <strong>{{form.birthday.errors}}</strong>
+                                </small>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -58,18 +83,25 @@
                             <div class="form-group" id="password1">
                                 <label for="password1">Ingrese su contraseña:</label>
                                 {{form.password1}}
-                                <div class="invalid-feedback">
-                                    Por favor ingrese una contraseña valida.
-                                </div>
+                                <small id="password1HelpText" class="text-muted">
+                                    Debe comenzar con mayúscula y contener entre 6 y un máximo de 8 letras o números.
+                                </small>
+                                {% if form.password1.errors %}
+                                <small style="color: red;">
+                                    <strong>{{form.password1.errors}}</strong>
+                                </small>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group" id="password2">
                                 <label for="password2">Ingrese de nuevo su contraseña:</label>
                                 {{form.password2}}
-                                <div class="invalid-feedback">
-                                    Las contraseñas no conciden. Inténtelo de nuevo
-                                </div>
+                                {% if form.password2.errors %}
+                                <small style="color: red;">
+                                    <strong>{{form.password2.errors}}</strong>
+                                </small>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -85,15 +117,15 @@
                             <a class="btn btn-primary" href="#" role="button" id="btnGoogle"><img
                                     src="{% static 'img/search.png'%}" id="logoGoogle">Ingresar con Google</a>
                         </div>
-                        {% if form.errors %}
+                        <!-- {% if form.errors %}
                         <small style="color: red">
                             {{form.errors}}
                             <br>
                         </small>
-                        {% endif %}
+                        {% endif %} -->
                         <button type="submit" id="btnRegistro" class="btn btn-success">Registrarse</button>
-                        
-                        
+
+
                     </div>
                 </form>
 
@@ -106,24 +138,24 @@
 
 <script>
 
-    // funcion comprobacion de campos de bootstrap
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
+    // // funcion comprobacion de campos de bootstrap
+    // (function () {
+    //     'use strict';
+    //     window.addEventListener('load', function () {
+    //         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //         var forms = document.getElementsByClassName('needs-validation');
+    //         // Loop over them and prevent submission
+    //         var validation = Array.prototype.filter.call(forms, function (form) {
+    //             form.addEventListener('submit', function (event) {
+    //                 if (form.checkValidity() === false) {
+    //                     event.preventDefault();
+    //                     event.stopPropagation();
+    //                 }
+    //                 form.classList.add('was-validated');
+    //             }, false);
+    //         });
+    //     }, false);
+    // })();
 
 </script>
 

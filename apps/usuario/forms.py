@@ -6,7 +6,7 @@ from .models import User
 
 class UserCreateFormWithEmail(UserCreationForm):
 	email = forms.EmailField(required=True, help_text="Campo obligatorio. Maximo de 250 caracteres")
-	cellphone = forms.CharField(max_length = 17)
+	cellphone = forms.CharField(max_length = 10)
 	birthday = forms.DateField()
 
 	class Meta(UserCreationForm.Meta):
@@ -21,22 +21,26 @@ class UserCreateFormWithEmail(UserCreationForm):
 		#Modificar en tiempo real
 		self.fields['username'].widget = forms.TextInput(
 			attrs={'class':'form-control mb-2','placeholder':'Nombre de Usuario',
-			'help_text':'El minimo de caracteres debe ser 6 y maximo de 8',
-			'minlength':'6', 'maxlength':'8'})
+			'aria-describedby':'usernameHelpText',
+			'minlength':'6', 'maxlength':'8',
+			'pattern':'^[a-zA-Z][a-zA-Z0-9-_\.]{6,8}$'})
 
 		self.fields['email'].widget = forms.EmailInput(
-			attrs={'class':'form-control mb-2', 'placeholder':'Dirección de Email'})
+			attrs={'class':'form-control mb-2', 'placeholder':'ejemplo@gmail.com'})
 
 		self.fields['cellphone'].widget = forms.TextInput(
-			attrs={'class':'form-control mb-2',' placeholder':'Celular'})
+			attrs={'class':'form-control mb-2',' placeholder':'3624112233',
+			'aria-describedby':'cellphoneHelpText'})
 
 		self.fields['birthday'].widget = forms.DateInput(
-			attrs={'class':'form-control mb-2',' placeholder':'Fecha de Nacimiento'})
+			attrs={'class':'form-control mb-2',' placeholder':'20/10/2019',
+			'pattern':'(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}'})
 
 		self.fields['password1'].widget = forms.PasswordInput(
-			attrs={'class':'form-control mb-2',' placeholder':'Contraseña'})
+			attrs={'class':'form-control mb-2',' placeholder':'Contraseña',
+			'aria-describedby':'password1HelpText'})
 
 		self.fields['password2'].widget = forms.PasswordInput(
-			attrs={'class':'form-control mb-2',' placeholder':'Repite la contraseña'})
+			attrs={'class':'form-control mb-2',' placeholder':'Contraseña'})
 
 
