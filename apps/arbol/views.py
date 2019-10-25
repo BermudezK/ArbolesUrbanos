@@ -7,14 +7,7 @@ from django.shortcuts import redirect
 from .models import Tree
 # Create your views here.
 
-"""
-def edit_tree(request,value):
-	Tree.quantity = value
-	Tree.save()
-
-	return
-"""
-
+# Vista del Administrador
 def show_tree(request):
 	context = {}
 	p = Tree.objects.get(pk=1)
@@ -22,7 +15,13 @@ def show_tree(request):
 
 	return render(request,'arbol/visualizacion.html',context)
 
+# Vista del Usuario
+def show_tree_user(request):
+	context = {}
+	p = Tree.objects.get(pk=1)
+	context['arbol'] = p
 
+	return render(request,'arbol/visualizacionUsuario.html',context)
 
 
 def edit_tree(request):
