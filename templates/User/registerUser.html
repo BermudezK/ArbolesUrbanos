@@ -1,0 +1,39 @@
+
+{% extends 'core/base.html' %}
+
+{% load staticfiles %}
+{% block title %}Registro{% endblock title %}
+
+{% block content %}
+
+{% load static %}
+
+</head>
+
+<body>
+    <style>
+        label{display: none;}
+        span {display:none;}
+    </style>
+    <div class="container">
+        <div class="row" id="rowGral">
+            <div class="col-5" id="registro">
+                <h3>Registro</h3>
+                <h5>Ingrese sus datos para acceder al sistema:</h5>
+            </div>
+            <div class="col-5" id="formRegistro">
+                <form class="formulario" method="POST" novalidate>{%csrf_token%}
+                    <h3>Registro</h3>
+                    {{form}}
+                    <p><input type="submit" value="Confirmar"></p>
+                </form>
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+{% endblock content %}
