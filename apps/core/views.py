@@ -42,7 +42,6 @@ def denuncia (request):
     return render(request, 'core/denuncia.html',{'form':contact_form})
 
 def contacto (request):
-    print(request.user)
 
     contact_form = ContactForm()
     if not request.user == 'AnonymousUser':

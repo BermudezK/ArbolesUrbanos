@@ -14,85 +14,87 @@
       <div class="row">
         <div class="col-md-6 col-sm-12 mx-auto">
           <div class="bg-faded rounded p-5">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Contacto - </span>
+            <h2 class="section-heading mx-auto">
+              <span class="section-heading-upper">Contacto</span>
               <span class="section-heading-lower">Envíanos tus dudas</span>
             </h2>
 
             <!-- Formulario de contacto -->
             {% if 'ok' in request.GET %}
-            <p><b>Su mensaje se ha enviado correctamente, en breve nos pondremos en contacto con Usted.</b></p>
+            <p class="mx-auto"><b>Su mensaje se ha enviado correctamente, en breve nos pondremos en contacto con Usted.</b></p>
             {% endif %}
 
-            <form action="" method="POST">{% csrf_token %}
+            <form action="" method="POST" class="needs-validation" novalidate>{% csrf_token %}
               {% if user.is_authenticated %}
-              <div class="form-group">
-                <label>Nombre de Usuario</label>
-                <div class="input-group">
+              <!-- SI EL USUARIO ESTA LOGUEADO CARGA LOS DATOS DESDE SU INFORMACION DE CUENTA -->
+              <div class="form-row mt-3">
+                <div class="col-md-6 col-sm-12">
+                  <label for="username">Nombre: </label>
                   {{request.user.first_name}}
+                </div>
+              </div>
+              <div class="form-row mt-3">
+                <div class="col-md-6 col-sm-12">
+                  <label for="surname">Apellido: </label>
+                  {{request.user.last_name}}
+                </div>
+
+              </div>
+              <div class="form-row mt-3">
+                <div class="col-md-12 col-sm-12">
+                  <label for="email">Email: </label>
+                  {{request.user.email}}
+                </div>
+              </div>
+              {% else %}
+              <!-- SI EL USUARIO NO ESTÁ LOGUEADO CARGA LOS DATOS DESDE LOS IMPUTS -->
+              <div class="form-row mt-3">
+                <label for='username'>Nombre</label>
+                {{form.name}}
+                <div class="invalid-feedback">
+                  Este campo es requerido
                 </div>
                 {{form.name.errors}}
               </div>
-              <div class="form-group">
-                <label>Apellido *</label>
-                <div class="input-group">
-                  {{request.user.last_name}}
+              <div class="form-row mt-3">
+                <label for='surname'>Apellido *</label>
+                {{form.surname}}
+                <div class="invalid-feedback">
+                  Este campo es requerido
                 </div>
                 {{form.surname.errors}}
               </div>
-              <div class="form-group">
-                <label>Email *</label>
-                <div class="input-group">
-                  {{request.user.email}}
-                </div>
-                {{form.email.errors}}
-              </div>
-              {% else %}
-              <div class="form-group">
-                <label>Nombre de Usuario</label>
-                <div class="input-group">
-                  {{form.name}}
-                </div>
-              </div>
-              {{form.name.errors}}
-              <div class="form-group">
-                <label>Apellido *</label>
-                <div class="input-group">
-                  {{request.user.last_name}}
-                </div>
-                <div class="input-group">
-                  {{form.surname}}
-                </div>
-                {{form.surname.errors}}
-              </div>
-              <div class="form-group">
-                <label>Email *</label>
-                <div class="input-group">
-                  {{form.email}}
+              <div class="form-row mt-3">
+                <label for='email'>Email *</label>
+                {{form.email}}
+                <div class="invalid-feedback">
+                  Ingrese un email válido
                 </div>
                 {{form.email.errors}}
               </div>
               {% endif %}
-
-
-
-              <div class="form-group">
-                <label>Asunto *</label>
-                <div class="input-group">
+              <div class="form-row mt-3">
+                <div class="col-md-12 col-sm-12">
+                  <label for='subject'>Asunto *</label>
                   {{form.subject}}
+                  <div class="invalid-feedback">
+                    Este campo es requerido
+                  </div>
                 </div>
                 {{form.subject.errors}}
               </div>
-              <div class="form-group">
-                <label>Mensaje *</label>
-                <div class="input-group">
+              <div class="form-row mt-3">
+                <div class="col-md-12 col-sm-12">
+
+                  <label for='content'>Mensaje *</label>
                   {{form.content}}
+                  <div class="invalid-feedback">
+                    Este campo es requerido
+                  </div>
                 </div>
                 {{form.content.errors}}
               </div>
-              <div class="text-center">
-                <input type="submit" class="btn btn-primary btn-block py-2" value="Enviar">
-              </div>
+              <input type="submit" class="col-3 mx-auto mt-3 btn btn-primary btn-block py-2" value="Enviar">
             </form>
             <!-- Fin formulario de contacto -->
           </div>
@@ -101,4 +103,24 @@
     </div>
   </div>
 </main>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    'use strict';
+    window.addEventListener('load', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
 {% endblock content %}
