@@ -42,24 +42,34 @@ def denuncia (request):
     return render(request, 'core/denuncia.html',{'form':contact_form})
 
 def contacto (request):
-    contact_form = ContactForm()
+    print(request.user)
 
-    data={
-        'name': request.user.first_name,
-        'surname': request.user.last_name,
-        'email': request.user.email,
-        'subject': request.POST.get('subject', ''),
-        'content': request.POST.get('content', ''),
-    }
+    contact_form = ContactForm()
+    if not request.user == 'AnonymousUser':
+        data={
+            'name': request.POST.get('name'),
+            'surname': request.POST.get('surname'),
+            'email': request.POST.get('email'),
+            'subject': request.POST.get('subject'),
+            'content': request.POST.get('content'),
+        }
+    else:
+        data={
+            'name': request.user.first_name,
+            'surname': request.user.last_name,
+            'email': request.user.email,
+            'subject': request.POST.get('subject', ''),
+            'content': request.POST.get('content', ''),
+        }
 
     if request.method == "POST":
         contact_form = ContactForm(data)
         if contact_form.is_valid():
-            name = data.get('name', '')
-            surname = data.get('surname', '')
-            email = data.get('email', '')
-            subject = data.get('subject', '')
-            content = data.get('content', '')
+            name = data.get('name')
+            surname = data.get('surname')
+            email = data.get('email')
+            subject = data.get('subject')
+            content = data.get('content')
 
             #Enviamos el correo y redireccionamos
             email = EmailMessage(

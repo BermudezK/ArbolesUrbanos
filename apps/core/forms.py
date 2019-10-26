@@ -19,4 +19,4 @@ class ContactForm(forms.Form):
     
     content = forms.CharField(label="Contenido", required=True, widget=forms.Textarea(
       attrs={'class':'form-control', 'rows':4, 'placeholder':'Escribe tu Mensaje'}  
-    ), min_length=5, max_length=25)
+    ), min_length=5, max_length=250)
