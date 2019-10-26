@@ -8,39 +8,6 @@ from .forms import ContactForm
 def Inicio (request):
     return render (request, 'core/home.html')
 
-def denuncia (request):
-    contact_form = ContactForm()
-
-    if request.method == "POST":
-        contact_form = ContactForm(data=request.POST)
-        if contact_form.is_valid():
-            name = request.POST.get('name', '')
-            surname = request.POST.get('surname', '')
-            email = request.POST.get('email', '')
-            subject = request.POST.get('subject', '')
-            content = request.POST.get('content', '')
-
-            #Enviamos el correo y redireccionamos
-            email = EmailMessage(
-                "Arboles Urbanos: Nueva Denuncia", #asunto
-                "De: {} <{}>\n\n Asunto: {}\n\n Escribio:\n {}".format(name,email,subject,content), #cuerpo 
-                "{}".format(email), #email_origen
-                ["softwaremovement19@gmail.com"], #email_destino
-                reply_to=[email]
-            )
-            
-            #Suponemos que todo ha ido bien, entonces redireccionamos
-            #return redirect(reverse('contact:contact')+"?ok")
-            try:
-                "Redireccionamos a OK"
-                email.send()
-                return redirect(reverse('denuncia')+"?ok")
-            except:
-                "Redireccionamos a FAIL"
-                return redirect(reverse('denuncia')+"?fail")
-
-    return render(request, 'core/denuncia.html',{'form':contact_form})
-
 def contacto (request):
 
     contact_form = ContactForm()
