@@ -29,27 +29,27 @@
               <!-- SI EL USUARIO ESTA LOGUEADO CARGA LOS DATOS DESDE SU INFORMACION DE CUENTA -->
               <div class="form-row mt-3">
                 <div class="col-md-6 col-sm-12">
-                  <label for="username">Nombre: </label>
+                  <label class='required' for="username">Nombre: </label>
                   {{request.user.first_name}}
                 </div>
               </div>
               <div class="form-row mt-3">
                 <div class="col-md-6 col-sm-12">
-                  <label for="surname">Apellido: </label>
+                  <label class='required' for="surname">Apellido: </label >
                   {{request.user.last_name}}
                 </div>
 
               </div>
               <div class="form-row mt-3">
                 <div class="col-md-12 col-sm-12">
-                  <label for="email">Email: </label>
+                  <label class='required' for="email">Email: </label>
                   {{request.user.email}}
                 </div>
               </div>
               {% else %}
               <!-- SI EL USUARIO NO ESTÁ LOGUEADO CARGA LOS DATOS DESDE LOS IMPUTS -->
               <div class="form-row mt-3">
-                <label for='username'>Nombre</label>
+                <label class='required' for='username'>Nombre </label>
                 {{form.name}}
                 <div class="invalid-feedback">
                   Este campo es requerido
@@ -57,7 +57,7 @@
                 {{form.name.errors}}
               </div>
               <div class="form-row mt-3">
-                <label for='surname'>Apellido *</label>
+                <label class='required' for='surname'>Apellido</label class='required'>
                 {{form.surname}}
                 <div class="invalid-feedback">
                   Este campo es requerido
@@ -65,7 +65,7 @@
                 {{form.surname.errors}}
               </div>
               <div class="form-row mt-3">
-                <label for='email'>Email *</label>
+                <label class='required' for='email'>Email</label>
                 {{form.email}}
                 <div class="invalid-feedback">
                   Ingrese un email válido
@@ -75,7 +75,7 @@
               {% endif %}
               <div class="form-row mt-3">
                 <div class="col-md-12 col-sm-12">
-                  <label for='subject'>Asunto *</label>
+                  <label class='required' for='subject'>Asunto</label>
                   {{form.subject}}
                   <div class="invalid-feedback">
                     Este campo es requerido
@@ -86,7 +86,7 @@
               <div class="form-row mt-3">
                 <div class="col-md-12 col-sm-12">
 
-                  <label for='content'>Mensaje *</label>
+                  <label class='required' for='content'>Mensaje</label >
                   {{form.content}}
                   <div class="invalid-feedback">
                     Este campo es requerido
@@ -103,6 +103,12 @@
     </div>
   </div>
 </main>
+<style>
+  .required:after {
+    content: ' *';
+    color: red;
+  } 
+</style>
 <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
   (function () {
