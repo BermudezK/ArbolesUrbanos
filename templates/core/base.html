@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="h-100">
 
 <head>
   <meta charset="UTF-8">
@@ -21,13 +21,12 @@
 
 
   <!-- Fuentes -->
-
   <!-- Estilos -->
   <link href="#" rel="stylesheet">
 
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
   <h1 class="site-heading text-center text-white d-none d-lg-block">
     <span class="site-heading-upper text-primary mb-3">Arboles Urbanos</span>
   </h1>
@@ -59,23 +58,37 @@
       </div>
     </div>
   </nav>
-  {% block header %}
 
-  {% endblock header %}
+  <main class="flex-shrink-0">
 
-  <!-- Contenido -->
-
-  {% block content %}
-
-  {% endblock content %}
-
+    {% block header %}
+  
+    {% endblock header %}
+  
+    <!-- Contenido -->
+  
+    {% block content %}
+  
+    {% endblock content %}
+  </main>
   <!-- Pié de página -->
-  <footer class="footer text-faded py-5">
-    <div class="container-fluid">
+  <footer class="py-3 mt-auto">
+    <div class="container">
       <div class="row">
+        <div class="col-md-4">
+          <div>
+            <p><img class="footer-icon" src="{% static 'img/iconos/telephone.png' %}" alt=""> (3624) 4455267</p>
+            <p><img class="footer-icon" src="{% static 'img/iconos/location.png' %}" alt=""> Arturo Illia 1055,
+              Resistencia, Chaco. República Argentina</p>
+          </div>
+        </div>
         <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div>
+            <p>Seguinos en <img class="footer-icon" src="{% static 'img/iconos/facebook.png' %}" alt=""></p>
+            <p>Copyright (c) 2019 - Software Movement 2.0.<br> All Rights Reserved.</p>
+          </div>
+        </div>
       </div>
 
     </div>
