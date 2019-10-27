@@ -1,0 +1,29 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+#contVisual {
+    height: 370px;
+}
+
+h6 {
+    margin-top: 30px;
+}
+.btn {
+    background: #76B39D;
+    margin-right: 14px;
+    border: none;
+}
+
+#min {
+    margin-left: 14px;
+}
+
+#colGral {
+    margin-top: 50px;
+}
+
+img {
+    margin-left: 79px;
+}
