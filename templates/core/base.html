@@ -10,6 +10,12 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/registerUserStyle.css' %}">
   <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}">
+<<<<<<< HEAD
+=======
+  {% block styleLink %}
+  {% endblock styleLink %}
+
+>>>>>>> Develop
   <script src="https://kit.fontawesome.com/d0dc8f6bcc.js" crossorigin="anonymous"></script>
   <title>{% block title %}{% endblock title%} | Arboles Urbanos</title>
 
@@ -39,13 +45,13 @@
           </li>
         </ul>
         <ul class="navbar-nav">
-          {% if not request.user.is_authenticated %}
+          {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Acceder</a>
+            <a class="nav-link" href="{% url 'logout' %}">{{user.username}} | Salir</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
           </li>
           {% endif %}
         </ul>
@@ -87,7 +93,6 @@
 
     </div>
   </footer>
-
   <!-- Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
