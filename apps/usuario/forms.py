@@ -19,6 +19,16 @@ class UserCreateFormWithEmail(UserCreationForm):
 	def __init__(self, *args, **kwargs):
 		super(UserCreateFormWithEmail, self).__init__(*args, **kwargs)
 		#Modificar en tiempo real
+		self.fields['first_name'].widget = forms.TextInput(
+			attrs={'class':'form-control mb-2','placeholder':'Nombre',
+			'aria-describedby':'first_nameHelpText',
+			'minlength':'3', 'maxlength':'30',
+			'pattern':'[a-zA-Z]'})
+		self.fields['last_name'].widget = forms.TextInput(
+			attrs={'class':'form-control mb-2','placeholder':'Apellido',
+			'aria-describedby':'lastnameHelpText',
+			'minlength':'3', 'maxlength':'30',
+			'pattern':'[a-zA-Z]'})
 		self.fields['username'].widget = forms.TextInput(
 			attrs={'class':'form-control mb-2','placeholder':'Nombre de Usuario',
 			'aria-describedby':'usernameHelpText',
