@@ -23,6 +23,7 @@ urlpatterns = [
 
     #URL REDIRECCIONAR
     path('arbol/', include('apps.arbol.urls')),
+    
     #urls de core
     path('', include('apps.core.urls')),
 
