@@ -1,0 +1,131 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Contacto{% endblock title %}
+
+{% block content %}
+
+<main>
+
+  <div class="container mx-auto">
+    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="#" alt="">
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 mx-auto">
+          <div class="bg-faded rounded p-5">
+            <h2 class="section-heading mx-auto">
+              <span class="section-heading-upper">Contacto</span>
+              <span class="section-heading-lower">Envíanos tus dudas</span>
+            </h2>
+
+            <!-- Formulario de contacto -->
+            {% if 'ok' in request.GET %}
+            <p class="mx-auto"><b>Su mensaje se ha enviado correctamente, en breve nos pondremos en contacto con Usted.</b></p>
+            {% endif %}
+
+            <form action="" method="POST" class="needs-validation" novalidate>{% csrf_token %}
+              {% if user.is_authenticated %}
+              <!-- SI EL USUARIO ESTA LOGUEADO CARGA LOS DATOS DESDE SU INFORMACION DE CUENTA -->
+              <div class="form-row mt-3">
+                <div class="col-md-6 col-sm-12">
+                  <label for="username">Nombre: </label>
+                  {{request.user.first_name}}
+                </div>
+              </div>
+              <div class="form-row mt-3">
+                <div class="col-md-6 col-sm-12">
+                  <label for="surname">Apellido: </label >
+                  {{request.user.last_name}}
+                </div>
+              </div>
+              <div class="form-row mt-3">
+                <div class="col-md-12 col-sm-12">
+                  <label for="email">Email: </label>
+                  {{request.user.email}}
+                </div>
+              </div>
+              {% else %}
+              <!-- SI EL USUARIO NO ESTÁ LOGUEADO CARGA LOS DATOS DESDE LOS IMPUTS -->
+              <div class="form-row mt-3">
+                <label class='required' for='username'>Nombre </label>
+                {{form.name}}
+                <div class="invalid-feedback">
+                  Este campo es requerido
+                </div>
+                {{form.name.errors}}
+              </div>
+              <div class="form-row mt-3">
+                <label class='required' for='surname'>Apellido</label class='required'>
+                {{form.surname}}
+                <div class="invalid-feedback">
+                  Este campo es requerido
+                </div>
+                {{form.surname.errors}}
+              </div>
+              <div class="form-row mt-3">
+                <label class='required' for='email'>Email</label>
+                {{form.email}}
+                <div class="invalid-feedback">
+                  Ingrese un email válido
+                </div>
+                {{form.email.errors}}
+              </div>
+              {% endif %}
+              <div class="form-row mt-3">
+                <div class="col-md-12 col-sm-12">
+                  <label class='required' for='subject'>Asunto</label>
+                  {{form.subject}}
+                  <div class="invalid-feedback">
+                    Este campo es requerido
+                  </div>
+                </div>
+                {{form.subject.errors}}
+              </div>
+              <div class="form-row mt-3">
+                <div class="col-md-12 col-sm-12">
+
+                  <label class='required' for='content'>Mensaje</label >
+                  {{form.content}}
+                  <div class="invalid-feedback">
+                    Este campo es requerido
+                  </div>
+                </div>
+                {{form.content.errors}}
+              </div>
+              <input type="submit" class="col-3 mx-auto mt-3 btn btn-primary btn-block py-2" value="Enviar">
+            </form>
+            <!-- Fin formulario de contacto -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<style>
+  .required:after {
+    content: ' *';
+    color: red;
+  } 
+</style>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    'use strict';
+    window.addEventListener('load', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
+{% endblock content %}
