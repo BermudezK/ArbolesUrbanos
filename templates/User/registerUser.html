@@ -24,7 +24,7 @@
                     action="{% url 'usuario:register' %}" novalidate>{%csrf_token%}
                     <div class="row">
                         <div class="col">
-                            <div class="form-group" id="name">
+                            <div class="form-group" id="first_name">
                                 <label for="first_name">Nombre:</label>
                                 {{form.first_name}}
                                 <small id="first_nameHelpText" class="text-muted">
