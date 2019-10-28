@@ -21,8 +21,11 @@ urlpatterns = [
     #url principal
     path('admin/', admin.site.urls),
 
+    #URL REDIRECCIONAR
+    path('arbol/', include('apps.arbol.urls')),
+    
     #urls de core
-    path ('',include('apps.core.urls')),
+    path('', include('apps.core.urls')),
 
     #url de usuario
     path('register/', include('apps.usuario.urls')),
@@ -33,5 +36,5 @@ urlpatterns = [
 
     #url Password
     path('accounts/', include('django.contrib.auth.urls')),
-    re_path('accounts/reset/<uidb64>/<token>/', view.PasswordResetConfirmView.as_view(template_name = 'registration/password_reset_confirm.html'), name='password_reset_confirm'),
+    re_path('accounts/reset/<uidb64>/<token>/',view.PasswordResetConfirmView.as_view(template_name = 'registration/password_reset_confirm.html'), name='password_reset_confirm'),
 ]
