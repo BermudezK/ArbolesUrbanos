@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% load staticfiles %}
+{% block title %}Nuevo Arbol{% endblock title %}
+
+{% block content %}
+
+{% load static %}
+
+<head>
+
+</head>
+
+<body>
+	<div class="container" id="contVisual">
+		<div class="row">
+			<div class="col-4">
+
+			</div>
+			{% if arbol %}
+			<div class="col-md-6 col-sm-12 abs" id="colGral">
+				<img src="{% static 'img/iconos/tree1.png' %}" alt="arbol">
+				<div class="centrar">Arboles plantados: {{arbol.quantity}}</div>
+				<h6>Ingrese la catidad de árboles que desea:</h6>
+				<form enctype="multipart/form-data" name="formulario" action="{% url 'arbol:edit_tree' %}" method="POST"
+					class="form-inline">
+					{% csrf_token %}
+					<!-- {{form.as_p}} -->
+					<input type="button" value="-" class="btn btn-primary" onClick="agregar(-1);">
+					<input type="number" class="form-control" name="quantity" value="1">
+					<input type="button" id="min" value="+" class="btn btn-primary" onClick="agregar(1);">
+					<button type="submit" class="btn btn-primary btnOk">Aceptar</button>
+					<input style="display: none" type="number" name="pk" value="{{arbol.pk}}">
+				</form>
+			</div>
+		</div>
+
+		{% else %}
+		<h1>No existe</h1>
+		<button href="{% url 'arbol:nuevo '%}">Crear nuevo</button>
+		{% endif %}
+	</div>
+
+	</div>
+</body>
+
+<script>
+	function agregar(arbol) {
+		valor = eval(formulario.quantity.value);
+		formulario.quantity.value = eval(valor + arbol);
+	}
+</script>
+{% endblock content %}
