@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import User
 
 class UserCreateFormWithEmail(UserCreationForm):
+	first_name = forms.CharField(max_length = 30,  min_length = 3)
+	last_name = forms.CharField(max_length = 30, min_length = 3)
 	email = forms.EmailField(required=True, help_text="Campo obligatorio. Maximo de 250 caracteres")
 	cellphone = forms.CharField(max_length = 10)
 	birthday = forms.DateField()
