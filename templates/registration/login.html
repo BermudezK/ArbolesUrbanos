@@ -22,9 +22,15 @@
 
             </div>
             <div class=" login col-md-6 col-sm-12 ">
-                <div class="row mx-auto my-2">
-                    <a class="btn estado" disabled>Inicio</a>
-                    <a class="btn registro" href="{% url 'usuario:register' %}">Registro</a>
+                <div class="row mt-2 justify-content-end mr-2">
+                    
+                    
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group" role="group">
+                            <a href="#" class="btn estado" role="button" aria-pressed="true">Inicio</a>
+                            <a href="{% url 'usuario:register' %}" class="btn registro" role="button" aria-pressed="true">Registro</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6 mx-auto">
                     <div class="row">

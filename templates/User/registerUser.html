@@ -1,6 +1,12 @@
 {% extends 'core/base.html' %}
 
 {% load staticfiles %}
+{% block styleLink %}
+<link rel="stylesheet" href="{% static 'css/visualizacionStyle.css' %}">
+
+{% endblock styleLink %}
+
+
 {% block title %}Registro{% endblock title %}
 
 {% block content %}
