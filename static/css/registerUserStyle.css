@@ -6,75 +6,60 @@ body {
     font-size: 14px;
 }
 
-#formRegistro {
-    font-weight: bold;
-    background: #a3b847;
-    top: 65px;
-    padding: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    height: 450px;
-
+.abs-center {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 45px;
+    justify-content: center;
 }
 
-#registro, #formRegistro {
-
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
+.welcome {
+    color: #ffffff;
 }
 
 #registro {
-    background: white;
-    top: 65px;
-    padding: 20px;
-    padding-left: 20px;
+    background: #a3b847;
+    justify-content: center;
+}
+
+/* logo arboles urbanos */
+#logo {
+    width: 100px;
+}
+
+#formRegistro {
+    font-weight: bold;
+    background: #ffffff;
     
 }
 
-label {
-
-    margin-bottom: 2px !important;
-}
-
-input {
-    font-size: 14px !important;
-    height: 33px !important;
-}
-
-#rowNameLastname {
-    margin-top: 14px;
-}
-
-#rowUsernameEmail, #rowBirthdateCellphone, #pass {
-    margin-top: -6px;
-}
-
 #btnFacebook {
-    font-size: 15px;    
     background: #3E5C9A;
 }
 
 #btnGoogle {
-    margin-top: 10px;
-    font-size: 15px;
-    background: #EA4335;
+    background: #ffffff;
+    color: gray;
+    padding-right: 30px;
+
+}
+
+.btn-primary {
+    margin-top: 15px;
+    margin-left: 95px;
 }
 
 #btnRegistro {
-    margin-top: 15px;
+    margin-top: 35px;
     margin-left: 160px;
-
 }
 
-.fa-google, .fa-facebook {
-    margin-right: 6px;
+#logoFace, #logoGoogle {
+    width: 24px;
+    margin-right: 7px;
 }
 
-#rowGral {
-    margin-top: 23px;
-    margin-left: 100px;
+#logoFace {
+    background-color: white;
 }
 
-#inputPassword {
-    max-width: 180px;
-}
