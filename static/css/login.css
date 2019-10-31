@@ -1,4 +1,3 @@
-
 .abs-center {
     display: flex;
     min-height: 100vh;
@@ -7,19 +6,23 @@
 }
 
 .arbol {
-    background-color: #A5B94A;
+    background-color: #155e63;
+    color: #f9f8eb;
     margin-top: 0px;
 }
 
-.inicioSesion {
+/* .inicioSesion {
+    background-color: red;
     border-radius: 9px;
-    background-color: #88D7D0;
-    padding: 40px;
+    padding: 20px;
+} */
+.login {
+    background-color: #f9f8eb;
+    color: #155e63;
 }
-
-.img-avatar {
-    min-width: 100px;
-    min-height: 100px;
-    max-width: 20%;
-    max-height: 20%
+.login .estado {
+    background-color: #f9f8eb;
+    border-radius: 40% 0% 0% 40%;
+    border: 1px solid #155e63;
+    color: #155e63;
 }

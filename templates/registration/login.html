@@ -9,14 +9,26 @@
 
 {% block content %}
 <main role="main">
-
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 col-sm-12 abs-center">
+            <div class="col-md-6 col-sm-12 arbol abs-center">
+                <div class="row">
+                    <h1>hola</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ad quae error doloremque ullam quas
+                        quisquam tenetur aliquid dolor enim, veritatis, earum nisi. Eaque similique quos nemo, placeat
+                        consequuntur ab.</p>
+                </div>
                 <!-- ESTA ES LA PARTE DEL FORMULARIO PARA EL LOGUIN -->
-                <div class=" col-md-8">
-                    <div class="inicioSesion">
-                        <img src="{% static 'img/iconos/user.png' %}" alt="usuario avatar" class="mx-auto d-block img-avatar mb-3">
+
+            </div>
+            <div class=" login col-md-6 col-sm-12 ">
+                <div class="row mx-auto my-2">
+                    <a class="btn estado" disabled>Inicio</a>
+                    <a class="btn registro" href="{% url 'usuario:register' %}">Registro</a>
+                </div>
+                <div class="col-md-6 mx-auto">
+                    <div class="row">
+                        <h1>Inicio de Sesión</h1>
                         {% if form.errors%}
                         <small style="color: red;">
                             El usuario o la contraseña ingresada son incorrectas
@@ -24,36 +36,33 @@
                             Intentelo nuevamente.
                         </small>
                         {% endif %}
+
                         <form action="{% url 'login' %}" method="POST" class="needs-validation" novalidate>
                             {% csrf_token %}
                             <div class="form-grup row">
-                                <input type="text" name="username" autofocus minlength="6" maxlength="254" required id="username" class="form-control " placeholder="Ingrese su usuario..." />
-                                
+                                <label for="username">Nombre de Usuario</label>
+                                <input type="text" name="username" autofocus minlength="6" maxlength="254" required
+                                    id="username" class="form-control " placeholder="Ingrese su usuario..." />
                                 <div class="invalid-feedback">
-                                    Por favor ingrese un usuario válido.
+                                    Ha ingresado un nombre de usuario no válido
                                 </div>
-                                <input type="password" name="password" required id="password" minlength="6" maxlength="254" placeholder="Insgrese su contraseña..." class="form-control mt-3">
+                                <input type="password" name="password" required id="password" minlength="6"
+                                    maxlength="254" placeholder="Insgrese su contraseña..." class="form-control mt-3">
                                 <div class="invalid-feedback">
-                                    Recuerde que el formato de la contraseña debe contener entre 6 a 8 digitos, alfanumericos y una mayúscula.
+                                    Recuerde que el formato de la contraseña debe contener entre 6 a 8 digitos,
+                                    alfanumericos y una mayúscula.
                                 </div>
                                 <button type="submit" class="mt-3 mx-auto btn btn-success">Ingresar</button>
                                 <input type="hidden" name='next' value='{{next}}'>
                             </div>
                         </form>
-                    </div>
-                    <div class="row mt-3">
-                        <p class="mx-auto">
-                            <a href="{% url 'password_reset' %}" class="mx-auto">No recuerdas tu contraseña?</a>
-                            <br>
-                            ¿No estas registrado? <a href="{% url 'usuario:register' %}">Registrate</a>
-                        </p>
+                        <div class="row mt-3">
+                            <p class="mx-auto">
+                                <a href="{% url 'password_reset' %}" class="mx-auto">No recuerdas tu contraseña?</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-sm-12 arbol abs-center">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quasi nisi ut amet porro ipsa
-                    architecto! Ipsam doloremque animi ad sequi asperiores at aperiam aliquid hic recusandae,
-                    repudiandae ex possimus!</p>
             </div>
         </div>
     </div>
