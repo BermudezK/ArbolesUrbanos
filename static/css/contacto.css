@@ -1,0 +1,21 @@
+.arbol {
+    background-color: #155e63;
+    color: #f9f8eb;
+    margin-top: 0px;
+}
+
+.contacto{
+    background-color: #f9f8eb;
+    color: #155e63;
+}
+
+.carousel-item,
+.carousel-inner,
+.carousel-inner img {
+  height: 798px;
+  width: auto;
+}
+
+.carousel-item {
+  text-align: center;
+}
