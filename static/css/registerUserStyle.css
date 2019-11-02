@@ -6,15 +6,42 @@ body {
     font-size: 14px;
 }
 
-.abs-center {
-    display: flex;
-    min-height: 100vh;
-    padding-top: 45px;
-    justify-content: center;
+
+.carousel-item,
+.carousel-inner,
+.carousel-inner img {
+  height: 830px;
+  width: auto;
 }
 
-.welcome {
-    color: #ffffff;
+.carousel-item {
+  text-align: center;
+}
+
+.registro {
+    background-color: #f9f8eb;
+    color: #155e63;
+}
+
+.registro .estado {
+    font-size: small;
+    background-color: #f9f8eb;
+    border-radius: 40% 0% 0% 40%;
+    border: 1px solid #155e63;
+    color: #155e63;
+    width: 75px;
+    height: 32px;
+
+}
+
+.registro .form {
+    font-size: small;
+    background-color: #155e63;
+    border-radius: 0% 40% 40% 0%;
+    border: 1px solid #155e63;
+    color: #f9f8eb;
+    width: 75px;
+    height: 32px;
 }
 
 #registro {
@@ -33,15 +60,10 @@ body {
     
 }
 
-#btnFacebook {
-    background: #3E5C9A;
-}
-
 #btnGoogle {
-    background: #ffffff;
-    color: gray;
+    
+    color: white;
     padding-right: 30px;
-
 }
 
 .btn-primary {
@@ -58,8 +80,3 @@ body {
     width: 24px;
     margin-right: 7px;
 }
-
-#logoFace {
-    background-color: white;
-}
-
