@@ -1,11 +1,10 @@
 {% extends 'core/base.html' %}
 {% load static %}
-
 {% load staticfiles %}
+
 {% block styleLink %}
 <link rel="stylesheet" href="{% static 'css/visualizacionStyle.css' %}">
 <link rel="stylesheet" href="{% static 'css/registerUserStyle.css' %}">
-
 {% endblock styleLink %}
 
 
@@ -190,16 +189,8 @@
                     </div>      
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-12 mb-2">
+                                <div class="col-sm-12 mt-4">
                                     <button type="submit" id="btnRegistro" class="btn btn-success btn-lg mt-2"> Registrarse</button> 
-                                </div>
-                                <div class="col-md-12 m-0 p-0">
-                                    <hr>
-                                </div>
-                                <div class="col-md-12 mb-4 d-flex justify-content-center">
-                                    <a class="btn btn-outline-success btn-lg" href="#" role="button" id="btnGoogle">
-                                        <img src="{% static 'img/search.png'%}" id="logoGoogle"/>Ingresar con Google
-                                    </a>
                                 </div>
                             </div>
                         </div>
