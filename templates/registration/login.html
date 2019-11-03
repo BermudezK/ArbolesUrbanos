@@ -1,13 +1,17 @@
-{% extends 'core/base.html' %} {% load static %} {% block styleLink %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}"> {% endblock styleLink %} {% block title %}Login{% endblock title %} {% block content %}
+{% extends 'core/base.html' %}
+{% load static %}
+{% block styleLink %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
+{% endblock styleLink %} 
+{% block title %}Login{% endblock title %} 
+{% block content %}
 <main role="main">
     <div class="container-fluid">
         <div class="row ">
             <div class="col-md-6 col-sm-12 arbol">
                 <div class="row justify-content-center">
-
                     <h1 class="display-4 mt-4">Bienvenido</h1>
-                    <p class=" lead text-justify text-center mt-3">Unete a nuestra comunidad y enterate de todo lo que sucede en nuestro amado medio ambiente</p>
+                    <p class=" lead text-center mt-3">Unete a nuestra comunidad y enterate de todo lo que sucede en nuestro amado medio ambiente</p>
                 </div>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
