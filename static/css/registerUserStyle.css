@@ -20,17 +20,17 @@ body{
 
 .registro .estado {
     font-size: small;
-    background-color: #f9f8eb;
+    background-color: #155e63;
     border-radius: 25px 0px 0px 25px;
     border: 1px solid #155e63;
-    color: #155e63;
+    color: #f9f8eb;
 }
 .registro .form {
     font-size: small;
-    background-color: #155e63;
+    background-color: #f9f8eb;
     border-radius: 0% 25px 25px 0%;
     border: 1px solid #155e63;
-    color: #f9f8eb;
+    color: #155e63;
 }
 
 .registro .registrar {

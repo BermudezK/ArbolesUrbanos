@@ -46,10 +46,8 @@
                 <div class="row mt-2 justify-content-end mr-2">
                     <div class="btn-toolbar" role="toolbar">
                         <div class="btn-group" role="group">
-                            <a href="{% url 'login' %}" class="btn estado m-0" role="button"
-                                aria-pressed="true">Inicio</a>
-                            <a href="{% url 'usuario:register' %}" class="btn form" role="button"
-                                aria-pressed="true">Registro</a>
+                            <a href="{% url 'login' %}" class="btn estado m-0" role="button" aria-pressed="true">Inicio</a>
+                            <a href="#" class="btn form" role="button" aria-pressed="true">Registro</a>
                         </div>
                     </div>
                 </div>
@@ -141,8 +139,7 @@
                                 <div class="form-group" id="password1">
                                     <label for="password1">Contraseña </label> {{form.password1}}
                                     <small id="password1HelpText" class="text-muted">
-                                        Debe comenzar con mayúscula y contener entre 6 y un máximo de 8 letras o
-                                        números.
+                                        Debe contener de 6 a 8 caracteres.
                                     </small> {% if form.password1.errors %}
                                     <small style="color: red;">
                                         <p>{{form.password1.errors}}</p>
