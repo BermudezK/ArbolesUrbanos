@@ -1,9 +1,9 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block styleLink %}
-    <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
-{% endblock styleLink %} 
-{% block title %}Login{% endblock title %} 
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock styleLink %}
+{% block title %}Login{% endblock title %}
 {% block content %}
 <main role="main">
     <div class="container-fluid">
@@ -11,7 +11,8 @@
             <div class="col-md-6 col-sm-12 arbol">
                 <div class="row justify-content-center">
                     <h1 class="display-4 mt-4">Bienvenido</h1>
-                    <p class=" lead text-center mt-3">Unete a nuestra comunidad y enterate de todo lo que sucede en nuestro amado medio ambiente</p>
+                    <p class=" lead text-center mt-3">Unete a nuestra comunidad y enterate de todo lo que sucede en
+                        nuestro amado medio ambiente</p>
                 </div>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -21,13 +22,26 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block center-block" src="{% static 'img/iconos/logoarboles_sin_letra.png'%}" alt="First slide">
+                            <img class="d-block center-block" src="{% static 'img/iconos/logoarboles_sin_letra.png'%}"
+                                alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Mantenete al día</h5>
+                                <p>Unete a la comunidad y enterate de lo que esta sucediendo...</p>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img class="d-block" src="{% static 'img/iconos/deforestation.png'%}" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Ayudanos a cuidar los árboles</h5>
+                                <p>Denuncia la destrucción de los espacios verdes de nuestra ciudad...</p>
+                            </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block" src="{% static 'img/iconos/leaves.png'%}" alt="Third slide">
+                            <img class="d-block" src="{% static 'img/iconos/information.png'%}" alt="Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Colabora con la comunidad</h5>
+                                <p>Creamos un espacio donde puedes compartir tus conocmientos con nosotros...</p>
+                            </div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -46,7 +60,8 @@
                     <div class="btn-toolbar" role="toolbar">
                         <div class="btn-group" role="group">
                             <a href="#" class="btn estado m-0" role="button" aria-pressed="true">Inicio</a>
-                            <a href="{% url 'usuario:register' %}" class="btn registro" role="button" aria-pressed="true">Registro</a>
+                            <a href="{% url 'usuario:register' %}" class="btn registro" role="button"
+                                aria-pressed="true">Registro</a>
                         </div>
                     </div>
                 </div>
@@ -54,25 +69,28 @@
                     <h1>Inicio de Sesión</h1>
                     {% if form.errors%}
                     <small style="color: red;">
-                            El usuario o la contraseña ingresada son incorrectas
-                            <br>
-                            Intentelo nuevamente.
-                        </small> {% endif %}
+                        El usuario o la contraseña ingresada son incorrectas
+                        <br>
+                        Intentelo nuevamente.
+                    </small> {% endif %}
 
                     <form action="{% url 'login' %}" method="POST" class="needs-validation" novalidate>
                         {% csrf_token %}
                         <div class="form-grup row">
-                            <label for="username">Nombre de Usuario</label>
-                            <input type="text" name="username" autofocus minlength="6" maxlength="254" required id="username" class="form-control " placeholder="Ingrese su usuario..." />
+                            <label for="username">Email</label>
+                            <input type="text" name="username" autofocus minlength="6" maxlength="254" required
+                                id="username" class="form-control " placeholder="Ingrese su email..." />
                             <div class="invalid-feedback">
-                                Ha ingresado un nombre de usuario no válido
+                                Ha ingresado un email no válido
                             </div>
                         </div>
                         <div class="form-group row mt-3">
                             <label for="password">Contraseña</label>
-                            <input type="password" name="password" required id="password" minlength="6" maxlength="254" placeholder="Insgrese su contraseña..." class="form-control">
+                            <input type="password" name="password" required id="password" minlength="6" maxlength="254"
+                                placeholder="Insgrese su contraseña..." class="form-control">
                             <div class="invalid-feedback">
-                                Recuerde que el formato de la contraseña debe contener entre 6 a 8 digitos, alfanumericos y una mayúscula.
+                                Recuerde que el formato de la contraseña debe contener entre 6 a 8 digitos,
+                                alfanumericos y una mayúscula.
                             </div>
                         </div>
                         <div class="form-group row">
@@ -82,7 +100,8 @@
                     </form>
                     <div class="row mt-3">
                         <p class="mx-auto">
-                            <a href="{% url 'password_reset' %}" class="mx-auto">Olvidó su contraseña? Recuperela aquí...</a>
+                            <a href="{% url 'password_reset' %}" class="mx-auto">Olvidó su contraseña? Recuperela
+                                aquí...</a>
                         </p>
                     </div>
                 </div>
@@ -91,14 +110,14 @@
     </div>
 </main>
 <script>
-    (function() {
+    (function () {
         'use strict';
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             // Fetch all the forms we want to apply custom Bootstrap validation styles to
             var forms = document.getElementsByClassName('needs-validation');
             // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
                     if (form.checkValidity() === false) {
                         event.preventDefault();
                         event.stopPropagation();

@@ -42,3 +42,9 @@
     height: 50%;
     margin: auto;
 }
+
+.carousel-caption p, h5{
+    color: white;
+    background-color: rgba(21, 94, 99, 0.7);
+    size: 4px;
+}
