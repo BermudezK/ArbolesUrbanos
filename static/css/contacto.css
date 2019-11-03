@@ -1,21 +1,39 @@
+
+body{
+  background-color: #155e63;
+}
 .arbol {
     background-color: #155e63;
     color: #f9f8eb;
     margin-top: 0px;
 }
 
+.enviar {
+  font-size: large;
+  background-color: #76b39d;
+  border-radius: 25px;
+  border: 1px solid #76b39d;
+  color: #f9f8eb;
+}
+
+.enviar:hover {
+  background-color: #155e63;
+  color: #f9f8eb;
+}
 .contacto{
-    background-color: #f9f8eb;
+    /* background-color: #f9f8eb; */
     color: #155e63;
+    background:#f9f8eb url('/static/img/iconos/talk.png') no-repeat left   bottom;
 }
 
-.carousel-item,
-.carousel-inner,
-.carousel-inner img {
-  height: 798px;
-  width: auto;
+.carousel-item img {
+  width: 55%;
+  height: 50%;
+  margin: auto;
 }
 
-.carousel-item {
-  text-align: center;
+.carousel-caption p, h5{
+  color: white;
+  background-color: rgba(21, 94, 99, 0.7);
+  size: 4px;
 }
