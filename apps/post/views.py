@@ -15,8 +15,7 @@ class CreateDenuncia(CreateView):
 	def form_valid(self, form):
 		obj = form.save(commit=False)
 		obj.created_by = self.request.user
-		obj.save()
-		return HttpResponseRedirect(self.get_success_url())
+		return super(CreateDeununcia, self).form_valid(form)
 
 class CreatePostInformativo(CreateView):
 	form_class = CreatePostInformativo
@@ -26,8 +25,7 @@ class CreatePostInformativo(CreateView):
 	def form_valid(self, form):
 		obj = form.save(commit=False)
 		obj.created_by = self.request.user
-		obj.save()
-		return HttpResponseRedirect(self.get_success_url())
+		return super(CreatePostInformativo, self).form_valid()
 
 class ListDenuncia(ListView):
 	model = Denuncia
