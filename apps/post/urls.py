@@ -8,7 +8,7 @@ urlpatterns = [
 	path('create-info/', views.CreatePostInformativo.as_view(), name='create-info'),
 
 	# Urls to lists posts
-	path('denuncia/', views.ListDenuncia.as_view(), name='denuncia-home'),
+	path('denuncia/', views.listar, name='denuncia-home'),
 	path('info/', views.ListPostInformativo.as_view(), name='info-home'),
 
 ]

@@ -3,24 +3,20 @@ from .models import Denuncia, PostInformativo, PostBase
 from .utils import TipoDenunciaEnum
 
 
-class BaseForm(forms.ModelForm):
-	class Meta:
-		model = PostBase
-		fields = ['img']
 
-class CreateDenuncia(BaseForm):
+class CreateDenuncia(forms.ModelForm):
 	tipo = forms.ChoiceField(choices=TipoDenunciaEnum.choices())
 	text = forms.CharField(max_length=500)
 
 	class Meta:
 		model = Denuncia
-		fields = ['tipo', 'text']
+		fields = ['tipo', 'text', 'img']
 
-class CreatePostInformativo(BaseForm):
+class CreatePostInformativo(forms.ModelForm):
 	text = forms.CharField(max_length=1000)
 
 	class Meta:
 		model = PostInformativo
-		fields = ['text']
+		fields = ['text', 'img']
 
 

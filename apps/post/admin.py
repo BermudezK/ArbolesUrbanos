@@ -2,5 +2,9 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
+from . models import Denuncia, PostInformativo
 
-# Register your models here.
+
+
+admin.site.register(Denuncia)
+admin.site.register(PostInformativo)

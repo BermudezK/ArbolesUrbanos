@@ -23,40 +23,48 @@
 
     <div class="container">
         <div class="cards-container ml-md-5 mt-3">
-            <div class="card mb-3 cards1">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{% static 'img/imagenCard.png' %}" width="179px" height="240px" class="card-img" alt="...">
-                        <img src="{% static 'img/iconos/denun.png' %}" class="iconos" alt="">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <strong class="d-inline-block mb-2 text-warning">Denuncias</strong>
-                            <h5 class="card-title">Título</h5>
-                            <div class="mb-1 text-muted">30 de Octubre</div>
-                            <p class="card-text limitar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta saepe
-                                    . Veritatis aliquam atque enim, nam architecto ullam aspernatur... <a href="#">Ver más</a></p>
+            {% for o in denuncias %}
+                <div class="card mb-3 cards1">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            {% if o.img %}
+                                <img src="{{o.img.url}}" width="179px" height="240px" clasobject_lists="card-img" alt="...">
+                            {% else %}
+                                <img src="..." class="card-img-top" alt="...">
+                            {% endif %}
+                            <img src="{% static 'img/iconos/denun.png' %}" class="iconos" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <strong class="d-inline-block mb-2 text-warning">Denuncias</strong>
+                                <h5 class="card-title">Titulo</h5>
+                                <div class="mb-1 text-muted">{{o.creation_date}}</div>
+                                <p class="card-text limitar">{{o.text}} <a href="#">Ver más</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card mb-3 cards1">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{% static 'img/imagenCard.png' %}" width="179px" height="240px" class="card-img" alt="...">
-                        <img src="{% static 'img/iconos/informacion.png' %}" class="iconos" alt="">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <strong class="d-inline-block mb-2 text-danger">Información</strong>
-                            <h5 class="card-title">Título</h5>
-                            <div class="mb-1 text-muted">30 de Octubre</div>
-                            <p class="card-text limitar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta saepe
-                                . Veritatis aliquam atque enim, nam architecto ullam aspernatur... <a href="#">Ver más</a></p>
+            {% endfor %}
+
+            {% for i in informativo %}
+                <div class="card mb-3 cards1">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{i.img.url}}" width="179px" height="240px" class="card-img" alt="...">
+                            <img src="{% static 'img/iconos/informacion.png' %}" class="iconos" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <strong class="d-inline-block mb-2 text-danger">Información</strong>
+                                <h5 class="card-title">Título</h5>
+                                <div class="mb-1 text-muted"> {{i.creation_date}}</div>
+                                <p class="card-text limitar">{{i.text}}<a href="#">Ver más</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
+
             <div class="card mb-3 cards1">
                 <div class="row no-gutters">
                     <div class="col-md-4">

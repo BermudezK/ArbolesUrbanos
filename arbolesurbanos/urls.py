@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.contrib.auth import views as view
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     #url principal
@@ -25,4 +27,4 @@ urlpatterns = [
     #url Password
     path('accounts/', include('django.contrib.auth.urls')),
     re_path('accounts/reset/<uidb64>/<token>/',view.PasswordResetConfirmView.as_view(template_name = 'registration/password_reset_confirm.html'), name='password_reset_confirm'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
