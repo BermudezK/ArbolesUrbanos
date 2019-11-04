@@ -1,0 +1,28 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-img {
+    margin-left: 0px;
+}
+
+.cards1 {
+    max-width: 650px;
+}
+
+.card-img {
+    margin-left: 0px;
+}
+
+.iconos {
+    position: absolute; 
+    right: 600px; 
+    left: 5px; 
+    top: 192px; 
+    margin-left: 0px;
+}
+
+.no-gutters {
+    padding: 15px;
+    border: 1px solid #155E63;
+}

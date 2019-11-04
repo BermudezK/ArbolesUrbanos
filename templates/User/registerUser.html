@@ -7,11 +7,7 @@
 
 {% load static %}
 
-<head>
-
-</head>
-
-<body>
+<main role="main">
     <div class="container">
         <div class="row" id="rowGral">
             <div class="col-md-6 col-sm-12" id="registro">
@@ -42,7 +38,7 @@
                                 <label for="last_name">Apellido:</label>
                                 {{form.last_name}}
                                 <small id="lastnameHelpText" class="text-muted">
-                                    Debe contener cómo minimo 3 y maximo 30 caracteres.
+                                    Debe contener cómo minimo 3 y máximo 30 caracteres.
                                 </small>
                                 {% if form.last_name.errors %}
                                 <small style="color: red">
@@ -162,7 +158,7 @@
 
     </div>
 
-</body>
+</main>
 
 <script>
 
