@@ -12,8 +12,8 @@
 {% endblock header%}
 
 {% block sidenav%}
-<div class="col-2 d-sm-block p-2 collapse" id="sidebar">
-    <nav class="nav align-items-start flex-column justify-content-start  sticky-offset sticky-top mx-0" role="tablist"
+<div class="col-3 col-lg-2 d-sm-block p-2 collapse" id="sidebar">
+    <nav class="nav flex-column  align-items-center justify-content-start  sticky-offset sticky-top mx-0" role="tablist"
         aria-orientation="vertical">
         <a href="#" class="p-1 nav-item nav-link">
             <!-- <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/complaint.png' %}" alt=""> -->
@@ -47,7 +47,7 @@
         </div>
 
         <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse" data-target="#submenu2"
-            aria-expanded="false" aria-controls="submenu1" title="Denuncias">
+            aria-expanded="false" aria-controls="submenu1" title="Información">
 
             <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/info.png' %}"
                 alt="Información">
@@ -101,10 +101,10 @@
 </div>
 {% endblock sidenav%}
 {% block content %}
-<div class="col-10 overflow-auto align-self-end">
-    <button class="d-sm-none" data-toggle="collapse" data-target="#sidebar" aria-controls="navbarTogglerDemo03"
+<div class="col-9 col-lg-10 align-self-end justify-content-end overflow-auto">
+    <button class="d-sm-none btn menu fixed-bottom " data-toggle="collapse" data-target="#sidebar" aria-controls="navbarTogglerDemo03"
         aria-expanded="false" aria-label="Toggle navigation">
-        Abrir
+        <img class='img-responsive p-1' width="40" height="50" src="{% static 'img/iconos/menu2.png' %}" alt="Eventos">
     </button>
     {% if user.is_staff %}
     <p>TEMPLATE DE ADMINISTRADOR</p>
