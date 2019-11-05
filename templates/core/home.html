@@ -2,6 +2,9 @@
 
 {% load static %}
 
+{%block styleLink %}
+<link rel="stylesheet" href="{%static 'css/homeStyle.css'%}">
+{%endblock styleLink%}
 {% block title %}Inicio{% endblock title %}
 
 {% block header%}
@@ -9,28 +12,107 @@
 {% endblock header%}
 
 {% block sidenav%}
-{%if user.is_authenticated%}
-    <div class="col-2 p-0">
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"  aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+<div class="col-2 d-sm-block p-2 collapse" id="sidebar">
+    <nav class="nav align-items-start flex-column justify-content-start  sticky-offset sticky-top mx-0" role="tablist"
+        aria-orientation="vertical">
+        <a href="#" class="p-1 nav-item nav-link">
+            <!-- <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/complaint.png' %}" alt=""> -->
+            <p class="d-none d-sm-none d-md-inline">Arboles</p>
+        </a>
+        <!-- item collapsado -->
+        <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse" data-target="#submenu1"
+            aria-expanded="false" aria-controls="submenu1" title="Denuncias">
+            <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/complaint.png' %}"
+                alt="Denuncias">
+            <p class="d-none d-sm-none d-md-inline">Denuncias</p>
+        </a>
+        <!-- submenu -->
+        <div class="collapse multi-collapse" id="submenu1" data-parent="#sidebar">
+            <ul class="flex-column nav pl-1">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="collapse" title="Ver Todas">
+                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/see.png' %}"
+                            alt="Eventos">
+                        <p class="d-none d-sm-none d-md-inline">Ver Todos</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="collapse" title="Nuevo">
+                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/create.png' %}"
+                            alt="Eventos">
+                        <p class="d-none d-sm-none d-md-inline">Nuevo</p>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </div>
-{%endif%}
+
+        <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse" data-target="#submenu2"
+            aria-expanded="false" aria-controls="submenu1" title="Denuncias">
+
+            <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/info.png' %}"
+                alt="Información">
+            <p class="d-none d-sm-none d-md-inline">Información</p>
+        </a>
+        <!-- submenu -->
+        <div class="collapse multi-collapse p-1" id="submenu2" aria-expanded="false" data-parent="#sidebar">
+            <ul class="flex-column nav pl-1">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="collapse" title="Ver Todas">
+                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/see.png' %}"
+                            alt="Eventos">
+                        <p class="d-none d-sm-none d-md-inline">Ver Todos</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="collapse" title="Nuevo">
+                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/create.png' %}"
+                            alt="Eventos">
+                        <p class="d-none d-sm-none d-md-inline">Nuevo</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse" data-target="#submenu3"
+            aria-expanded="false" aria-controls="submenu1" title="Eventos">
+            <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/events.png' %}" alt="Eventos">
+            <p class="d-none d-sm-none d-md-inline">Eventos</p>
+        </a>
+        <!-- submenu -->
+        <div class="collapse multi-collapse" id="submenu3" aria-expanded="false" data-parent="#sidebar">
+            <ul class="flex-column nav pl-1">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="collapse" title="Ver Todas">
+                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/see.png' %}"
+                            alt="Eventos">
+                        <p class="d-none d-sm-none d-md-inline">Ver Todos</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="collapse" title="Nuevo">
+                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/create.png' %}"
+                            alt="Eventos">
+                        <p class="d-none d-sm-none d-md-inline">Nuevo</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
 {% endblock sidenav%}
 {% block content %}
-
-<div class="col-10">
-
+<div class="col-10 overflow-auto align-self-end">
+    <button class="d-sm-none" data-toggle="collapse" data-target="#sidebar" aria-controls="navbarTogglerDemo03"
+        aria-expanded="false" aria-label="Toggle navigation">
+        Abrir
+    </button>
     {% if user.is_staff %}
     <p>TEMPLATE DE ADMINISTRADOR</p>
     <p>{{user.is_staff}}</p>
     {% else %}
     <!-- Mensaje -->
     <p>{{ user.is_staff }}</p>
-    <section class="page-section cta">
+    <section class="page-section">
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 mx-auto">
@@ -39,9 +121,89 @@
                             <span class="section-heading-upper">Compromiso total</span>
                             <span class="section-heading-lower">Garantizado</span>
                         </h2>
-                        <p class="mb-0">Sed pulvinar blandit elit id venenatis. Ut eget lacus neque. Nullam justo quam,
+                        <p class="mb-0">Sed pulvinar blandit elit id venenatis. Ut eget lacus neque. Nullam justo
+                            quam,Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, illo iure. Blanditiis
+                            dignissimos sequi ab voluptas perferendis quod, deserunt delectus officia minima ullam
+                            excepturi? Possimus laboriosam error numquam veritatis placeat!Lorem
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit exercitationem eos nisi
+                            quisquam quas, provident esse temporibus eum dolore rem animi cupiditate perferendis ipsam
+                            obcaecati quidem minus recusandae explicabo excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.
+
                             efficitur nec turpis vitae, efficitur posuere ligula. Proin ut turpis orci. Aenean porta
-                            sodales lectus faucibus pellentesque. In sed felis iaculis, rhoncus felis a, maximus mi.</p>
+                            sodales lectus faucibus pellentesque. In sed felis iaculis, rhoncus felis a, maximus mi.
+                        </p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,17 @@
+#sidebar  {
+    background-color: #155e63;
+}
+
+.sticky-offset{
+    top: 5.9em;
+}
+
+.icono {
+    width: 20px;
+    height: auto;
+}
+
+#sidebar a {
+    text-decoration: none;
+    color: #f9f8eb;
+}

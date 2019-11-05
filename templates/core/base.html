@@ -1,23 +1,25 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="es" class="h-100">
+<html lang="es">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}"> {% block styleLink %} {% endblock styleLink %}
+        <link rel="stylesheet" href="{%static 'css/css boostrap/bootstrap.css'%}">
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> -->
+        <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}">
+        {% block styleLink %} {% endblock styleLink %}
 
         <script src="https://kit.fontawesome.com/d0dc8f6bcc.js" crossorigin="anonymous"></script>
         <title>{% block title %}{% endblock title%} | Arboles Urbanos</title>
 
     </head>
 
-    <body class="d-flex flex-column h-100">
+    <body class="">
         <!-- Cabecera -->
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-sm sticky-top">
             <div class="container">
                 <a href="{% url 'home' %}" class="navbar-brand">
                     <img width="60" height="60" src="{% static 'img/iconos/logoarboles_sin_letra.png' %}"
@@ -56,7 +58,7 @@
             <!-- </div> -->
         </nav>
 
-        <main class="container-fluid">
+        <main role="main" class="container-fluid">
             <div class="row">
                 {% block sidenav%}
                 {% endblock sidenav%}
@@ -90,7 +92,7 @@
             </div>
         </footer>
         <!-- Bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -99,5 +101,10 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-        <script type="text/javascript" src="js/mdb.min.js"></script>
+        <script type="text/javascript" src="js/mdb.min.js"></script> -->
+
+        <!-- BOOSTRAP LOCAL -->
+        <script src="{%static 'js/js boostrap/jquery.js'%}"></script>
+        <script src="{%static 'js/js boostrap/bootstrap.js'%}"></script>
+
     </body>
