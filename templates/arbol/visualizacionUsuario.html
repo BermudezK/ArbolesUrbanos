@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>arboles</title>
-</head>
-<body>
-	<div>
-		{% if arbol %}
-			<h1>Arboles plantados: {{arbol.quantity}}</h1>
-		{% else %}
-			<h1>No existe</h1>
-		{% endif %}		
-	</div>
-</body>
-</html> 
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{%block styleLink %}
+<link rel="stylesheet" href="{%static 'css/homeStyle.css'%}">
+{%endblock styleLink%}
+{% block title %}Inicio{% endblock title %}
+
+{% block sidenav %}{% endblock sidenav %}
+
+{% block content %}
+<div>
+	{% if arbol %}
+	<h1>Arboles plantados: {{arbol.quantity}}</h1>
+	{% else %}
+	<h1>No existe</h1>
+	{% endif %}
+</div>
+
+{% endblock content %}

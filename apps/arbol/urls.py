@@ -6,12 +6,12 @@ app_name = 'arbol'
 
 urlpatterns = [
 	
-	# Usuario
+	# Administrador
 	path('Arboles/',views.show_tree, name = 'show_tree'),
 	path('nuevo/',views.nuevo.as_view(), name = 'nuevo'),
 	path('editar/',views.edit_tree, name = 'edit_tree'),
 
-	# Administrador
+	# Usuario
 	path('ArbolesU/',views.show_tree_user, name = "show_tree_user"),
 	
 ]

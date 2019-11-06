@@ -11,95 +11,7 @@
 <!-- Cabecera -->
 {% endblock header%}
 
-{% block sidenav%}
-<div class="col-3 col-lg-2 d-sm-block p-2 collapse" id="sidebar">
-    <nav class="nav flex-column  align-items-center justify-content-start  sticky-offset sticky-top mx-0" role="tablist"
-        aria-orientation="vertical">
-        <a href="#" class="p-1 nav-item nav-link">
-            <!-- <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/complaint.png' %}" alt=""> -->
-            <p class="d-none d-sm-none d-md-inline">Arboles</p>
-        </a>
-        <!-- item collapsado -->
-        <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse" data-target="#submenu1"
-            aria-expanded="false" aria-controls="submenu1" title="Denuncias">
-            <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/complaint.png' %}"
-                alt="Denuncias">
-            <p class="d-none d-sm-none d-md-inline">Denuncias</p>
-        </a>
-        <!-- submenu -->
-        <div class="collapse multi-collapse" id="submenu1" data-parent="#sidebar">
-            <ul class="flex-column nav pl-1">
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="collapse" title="Ver Todas">
-                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/see.png' %}"
-                            alt="Eventos">
-                        <p class="d-none d-sm-none d-md-inline">Ver Todos</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="collapse" title="Nuevo">
-                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/create.png' %}"
-                            alt="Eventos">
-                        <p class="d-none d-sm-none d-md-inline">Nuevo</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
 
-        <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse" data-target="#submenu2"
-            aria-expanded="false" aria-controls="submenu1" title="Información">
-
-            <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/info.png' %}"
-                alt="Información">
-            <p class="d-none d-sm-none d-md-inline">Información</p>
-        </a>
-        <!-- submenu -->
-        <div class="collapse multi-collapse p-1" id="submenu2" aria-expanded="false" data-parent="#sidebar">
-            <ul class="flex-column nav pl-1">
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="collapse" title="Ver Todas">
-                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/see.png' %}"
-                            alt="Eventos">
-                        <p class="d-none d-sm-none d-md-inline">Ver Todos</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="collapse" title="Nuevo">
-                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/create.png' %}"
-                            alt="Eventos">
-                        <p class="d-none d-sm-none d-md-inline">Nuevo</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse" data-target="#submenu3"
-            aria-expanded="false" aria-controls="submenu1" title="Eventos">
-            <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/events.png' %}" alt="Eventos">
-            <p class="d-none d-sm-none d-md-inline">Eventos</p>
-        </a>
-        <!-- submenu -->
-        <div class="collapse multi-collapse" id="submenu3" aria-expanded="false" data-parent="#sidebar">
-            <ul class="flex-column nav pl-1">
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="collapse" title="Ver Todas">
-                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/see.png' %}"
-                            alt="Eventos">
-                        <p class="d-none d-sm-none d-md-inline">Ver Todos</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="collapse" title="Nuevo">
-                        <img class='img-responsive' width="40" height="40" src="{% static 'img/iconos/create.png' %}"
-                            alt="Eventos">
-                        <p class="d-none d-sm-none d-md-inline">Nuevo</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
-{% endblock sidenav%}
 {% block content %}
 <div class="col-9 col-lg-10 align-self-end justify-content-end overflow-auto">
     <button class="d-sm-none btn menu fixed-bottom " data-toggle="collapse" data-target="#sidebar" aria-controls="navbarTogglerDemo03"
@@ -112,7 +24,7 @@
     {% else %}
     <!-- Mensaje -->
     <p>{{ user.is_staff }}</p>
-    <section class="page-section">
+    <section class="page-section flex-shrink-1">
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 mx-auto">

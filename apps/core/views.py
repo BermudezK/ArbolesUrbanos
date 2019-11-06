@@ -1,18 +1,26 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.core.mail import EmailMessage
+from apps.arbol.models import Tree
 
 from .forms import ContactForm
 
 # Create your views here.
-def Inicio (request):
-    return render (request, 'core/home.html')
 
-def contacto (request):
+
+def Inicio(request):
+    # AGREGUE LAS 3 LINEAS SIGUIENTES DE CODIGO PARA PODER OBTENER EN TODO MOMENTO LA CANTIDAD DE ARBOLES PNATADOS POR LA ONG
+    context = {}
+    p = Tree.objects.get(pk=1)
+    context['arbol'] = p
+    return render(request, 'core/home.html', context)
+
+
+def contacto(request):
 
     contact_form = ContactForm()
     if not request.user == 'AnonymousUser':
-        data={
+        data = {
             'name': request.POST.get('name'),
             'surname': request.POST.get('surname'),
             'email': request.POST.get('email'),
@@ -20,7 +28,7 @@ def contacto (request):
             'content': request.POST.get('content'),
         }
     else:
-        data={
+        data = {
             'name': request.user.first_name,
             'surname': request.user.last_name,
             'email': request.user.email,
@@ -37,17 +45,18 @@ def contacto (request):
             subject = data.get('subject')
             content = data.get('content')
 
-            #Enviamos el correo y redireccionamos
+            # Enviamos el correo y redireccionamos
             email = EmailMessage(
-                "Arboles Urbanos: Nuevo mensaje de contacto", #asunto
-                "De: {} <{}>\n\n Asunto: {}\n\n Escribio:\n {}".format(name,email,subject,content), #cuerpo 
-                "{}".format(email), #email_origen
-                ["softwaremovement19@gmail.com"], #email_destino
+                "Arboles Urbanos: Nuevo mensaje de contacto",  # asunto
+                "De: {} <{}>\n\n Asunto: {}\n\n Escribio:\n {}".format(
+                    name, email, subject, content),  # cuerpo
+                "{}".format(email),  # email_origen
+                ["softwaremovement19@gmail.com"],  # email_destino
                 reply_to=[email]
             )
-            
-            #Suponemos que todo ha ido bien, entonces redireccionamos
-            #return redirect(reverse('contact:contact')+"?ok")
+
+            # Suponemos que todo ha ido bien, entonces redireccionamos
+            # return redirect(reverse('contact:contact')+"?ok")
             try:
                 "Redireccionamos a OK"
                 email.send()
@@ -56,8 +65,4 @@ def contacto (request):
                 "Redireccionamos a FAIL"
                 return redirect(reverse('contacto')+"?fail")
 
-    return render(request, 'core/contacto.html',{'form':contact_form})
-
-
-
-
+    return render(request, 'core/contacto.html', {'form': contact_form})
