@@ -10,6 +10,8 @@
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> -->
         <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}">
+        <link rel="stylesheet" href="{%static 'css/homeStyle.css'%}">
+
         {% block styleLink %} {% endblock styleLink %}
 
         <script src="https://kit.fontawesome.com/d0dc8f6bcc.js" crossorigin="anonymous"></script>
@@ -65,14 +67,26 @@
                     <div class="col-3 col-lg-2 d-sm-block p-2 collapse" id="sidebar">
                         <nav class="nav flex-column  align-items-center justify-content-start  sticky-offset sticky-top mx-0"
                             role="tablist" aria-orientation="vertical">
-                            <a href="#" class="p-1 d-none d-sm-none d-md-inline nav-item nav-link arboles">
-                                <!-- <img class='img-responsive' width="50" height="50" src="{% static 'img/iconos/complaint.png' %}" alt=""> -->
+
+                            <!-- ESTE ES EL BOTON PARA LOS ARBOLES PLANTADOS -->
+                            {% if user.is_staff %}
+                            <a href="{% url 'arbol:show_tree' %}"
+                                class="p-1 d-none d-sm-none d-md-inline nav-item nav-link arboles"
+                                title="Número de árboles sensados">
                                 <h1 class="p-5">{{arbol.quantity}}</h1>
                             </a>
+                            {% else %}
+                            <a href="{% url 'arbol:show_tree_user' %}"
+                                class="p-1 d-none d-sm-none d-md-inline nav-item nav-link arboles"
+                                title="Número de árboles sensados">
+                                <h1 class="p-5">{{arbol.quantity}}</h1>
+                            </a>
+                            {%endif%}
                             <!-- item collapsado -->
                             <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse"
                                 data-target="#submenu1" aria-expanded="false" aria-controls="submenu1"
                                 title="Denuncias">
+                                <!-- DENUNCIAS -->
                                 <img class='img-responsive' width="50" height="50"
                                     src="{% static 'img/iconos/complaint.png' %}" alt="Denuncias">
                                 <p class="d-none d-sm-none d-md-inline">Denuncias</p>
@@ -81,6 +95,7 @@
                             <div class="collapse multi-collapse" id="submenu1" data-parent="#sidebar">
                                 <ul class="flex-column nav pl-1">
                                     <li class="nav-item">
+                                        <!-- VER TODAS LAS DENUNCUAS -->
                                         <a href="#" class="nav-link" data-toggle="collapse" title="Ver Todas">
                                             <img class='img-responsive' width="40" height="40"
                                                 src="{% static 'img/iconos/see.png' %}" alt="Eventos">
@@ -88,6 +103,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <!-- NUEVA DENUNCIA -->
                                         <a href="#" class="nav-link" data-toggle="collapse" title="Nuevo">
                                             <img class='img-responsive' width="40" height="40"
                                                 src="{% static 'img/iconos/create.png' %}" alt="Eventos">
@@ -125,14 +141,14 @@
                                     </li>
                                 </ul>
                             </div>
-
-                            <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse"
+                            <!-- ESTAS INEAS SE DOCUMENTAN PERO SE USARAN CUANDO LOGREMOS IMPLEMENTAR LA PARTE DE EVENTOS -->
+                            <!-- <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse"
                                 data-target="#submenu3" aria-expanded="false" aria-controls="submenu1" title="Eventos">
                                 <img class='img-responsive' width="50" height="50"
                                     src="{% static 'img/iconos/events.png' %}" alt="Eventos">
                                 <p class="d-none d-sm-none d-md-inline">Eventos</p>
                             </a>
-                            <!-- submenu -->
+                                    submenu
                             <div class="collapse multi-collapse" id="submenu3" aria-expanded="false"
                                 data-parent="#sidebar">
                                 <ul class="flex-column nav pl-1">
@@ -151,7 +167,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </nav>
                     </div>
                     {% endblock sidenav%}

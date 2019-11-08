@@ -17,7 +17,7 @@ def Inicio(request):
 
 
 def contacto(request):
-
+    print(request.user.get_all_permissions())
     contact_form = ContactForm()
     if not request.user == 'AnonymousUser':
         data = {

@@ -4,18 +4,34 @@
 
 {%block styleLink %}
 <link rel="stylesheet" href="{%static 'css/homeStyle.css'%}">
+
 {%endblock styleLink%}
 {% block title %}Inicio{% endblock title %}
-
-{% block sidenav %}{% endblock sidenav %}
-
 {% block content %}
-<div>
-	{% if arbol %}
-	<h1>Arboles plantados: {{arbol.quantity}}</h1>
-	{% else %}
-	<h1>No existe</h1>
-	{% endif %}
+<div class="col col-lg-10 align-self-center overflow-auto mt-4 mb-4" id="colGral"
+	style="min-height: 23.5em; max-height: 80px; height:100px;">
+	<button class="d-sm-none btn menu fixed-bottom " data-toggle="collapse" data-target="#sidebar"
+		aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		<img class='img-responsive p-1' width="40" height="50" src="{% static 'img/iconos/menu2.png' %}" alt="Eventos">
+	</button>
+
+	<!-- <section class=""> -->
+	<section class="page-section flex-shrink-1">
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-3 col-sm-12 align-self-center">
+
+					<img src="{% static 'img/iconos/tree1.png' %}" alt="arbol">
+					{% if arbol %}
+					<h1>Arboles plantados: {{arbol.quantity}}</h1>
+					{% else %}
+					<h1>No existe</h1>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 {% endblock content %}
