@@ -7,6 +7,7 @@ from .utils import TipoDenunciaEnum
 class CreateDenuncia(forms.ModelForm):
 	tipo = forms.ChoiceField(choices=TipoDenunciaEnum.choices())
 	text = forms.CharField(max_length=500)
+	# falta definir el titulo para los posts
 
 	class Meta:
 		model = Denuncia
