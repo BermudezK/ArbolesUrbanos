@@ -2,47 +2,120 @@
 
 {% load static %}
 
+{%block styleLink %}
+<link rel="stylesheet" href="{%static 'css/homeStyle.css'%}">
+{%endblock styleLink%}
 {% block title %}Inicio{% endblock title %}
 
 {% block header%}
 <!-- Cabecera -->
-    <section class="page-section clearfix">
-        <div class="container-fluid">
-            <div class="intro">
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="#" alt="">
-                <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                    <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Déjate sorprender</span>
-                    <span class="section-heading-lower">Te gustará</span>
-                    </h2>
-                </div>
-                </div>
-        </div>
-    </section>
 {% endblock header%}
 
-{% block content %}
 
-    {% if user.is_staff %}
-        <p>TEMPLATE DE ADMINISTRADOR</p>
-        <p>{{user.is_staff}}</p>
-    {% else %}
-        <!-- Mensaje -->
-            <p>{{ user.is_staff }}</p>
-            <section class="page-section cta">
-                <div class="container">
-                    <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner text-center rounded">
+{% block content %}
+<div class="col-9 col-lg-10 align-self-end justify-content-center overflow-auto">
+    <button class="d-sm-none btn menu fixed-bottom " data-toggle="collapse" data-target="#sidebar" aria-controls="navbarTogglerDemo03"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <img class='img-responsive p-1' width="40" height="50" src="{% static 'img/iconos/menu2.png' %}" alt="Eventos">
+    </button>
+   
+    <section class="page-section flex-shrink-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner text-center rounded">
                         <h2 class="section-heading mb-4">
                             <span class="section-heading-upper">Compromiso total</span>
                             <span class="section-heading-lower">Garantizado</span>
                         </h2>
-                        <p class="mb-0">Sed pulvinar blandit elit id venenatis. Ut eget lacus neque. Nullam justo quam, efficitur nec turpis vitae, efficitur posuere ligula. Proin ut turpis orci. Aenean porta sodales lectus faucibus pellentesque. In sed felis iaculis, rhoncus felis a, maximus mi.</p>
-                        </div>
-                    </div>
+                        <p class="mb-0">Sed pulvinar blandit elit id venenatis. Ut eget lacus neque. Nullam justo
+                            quam,Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, illo iure. Blanditiis
+                            dignissimos sequi ab voluptas perferendis quod, deserunt delectus officia minima ullam
+                            excepturi? Possimus laboriosam error numquam veritatis placeat!Lorem
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit exercitationem eos nisi
+                            quisquam quas, provident esse temporibus eum dolore rem animi cupiditate perferendis ipsam
+                            obcaecati quidem minus recusandae explicabo excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            excepturi?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            laudantium reprehenderit aspernatur beatae, magni ipsum!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.
+
+                            efficitur nec turpis vitae, efficitur posuere ligula. Proin ut turpis orci. Aenean porta
+                            sodales lectus faucibus pellentesque. In sed felis iaculis, rhoncus felis a, maximus mi.
+                        </p>
                     </div>
                 </div>
-            </section>
-    {% endif %}
+            </div>
+        </div>
+    </section>
+   
+</div>
 {% endblock content %}
