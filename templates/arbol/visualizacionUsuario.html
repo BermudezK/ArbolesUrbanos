@@ -19,14 +19,13 @@
 	<section class="page-section flex-shrink-1">
 
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-3 col-sm-12 align-self-center">
-
-					<img src="{% static 'img/iconos/tree1.png' %}" alt="arbol">
+			<div class="row justify-content-center align-items-center my-5">
+				<div class="col-md-6 col-sm-12 align-self-center ">
+					<img class="mx-auto d-block" src="{% static 'img/iconos/tree1.png' %}" alt="arbol">
 					{% if arbol %}
 					<h1>Arboles plantados: {{arbol.quantity}}</h1>
 					{% else %}
-					<h1>No existe</h1>
+					<h1>No han habilitado esta opción aun</h1>
 					{% endif %}
 				</div>
 			</div>
