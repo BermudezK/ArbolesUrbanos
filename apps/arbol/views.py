@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 from .models import Tree
 # Create your views here.
 
-# Vista del Administrador
+
 def show_tree(request):
 	context = {}
 	p = Tree.objects.get(pk=1)

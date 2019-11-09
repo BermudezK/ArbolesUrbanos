@@ -1,9 +1,33 @@
+
 footer{
-    background-color: grey;
+    background-color: #76b39d;
+    color: #f9f8eb;
 }
 .footer-icon {
     min-height: 2em;
     min-width: 2em;
     max-height: 2em;
     max-width: 2em;
+}
+
+.navbar {
+    background-color: #155e63;
+    color: #f9f8eb;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #f9f8eb;
+}
+
+.navbar .dropdown-item {
+    color:#155e63;
+}
+.navbar .dropdown-item:hover {
+    background-color: #eae7e7;
+}
+
+.navbar .dropdown-item:active {
+    background-color: #76b39d;
+    text-decoration: none;
 }
