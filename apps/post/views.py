@@ -31,8 +31,8 @@ class CreatePostInformativo(CreateView):
 
 def listar(request):
 	context = {}
-	de = Denuncia.objects.all()
-	lp = PostInformativo.objects.all()
+	de = Denuncia.objects.order_by('-creation_date')
+	lp = PostInformativo.objects.order_by('-creation_date')
 
 	context['denuncias'] = de
 	context['informativo'] = lp
@@ -41,13 +41,24 @@ def listar(request):
 
 
 
-class ListDenuncia(ListView):
+class ListPostDenuncia(ListView):
 	model = Denuncia
-	template_name = 'core/home.html'
+	template_name = 'core/denuncias.html'
+
+	def get_queryset(self):
+		result = Denuncia.objects.order_by('-creation_date')
+		return result
 
 class ListPostInformativo(ListView):
 	model = PostInformativo
-	template_name = 'Post/listar.html'
+	template_name = 'core/informativo.html'
+
+	def get_queryset(self):
+		result = PostInformativo.objects.order_by('-creation_date')
+		return result
+
+class ListPostEventos(ListView):
+	pass
 
 
 

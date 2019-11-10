@@ -12,7 +12,7 @@ urlpatterns = [
     path('arbol/', include('apps.arbol.urls')),
 
     # urls de post
-    path('post/', include('apps.post.urls')),
+    path('', include('apps.post.urls')),
     
     #urls de core
     path('', include('apps.core.urls')),
