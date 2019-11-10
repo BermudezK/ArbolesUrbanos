@@ -33,6 +33,14 @@ body{
 .contacto {
     background-color: #76b39d;
 }
+.contact {
+    background-color: #A5B94A;
+    color: white;
+}
+.contact:hover {
+    background-color: #155e63;
+    color: white;
+}
 
 .landing-footer {
     padding: 2.5rem 0;
