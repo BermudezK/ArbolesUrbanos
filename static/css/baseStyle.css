@@ -31,3 +31,12 @@ footer{
     background-color: #76b39d;
     text-decoration: none;
 }
+
+.register {
+    background-color: #A5B94A;
+    color: white;
+}
+.register:hover {
+    background-color: #155e63;
+    color: white;
+}
