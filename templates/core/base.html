@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- <link rel="stylesheet" href="{%static 'css/css boostrap/bootstrap.css'%}">-->
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}">
         <link rel="stylesheet" href="{%static 'css/homeStyle.css'%}">
@@ -29,11 +29,14 @@
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <img class='navbar-icon' width="60" height="60" src="{% static 'img/iconos/menu.png' %}" alt="">
+                    <img class='navbar-icon' width="25" height="25" src="{% static 'img/iconos/menu.png' %}" alt="">
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link my-2" href="{% url 'landing' %}">Quienes somos</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link my-2" href="{% url 'contacto' %}">Contacto</a>
                         </li>

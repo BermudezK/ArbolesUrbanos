@@ -14,107 +14,175 @@
 
 {% block content %}
 <div class="col-9 col-lg-10 align-self-end justify-content-center overflow-auto">
-    <button class="d-sm-none btn menu fixed-bottom " data-toggle="collapse" data-target="#sidebar" aria-controls="navbarTogglerDemo03"
-        aria-expanded="false" aria-label="Toggle navigation">
+    <button class="d-sm-none btn menu fixed-bottom " data-toggle="collapse" data-target="#sidebar"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <img class='img-responsive p-1' width="40" height="50" src="{% static 'img/iconos/menu2.png' %}" alt="Eventos">
     </button>
-    {% if user.is_staff %}
-    <p>TEMPLATE DE ADMINISTRADOR</p>
-    <p>{{user.is_staff}}</p>
-    {% else %}
-    <!-- Mensaje -->
-    <p>{{ user.is_staff }}</p>
     <section class="page-section flex-shrink-1">
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 mx-auto">
                     <div class="cta-inner text-center rounded">
+                        {% if user.is_staff %}
                         <h2 class="section-heading mb-4">
                             <span class="section-heading-upper">Compromiso total</span>
                             <span class="section-heading-lower">Garantizado</span>
                         </h2>
-                        <p class="mb-0">Sed pulvinar blandit elit id venenatis. Ut eget lacus neque. Nullam justo
-                            quam,Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, illo iure. Blanditiis
-                            dignissimos sequi ab voluptas perferendis quod, deserunt delectus officia minima ullam
+                        <p class="mb-0">{{user.is_staff}}</p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi non quibusdam aut temporibus necessitatibus. Consectetur placeat dolores quibusdam eveniet, neque voluptatum consequuntur voluptas, nostrum illum iste maxime dicta? Voluptas, quisquam?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi, dignissimos repudiandae expedita aliquid at blanditiis ex dolorum recusandae ab natus rerum explicabo ad consequuntur. Doloribus saepe necessitatibus praesentium enim.
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ea ex mollitia asperiores accusantium quasi magni, dignissimos cupiditate nihil. Harum, repellat officia. Consequuntur, quasi aspernatur veniam et tempore fuga accusamus!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet natus est repellendus in, quasi eaque quas sequi perspiciatis laudantium dolorem enim maiores cupiditate ducimus, tempore officiis vero minus dolores vitae.
+                            ipsum dolor sit amet consectetur adipisicing elit. Excepturi non quibusdam aut temporibus necessitatibus. Consectetur placeat dolores quibusdam eveniet, neque voluptatum consequuntur voluptas, nostrum illum iste maxime dicta? Voluptas, quisquam?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi, dignissimos repudiandae expedita aliquid at blanditiis ex dolorum recusandae ab natus rerum explicabo ad consequuntur. Doloribus saepe necessitatibus praesentium enim.                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi, dignissimos repudiandae expedita aliquid at blanditiis ex dolorum recusandae ab natus rerum explicabo ad consequuntur. Doloribus saepe necessitatibus praesentium enim.                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi, dignissimos repudiandae expedita aliquid at blanditiis ex dolorum recusandae ab natus rerum explicabo ad consequuntur. Doloribus saepe necessitatibus praesentium enim.                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi, dignissimos repudiandae expedita aliquid at blanditiis ex dolorum recusandae ab natus rerum explicabo ad consequuntur. Doloribus saepe necessitatibus praesentium enim.
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ea ex mollitia asperiores accusantium quasi magni, dignissimos cupiditate nihil. Harum, repellat officia. Consequuntur, quasi aspernatur veniam et tempore fuga accusamus!                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ea ex mollitia asperiores accusantium quasi magni, dignissimos cupiditate nihil. Harum, repellat officia. Consequuntur, quasi aspernatur veniam et tempore fuga accusamus!                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ea ex mollitia asperiores accusantium quasi magni, dignissimos cupiditate nihil. Harum, repellat officia. Consequuntur, quasi aspernatur veniam et tempore fuga accusamus!                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ea ex mollitia asperiores accusantium quasi magni, dignissimos cupiditate nihil. Harum, repellat officia. Consequuntur, quasi aspernatur veniam et tempore fuga accusamus!
+                            Lorem ips                            Lorem ips                            Lorem ips                            Lorem ips
+                            Lorem ips                            Lorem ips                            Lorem ips                            Lorem ips
+                        </p>
+                        {% else %}
+                        <!-- Mensaje -->
+                        <p>{{ user.is_staff }}</p>
+                        <h2 class="section-heading mb-4">
+                            <span class="section-heading-upper">Compromiso total</span>
+                            <span class="section-heading-lower">Garantizado</span>
+                        </h2>
+                        <p class="mb-0">Sed pulvinar blandit elit id venenatis. Ut eget lacus neque. Nullam
+                            justo
+                            quam,Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, illo iure.
+                            Blanditiis
+                            dignissimos sequi ab voluptas perferendis quod, deserunt delectus officia minima
+                            ullam
                             excepturi? Possimus laboriosam error numquam veritatis placeat!Lorem
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit exercitationem eos nisi
-                            quisquam quas, provident esse temporibus eum dolore rem animi cupiditate perferendis ipsam
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit exercitationem
+                            eos nisi
+                            quisquam quas, provident esse temporibus eum dolore rem animi cupiditate
+                            perferendis ipsam
                             obcaecati quidem minus recusandae explicabo excepturi?
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
-                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae,
+                            provident non
                             tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
-                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae
+                            debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error
+                            aperiam
                             laudantium reprehenderit aspernatur beatae, magni ipsum!
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
-                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe
+                            reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit
+                            perferendis!
                             Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
-                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
-                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
-                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae
+                            cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat
+                            deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet
+                            consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse
+                            temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae
+                            explicabo
                             excepturi?
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
-                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae,
+                            provident non
                             tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
-                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae
+                            debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error
+                            aperiam
                             laudantium reprehenderit aspernatur beatae, magni ipsum!
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
-                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe
+                            reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit
+                            perferendis!
                             Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
-                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
-                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
-                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae
+                            cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat
+                            deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet
+                            consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse
+                            temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae
+                            explicabo
                             excepturi?
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
-                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae,
+                            provident non
                             tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
-                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae
+                            debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error
+                            aperiam
                             laudantium reprehenderit aspernatur beatae, magni ipsum!
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
-                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe
+                            reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit
+                            perferendis!
                             Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
-                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
-                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
-                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae
+                            cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat
+                            deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet
+                            consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse
+                            temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae
+                            explicabo
                             excepturi?
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
-                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae,
+                            provident non
                             tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
-                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae
+                            debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error
+                            aperiam
                             laudantium reprehenderit aspernatur beatae, magni ipsum!
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
-                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe
+                            reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit
+                            perferendis!
                             Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
-                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
-                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse temporibus eum
-                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae explicabo
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae
+                            cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat
+                            deleniti iusto
+                            quisquam sint veniam nesciunt deserunt illum.Lorem ipsum dolor sit amet
+                            consectetur,
+                            adipisicing elit. Odit exercitationem eos nisi quisquam quas, provident esse
+                            temporibus eum
+                            dolore rem animi cupiditate perferendis ipsam obcaecati quidem minus recusandae
+                            explicabo
                             excepturi?
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis maiores
-                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae, provident non
+                            reprehenderit veniam temporibus quibusdam natus, fuga cupiditate repudiandae,
+                            provident non
                             tempore repellendus commodi debitis sequi quod. Fugiat, cupiditate eveniet.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae debitis impedit
-                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error aperiam
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates beatae
+                            debitis impedit
+                            quidem molestias ut nihil? In eveniet voluptatibus explicabo enim voluptas error
+                            aperiam
                             laudantium reprehenderit aspernatur beatae, magni ipsum!
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe reprehenderit
-                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit perferendis!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minus saepe
+                            reprehenderit
+                            voluptatibus in nulla, veniam incidunt, numquam nemo eveniet excepturi velit
+                            perferendis!
                             Odio, cumque! Culpa, deleniti? Sequi, tempore animi.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae cupiditate
-                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat deleniti iusto
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi, nemo vitae
+                            cupiditate
+                            assumenda unde eum minus reiciendis in, doloremque consequuntur repellat
+                            deleniti iusto
                             quisquam sint veniam nesciunt deserunt illum.
 
-                            efficitur nec turpis vitae, efficitur posuere ligula. Proin ut turpis orci. Aenean porta
-                            sodales lectus faucibus pellentesque. In sed felis iaculis, rhoncus felis a, maximus mi.
+                            efficitur nec turpis vitae, efficitur posuere ligula. Proin ut turpis orci.
+                            Aenean porta
+                            sodales lectus faucibus pellentesque. In sed felis iaculis, rhoncus felis a,
+                            maximus mi.
                         </p>
                     </div>
                 </div>
