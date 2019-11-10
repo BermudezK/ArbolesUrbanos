@@ -38,14 +38,14 @@ class UserCreateFormWithEmail(UserCreationForm):
 			'pattern':'^[a-zA-Z][a-zA-Z0-9-_\.]{6,8}$'})
 
 		self.fields['email'].widget = forms.EmailInput(
-			attrs={'class':'form-control mb-2', 'placeholder':'ejemplo@gmail.com'})
+			attrs={'class':'form-control mb-2', 'placeholder':'ejemplo@email.com'})
 
 		self.fields['cellphone'].widget = forms.TextInput(
 			attrs={'class':'form-control mb-2',' placeholder':'3624112233',
 			'aria-describedby':'cellphoneHelpText'})
 
 		self.fields['birthday'].widget = forms.DateInput(
-			attrs={'class':'form-control mb-2',' placeholder':'20/10/2019',
+			attrs={'class':'form-control mb-2',' placeholder':'dd/mm/aaaa',
 			'pattern':'(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}'})
 
 		self.fields['password1'].widget = forms.PasswordInput(
