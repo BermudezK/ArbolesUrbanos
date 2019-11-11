@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" class="h-100">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- <link rel="stylesheet" href="{%static 'css/css boostrap/bootstrap.css'%}">-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}">
+        <link rel="stylesheet" href="{%static 'css/homeStyle.css'%}">
+
+        {% block styleLink %} {% endblock styleLink %}
+
+        <script src="https://kit.fontawesome.com/d0dc8f6bcc.js" crossorigin="anonymous"></script>
+        <title>{% block title %}{% endblock title%} | Arboles Urbanos</title>
+
+    </head>
+
+    <body class="d-flex flex-column align-self-stretch">
+        <!-- Cabecera -->
+        <nav class="navbar navbar-expand-sm sticky-top">
+            <div class="container">
+                <a href="{% url 'home' %}" class="navbar-brand">
+                    <img width="60" height="60" src="{% static 'img/iconos/logoarboles_sin_letra.png' %}"
+                        alt="Arboles Urbanos"> Inicio
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class='navbar-icon' width="25" height="25" src="{% static 'img/iconos/menu.png' %}" alt="">
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link my-2" href="{% url 'landing' %}">Quienes somos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link my-2" href="{% url 'contacto' %}">Contacto</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false" href="">
+                                <img class='d-inline-block align-center' width="40" height="40"
+                                    src="{% static 'img/iconos/user.png'%}" alt="avatar"> {{user.username}}
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
+                            </div>
+                        </li>
+                        {% else %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{% url 'login' %}">
+                                <img class='d-inline-block align-center' width="40" height="40"
+                                    src="{% static 'img/iconos/user.png'%}" alt="avatar"> Ingresar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link my-2 btn register" href="{% url 'usuario:register' %}">Registrarse</a>
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+            <!-- </div> -->
+        </nav>
+        <div class="h-100">
+
+            <main role="main" class="container-fluid flex-shrink-0">
+                <div class="row">
+                    {% block sidenav%}
+                    <div class="col-3 col-lg-2 d-sm-block p-2 collapse" id="sidebar">
+                        <nav class="nav flex-column  align-items-center justify-content-start  sticky-offset sticky-top mx-0"
+                            role="tablist" aria-orientation="vertical">
+
+                            <!-- ESTE ES EL BOTON PARA LOS ARBOLES PLANTADOS -->
+                            {% if user.is_staff %}
+                            <a href="{% url 'arbol:show_tree' %}"
+                                class="p-1 d-none d-sm-none d-md-inline nav-item nav-link arboles"
+                                title="Número de árboles sensados">
+                                <h1 class="p-5">{{arbol.quantity}}</h1>
+                            </a>
+                            {% else %}
+                            <a href="{% url 'arbol:show_tree_user' %}"
+                                class="p-1 d-none d-sm-none d-md-inline nav-item nav-link arboles"
+                                title="Número de árboles sensados">
+                                <h1 class="p-5">{{arbol.quantity}}</h1>
+                            </a>
+                            {%endif%}
+                            <!-- item collapsado -->
+                            <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse"
+                                data-target="#submenu1" aria-expanded="false" aria-controls="submenu1"
+                                title="Denuncias">
+                                <!-- DENUNCIAS -->
+                                <img class='img-responsive' width="50" height="50"
+                                    src="{% static 'img/iconos/complaint.png' %}" alt="Denuncias">
+                                <p class="d-none d-sm-none d-md-inline">Denuncias</p>
+                            </a>
+                            <!-- submenu -->
+                            <div class="collapse multi-collapse" id="submenu1" data-parent="#sidebar">
+                                <ul class="nav flex-column pl-1">
+                                    <li class="nav-item">
+                                        <!-- VER TODAS LAS DENUNCUAS -->
+                                        <a href="{% url 'denuncia' %}" class="nav-link"  title="Ver Todas">
+                                            <img class='img-responsive' width="40" height="40"
+                                                src="{% static 'img/iconos/see.png' %}" alt="Eventos">
+                                            <p class="d-none d-sm-none d-md-inline">Ver Todos</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <!-- NUEVA DENUNCIA -->
+                                        <a href="#" class="nav-link"  title="Nuevo">
+                                            <img class='img-responsive' width="40" height="40"
+                                                src="{% static 'img/iconos/create.png' %}" alt="Eventos">
+                                            <p class="d-none d-sm-none d-md-inline">Nuevo</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse"
+                                data-target="#submenu2" aria-expanded="false" aria-controls="submenu1"
+                                title="Información">
+                                <img class='img-responsive' width="50" height="50"
+                                    src="{% static 'img/iconos/info.png' %}" alt="Información">
+                                <p class="d-none d-sm-none d-md-inline">Información</p>
+                            </a>
+                            <!-- submenu -->
+                            <div class="collapse multi-collapse p-1" id="submenu2" aria-expanded="false"
+                                data-parent="#sidebar">
+                                <ul class="flex-column nav pl-1">
+                                    <li class="nav-item">
+                                        <a href="{% url 'info' %}" class="nav-link" title="Ver Todas">
+                                            <img class='img-responsive' width="40" height="40"
+                                                src="{% static 'img/iconos/see.png' %}" alt="Eventos">
+                                            <p class="d-none d-sm-none d-md-inline">Ver Todos</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"  title="Nuevo">
+                                            <img class='img-responsive' width="40" height="40"
+                                                src="{% static 'img/iconos/create.png' %}" alt="Eventos">
+                                            <p class="d-none d-sm-none d-md-inline">Nuevo</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- ESTAS INEAS SE DOCUMENTAN PERO SE USARAN CUANDO LOGREMOS IMPLEMENTAR LA PARTE DE EVENTOS -->
+                            <a href="#" class="p-0 mt-2 nav-item nav-link collapsed" data-toggle="collapse"
+                                data-target="#submenu3" aria-expanded="false" aria-controls="submenu1" title="Eventos">
+                                <img class='img-responsive' width="50" height="50"
+                                    src="{% static 'img/iconos/events.png' %}" alt="Eventos">
+                                <p class="d-none d-sm-none d-md-inline">Eventos</p>
+                            </a>
+                                    <!-- submenu -->
+                            <div class="collapse multi-collapse" id="submenu3" aria-expanded="false"
+                                data-parent="#sidebar">
+                                <ul class="flex-column nav pl-1">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" title="Ver Todas">
+                                            <img class='img-responsive' width="40" height="40"
+                                                src="{% static 'img/iconos/see.png' %}" alt="Eventos">
+                                            <p class="d-none d-sm-none d-md-inline">Ver Todos</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" title="Nuevo">
+                                            <img class='img-responsive' width="40" height="40"
+                                                src="{% static 'img/iconos/create.png' %}" alt="Eventos">
+                                            <p class="d-none d-sm-none d-md-inline">Nuevo</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    {% endblock sidenav%}
+                    {% block header %} {% endblock header %}
+                    {% block content %} {% endblock content %}
+                </div>
+                <!-- Contenido -->
+            </main>
+        </div>
+        <!-- + Pié de página -->
+        <footer class="py-3 mt-auto">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>
+                            <p><img class="footer-icon" src="{% static 'img/iconos/telephone.png' %}" alt=""> (3624)
+                                4455267</p>
+                            <p><img class="footer-icon" src="{% static 'img/iconos/location.png' %}" alt=""> Arturo
+                                Illia 1055, Resistencia, Chaco. República Argentina</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div>
+                            <p>Seguinos en <img class="footer-icon" src="{% static 'img/iconos/facebook-logo.png' %}"
+                                    alt=""></p>
+                            <p>Copyright (c) 2019 - Software Movement 2.0.<br> All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/mdb.min.js"></script>
+
+        <!-- BOOSTRAP LOCAL -->
+        <!-- <script src="{%static 'js/js boostrap/jquery.js'%}"></script>
+        <script src="{%static 'js/js boostrap/bootstrap.js'%}"></script> -->
+
+    </body>

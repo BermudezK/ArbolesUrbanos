@@ -1,4 +1,10 @@
+#Local Settings
 ./arbolesurbanos/settings/local.py 
+
+# bostrap cdn
+./static/css/css boostrap/*.css
+
+./static/js/js boostrap
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -105,3 +111,24 @@ venv.bak/
 # mypy
 .mypy_cache/
 arbolesurbanos/settings/local.py
+static/css/css boostrap/bootstrap-grid.css
+static/css/css boostrap/bootstrap-grid.css.map
+static/css/css boostrap/bootstrap-grid.min.css
+static/css/css boostrap/bootstrap-grid.min.css.map
+static/css/css boostrap/bootstrap-reboot.css
+static/css/css boostrap/bootstrap-reboot.css.map
+static/css/css boostrap/bootstrap-reboot.min.css
+static/css/css boostrap/bootstrap-reboot.min.css.map
+static/css/css boostrap/bootstrap.css
+static/css/css boostrap/bootstrap.css.map
+static/css/css boostrap/bootstrap.min.css
+static/css/css boostrap/bootstrap.min.css.map
+static/js/js boostrap/bootstrap.bundle.js
+static/js/js boostrap/bootstrap.bundle.js.map
+static/js/js boostrap/bootstrap.bundle.min.js
+static/js/js boostrap/bootstrap.bundle.min.js.map
+static/js/js boostrap/bootstrap.js
+static/js/js boostrap/bootstrap.js.map
+static/js/js boostrap/bootstrap.min.js
+static/js/js boostrap/bootstrap.min.js.map
+static/js/js boostrap/jquery.js

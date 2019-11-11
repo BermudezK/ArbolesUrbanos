@@ -1,0 +1,21 @@
+.aceptar {
+    text-decoration: none;
+    font-size: large;
+    background-color: #76b39d;
+    border-radius: 25px;
+    border: 1px solid #76b39d;
+    color: #f9f8eb;
+}
+.aceptar:hover{
+    background-color: #155e63;
+    color: #f9f8eb;
+}
+
+.control {
+    text-decoration: none;
+    font-size: large;
+    background-color: #76b39d;
+    border-radius: 25px;
+    border: 1px solid #76b39d;
+    color: #f9f8eb;
+}

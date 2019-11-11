@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% load staticfiles %}
+{% block title %}Nuevo Arbol{% endblock title %}
+{% block sidenav %}{% endblock sidenav %}
+
+{% block content %}
+
+{% load static %}
+<div class="container">
+	<div class="row ">
+		<div class="col-md-6 col-sm-12">
+			<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+				{{form.as_p}}
+				<button type="submit "> CREAR</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock content %}

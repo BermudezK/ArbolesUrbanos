@@ -1,0 +1,79 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{%block styleLink %}
+<link rel="stylesheet" href="{%static 'css/visualizacionStyle.css'%}">
+{%endblock styleLink%}
+{% block title %}Nuevo Arbol{% endblock title %}
+
+{% block content %}
+<style>
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+</style>
+
+{% if arbol %}
+<div class="col col-lg-10 align-self-center overflow-auto mt-4 mb-4" id="colGral"
+	style="min-height: 23.5em; max-height: 80px; height:100px;">
+	<button class="d-sm-none btn menu fixed-bottom " data-toggle="collapse" data-target="#sidebar"
+		aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		<img class='img-responsive p-1' width="40" height="50" src="{% static 'img/iconos/menu2.png' %}" alt="Eventos">
+	</button>
+
+	<!-- <section class=""> -->
+	<section class="page-section flex-shrink-1">
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-sm-12 text-center">
+
+					<img class="img-responsive mx-auto d-block" src="{% static 'img/iconos/tree1.png' %}" alt="arbol">
+					<div class="">Arboles plantados: {{arbol.quantity}}</div>
+
+					<form enctype="multipart/form-data" name="formulario" action="{% url 'arbol:edit_tree' %}"
+						method="POST" class="">
+						{% csrf_token %}
+						<div class="form-row justify-content-center">
+							<label for="quantity" class="col-sm-12 col-form-label col-form-label-sm">
+								Ingrese la catidad de árboles que desea:
+							</label>
+							<div class="col-auto">
+								<input type="button" value="-" class="btn control" onClick="agregar(-1);">
+							</div>
+
+							<div class="col-4">
+								<input type="number" class="form-control" name="quantity" value="1">
+							</div>
+
+							<div class="col-auto">
+								<input type="button" id="min" value="+" class="btn control" onClick="agregar(1);">
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<button type="submit" class="btn mt-3 aceptar">Aceptar</button>
+							<input style="display: none" type="number" name="pk" value="{{arbol.pk}}">
+						</div>
+
+					</form>
+				</div>
+			</div>
+	</section>
+</div>
+<!-- </section> -->
+</div>
+{% else %}
+<h1>No existe</h1>
+<button href="{% url 'arbol:nuevo '%}">Crear nuevo</button>
+{% endif %}
+<script>
+	function agregar(arbol) {
+		valor = eval(formulario.quantity.value);
+		formulario.quantity.value = eval(valor + arbol);
+	}
+</script>
+{% endblock content %}
