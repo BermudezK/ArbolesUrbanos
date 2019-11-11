@@ -16,6 +16,7 @@ urlpatterns = [
     
     #urls de core
     path('', include('apps.core.urls')),
+    
 
     #url de usuario
     path('register/', include('apps.usuario.urls')),

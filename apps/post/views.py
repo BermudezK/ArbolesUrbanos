@@ -7,6 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from .forms import CreateDenuncia, CreatePostInformativo
 from .models import Denuncia, PostInformativo
+from apps.arbol.models import Tree
+
 
 class CreateDenuncia(CreateView):
 	form_class = CreateDenuncia
@@ -33,7 +35,9 @@ def listar(request):
 	context = {}
 	de = Denuncia.objects.order_by('-creation_date')
 	lp = PostInformativo.objects.order_by('-creation_date')
-
+	p = Tree.objects.get(pk=1)
+	
+	context['arbol'] = p
 	context['denuncias'] = de
 	context['informativo'] = lp
 
@@ -48,7 +52,7 @@ class ListPostDenuncia(ListView):
 	def get_queryset(self):
 		result = Denuncia.objects.order_by('-creation_date')
 		return result
-
+# ACA HAY QUE AVERIGUAR COMO HACER PARA ENVIAR EL NUMERO TOTAL DE ARBOLES
 class ListPostInformativo(ListView):
 	model = PostInformativo
 	template_name = 'core/informativo.html'
