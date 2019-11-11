@@ -51,6 +51,12 @@ class ListPostDenuncia(ListView):
 	def get_queryset(self):
 		result = Denuncia.objects.order_by('-creation_date')
 		return result
+
+	def get_context_data(self, *args, **kwargs):
+		context = super(ListPostDenuncia, self).get_context_data(*args, **kwargs)
+		context['arbol'] = Tree.objects.get(pk=1)
+		return context
+
 # ACA HAY QUE AVERIGUAR COMO HACER PARA ENVIAR EL NUMERO TOTAL DE ARBOLES
 class ListPostInformativo(ListView):
 	model = PostInformativo
@@ -59,6 +65,11 @@ class ListPostInformativo(ListView):
 	def get_queryset(self):
 		result = PostInformativo.objects.order_by('-creation_date')
 		return result
+	
+	def get_context_data(self, *args, **kwargs):
+		context = super(ListPostInformativo, self).get_context_data(*args, **kwargs)
+		context['arbol'] = Tree.objects.get(pk=1)
+		return context
 
 class ListPostEventos(ListView):
 	pass
