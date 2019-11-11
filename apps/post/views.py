@@ -36,7 +36,6 @@ def listar(request):
 	de = Denuncia.objects.order_by('-creation_date')
 	lp = PostInformativo.objects.order_by('-creation_date')
 	p = Tree.objects.get(pk=1)
-	
 	context['arbol'] = p
 	context['denuncias'] = de
 	context['informativo'] = lp
