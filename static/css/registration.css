@@ -1,0 +1,15 @@
+.title {
+    color: #155e63;
+}
+
+.btn {
+    font-size: large;
+    background-color: #76b39d;
+    border-radius: 25px;
+    border: 1px solid #76b39d;
+    color: #f9f8eb;
+}
+
+.btn:hover {
+    background-color: #155e63;
+}

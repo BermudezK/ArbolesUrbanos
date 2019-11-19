@@ -1,47 +1,21 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+.aceptar {
+    text-decoration: none;
+    font-size: large;
+    background-color: #76b39d;
+    border-radius: 25px;
+    border: 1px solid #76b39d;
+    color: #f9f8eb;
+}
+.aceptar:hover{
+    background-color: #155e63;
+    color: #f9f8eb;
 }
 
-#contVisual {
-    height: 370px;
-}
-
-h6 {
-    margin-top: 30px;
-}
-.btn {
-    background: #76B39D;
-    margin-right: 14px;
-    border: none;
-}
-
-.btnOk {
-    position: absolute;
-    top: 250px; 
-    left: 115px;
-}
-
-
-#min {
-    margin-left: 14px;
-}
-
-#colGral {
-    margin-top: 50px;
-}
-
-img {
-    margin-left: 79px;
-}
-
-.centrar {
-    position: absolute;
-    left: 68px;
-    color: white;
-    font-size: 17px;
-    bottom: 114px;
-    background: hsl(0, 0%, 40%, 0.6);
-    padding: 4px;
-    font-weight: 600;
+.control {
+    text-decoration: none;
+    font-size: large;
+    background-color: #76b39d;
+    border-radius: 25px;
+    border: 1px solid #76b39d;
+    color: #f9f8eb;
 }

@@ -1,0 +1,50 @@
+body{
+    width: 100%;
+}
+.members {
+    border-radius: 50%;
+}
+.blog-header {
+    line-height: 1;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.banner{
+    background: url(https://picsum.photos/1800/1000/?blur=2) no-repeat;
+}
+
+.idea{
+    background-color:rgba(21, 94, 99 , 0.8) ;
+}
+
+.enviar {
+    font-size: large;
+    background-color: #76b39d;
+    border-radius: 25px;
+    border: 1px solid #76b39d;
+    color: #f9f8eb;
+  }
+  
+.enviar:hover {
+   background-color: #155e63;
+   color: #f9f8eb;
+}
+
+.contacto {
+    background-color: #76b39d;
+}
+.contact {
+    background-color: #A5B94A;
+    color: white;
+}
+.contact:hover {
+    background-color: #155e63;
+    color: white;
+}
+
+.landing-footer {
+    padding: 2.5rem 0;
+    text-align: center;
+    background-color: #155e63;
+    border-top: 0.05rem solid #155e63;
+}

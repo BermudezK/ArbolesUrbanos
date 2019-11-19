@@ -2,47 +2,77 @@
 
 {% load static %}
 
+{% block styleLink %}
+<link rel="stylesheet" href="{% static 'css/homeStyle.css' %}">
+{% endblock styleLink %}
+
 {% block title %}Inicio{% endblock title %}
 
-{% block header%}
-<!-- Cabecera -->
-    <section class="page-section clearfix">
-        <div class="container-fluid">
-            <div class="intro">
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="#" alt="">
-                <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                    <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Déjate sorprender</span>
-                    <span class="section-heading-lower">Te gustará</span>
-                    </h2>
-                </div>
-                </div>
-        </div>
-    </section>
-{% endblock header%}
 
 {% block content %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
 
-    {% if user.is_staff %}
-        <p>TEMPLATE DE ADMINISTRADOR</p>
-        <p>{{user.is_staff}}</p>
-    {% else %}
-        <!-- Mensaje -->
-            <p>{{ user.is_staff }}</p>
-            <section class="page-section cta">
-                <div class="container">
-                    <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner text-center rounded">
-                        <h2 class="section-heading mb-4">
-                            <span class="section-heading-upper">Compromiso total</span>
-                            <span class="section-heading-lower">Garantizado</span>
-                        </h2>
-                        <p class="mb-0">Sed pulvinar blandit elit id venenatis. Ut eget lacus neque. Nullam justo quam, efficitur nec turpis vitae, efficitur posuere ligula. Proin ut turpis orci. Aenean porta sodales lectus faucibus pellentesque. In sed felis iaculis, rhoncus felis a, maximus mi.</p>
+<div class="col-9 col-lg-10overflow-auto">
+    <button class="d-sm-none btn menu fixed-bottom " data-toggle="collapse" data-target="#sidebar"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <img class='img-responsive p-1' width="40" height="50" src="{% static 'img/iconos/menu2.png' %}" alt="Eventos">
+    </button>
+    <section class="page-section flex-shrink-1">
+        <div class="container">
+            <div class="col-md-12 offset-md-2">
+
+                <div class="cards-container mt-3">
+                    {% for o in denuncias %}
+                    <div class="card mb-3 cards1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                {% if o.img %}
+                                <img src="{{o.img.url}}" width="179px" height="240px" classobject_lists="card-img"
+                                    alt="..." style="margin-left: 0px !important;">
+                                {% else %}
+                                <img src="..." class="card-img-top" alt="...">
+                                {% endif %}
+                                <img src="{% static 'img/iconos/denun.png' %}" class="iconos" alt="">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <strong class="d-inline-block mb-2 text-warning">Denuncias</strong>
+                                    <h5 class="card-title">Titulo</h5>
+                                    <div class="mb-1 text-muted">{{o.creation_date}}</div>
+                                    <p class="card-text limitar">{{o.text}} <a href="#">Ver más</a></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
+
+                    {% for i in informativo %}
+                    <div class="card mb-3 cards1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{i.img.url}}" width="179px" height="240px" class="card-img" alt="...">
+                                <img src="{% static 'img/iconos/informacion.png' %}" class="iconos" alt="">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <strong class="d-inline-block mb-2 text-danger">Información</strong>
+                                    <h5 class="card-title">Título</h5>
+                                    <div class="mb-1 text-muted"> {{i.creation_date}}</div>
+                                    <p class="card-text limitar">{{i.text}}<a href="#">Ver más</a></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
-            </section>
-    {% endif %}
+
+
+            </div>
+        </div>
+
+    </section>
+</div>
+
 {% endblock content %}
