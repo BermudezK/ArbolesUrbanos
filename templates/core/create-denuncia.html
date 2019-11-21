@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block styleLink %}
+
+{% endblock styleLink %}
+
+{% block title %}Crear denuncia{% endblock title %}
+
+
+{% block content %}
+  <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <!-- <label for="tipo">Seleccione el tipo de denuncia</label> 
+    {{form.tipo}}
+    <label for="text">Descripción</label>
+    {{form.text}}
+    {{form.img}}
+    <input type="submit" value="OK"> -->
+    {{form.as_p}}
+</form>
+{% endblock content %}

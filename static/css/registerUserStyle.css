@@ -1,65 +1,52 @@
-body {
-    background: #f2f2f2;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+body{
+    background-color: #155e63;
+}
+.arbol {
+    background-color: #155e63;
+    color: #f9f8eb;
 }
 
-.abs-center {
-    display: flex;
-    min-height: 100vh;
-    padding-top: 45px;
-    justify-content: center;
+.carousel-item img {
+    width: 55%;
+    height: 50%;
+    margin: auto;
 }
 
-.welcome {
-    color: #ffffff;
+.registro {
+    background-color: #f9f8eb;
+    color: #155e63;
+    padding: 1em;
 }
 
-#registro {
-    background: #a3b847;
-    justify-content: center;
+.registro .estado {
+    font-size: small;
+    background-color: #155e63;
+    border-radius: 25px 0px 0px 25px;
+    border: 1px solid #155e63;
+    color: #f9f8eb;
+}
+.registro .form {
+    font-size: small;
+    background-color: #f9f8eb;
+    border-radius: 0% 25px 25px 0%;
+    border: 1px solid #155e63;
+    color: #155e63;
 }
 
-/* logo arboles urbanos */
-#logo {
-    width: 100px;
+.registro .registrar {
+    font-size: large;
+    background-color: #76b39d;
+    border-radius: 25px;
+    border: 1px solid #76b39d;
+    color: #f9f8eb;
+}
+.registro .registrar:hover {
+    background-color: #155e63;
 }
 
-#formRegistro {
-    font-weight: bold;
-    background: #ffffff;
-    
+
+.carousel-caption p, h5{
+    color: white;
+    background-color: rgba(21, 94, 99, 0.7);
+    size: 4px;
 }
-
-#btnFacebook {
-    background: #3E5C9A;
-}
-
-#btnGoogle {
-    background: #ffffff;
-    color: gray;
-    padding-right: 30px;
-
-}
-
-.btn-primary {
-    margin-top: 15px;
-    margin-left: 95px;
-}
-
-#btnRegistro {
-    margin-top: 35px;
-    margin-left: 160px;
-}
-
-#logoFace, #logoGoogle {
-    width: 24px;
-    margin-right: 7px;
-}
-
-#logoFace {
-    background-color: white;
-}
-
