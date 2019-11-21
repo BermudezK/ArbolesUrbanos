@@ -14,16 +14,14 @@
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
 
-<div class="col-9 col-lg-10overflow-auto">
+<div class="col-9 col-lg-10 overflow-auto">
     <button class="d-sm-none btn menu fixed-bottom " data-toggle="collapse" data-target="#sidebar"
         aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <img class='img-responsive p-1' width="40" height="50" src="{% static 'img/iconos/menu2.png' %}" alt="Eventos">
     </button>
     <section class="page-section flex-shrink-1">
-        <div class="container">
-            <div class="col-md-12 offset-md-2">
-
-                <div class="cards-container mt-3">
+            <div class="col-md-12">
+                <div class="cards-container mt-3 offset-3">
                     {% for o in denuncias %}
                     <div class="card mb-3 cards1">
                         <div class="row no-gutters">
@@ -66,8 +64,6 @@
                         </div>
                     </div>
                     {% endfor %}
-                </div>
-
 
             </div>
         </div>
