@@ -24,60 +24,114 @@ from apps.usuario.models import User
 
 def CreateDenunciaa(request):
 
-	usuario = User.objects.get(email = request.user)
+	if request.user.is_authenticated:
+		usuario = User.objects.get(email = request.user)
 
-	if request.method == 'GET':
-		form = CreateDenunciaForm()
-		form2 = ImagenForm()
+		if request.method == 'GET':
+			form = CreateDenunciaForm()
+			form2 = ImagenForm()
+		else:
+			form = CreateDenunciaForm(request.POST)
+			form2 = ImagenForm(request.POST, request.FILES)
+			if form.is_valid() and form2.is_valid():
+				d = form.save(commit = False)
+				
+				d.created_by = usuario
+				d.titulo = request.POST.get('titulo')
+				d.tipo = request.POST.get('tipo')
+				d.text = request.POST.get('text')
+				d.save()
+
+				denuncia = Denuncia.objects.get(pk = d.pk)
+				if request.POST.get('img') != '':
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img')
+					i.save()
+
+				if request.POST.get('img2') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img2')
+					i.save()
+
+				if request.POST.get('img3') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img3')
+					i.save()
+
+				if request.POST.get('img4') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img4')
+					i.save()
+
+				if request.POST.get('img5') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img5')
+					i.save()
+
+			redirecion = redirect(reverse('denuncia'))
+			return redirecion
+
 	else:
-		form = CreateDenunciaForm(request.POST)
-		form2 = ImagenForm(request.POST, request.FILES)
-		if form.is_valid() and form2.is_valid():
-			d = form.save(commit = False)
-			
-			d.created_by = usuario
-			d.titulo = request.POST.get('titulo')
-			d.tipo = request.POST.get('tipo')
-			d.text = request.POST.get('text')
-			d.save()
+		if request.method == 'GET':
+			form = CreateDenunciaForm()
+			form2 = ImagenForm()
+		else:
+			form = CreateDenunciaForm(request.POST)
+			form2 = ImagenForm(request.POST, request.FILES)
+			if form.is_valid() and form2.is_valid():
+				d = form.save(commit = False)
+				
+				d.titulo = request.POST.get('titulo')
+				d.tipo = request.POST.get('tipo')
+				d.text = request.POST.get('text')
+				d.save()
 
-			denuncia = Denuncia.objects.get(pk = d.pk)
-			if request.POST.get('img') != '':
-				i = form2.save(commit = False)
-				i.post = denuncia
-				i.img = request.FILES.get('img')
-				i.save()
+				denuncia = Denuncia.objects.get(pk = d.pk)
+				if request.POST.get('img') != '':
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img')
+					i.save()
 
-			if request.POST.get('img2') != '':
-				form2 = ImagenForm(request.POST, request.FILES)
-				i = form2.save(commit = False)
-				i.post = denuncia
-				i.img = request.FILES.get('img2')
-				i.save()
+				if request.POST.get('img2') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img2')
+					i.save()
 
-			if request.POST.get('img3') != '':
-				form2 = ImagenForm(request.POST, request.FILES)
-				i = form2.save(commit = False)
-				i.post = denuncia
-				i.img = request.FILES.get('img3')
-				i.save()
+				if request.POST.get('img3') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img3')
+					i.save()
 
-			if request.POST.get('img4') != '':
-				form2 = ImagenForm(request.POST, request.FILES)
-				i = form2.save(commit = False)
-				i.post = denuncia
-				i.img = request.FILES.get('img4')
-				i.save()
+				if request.POST.get('img4') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img4')
+					i.save()
 
-			if request.POST.get('img5') != '':
-				form2 = ImagenForm(request.POST, request.FILES)
-				i = form2.save(commit = False)
-				i.post = denuncia
-				i.img = request.FILES.get('img5')
-				i.save()
+				if request.POST.get('img5') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = denuncia
+					i.img = request.FILES.get('img5')
+					i.save()
 
-		redirecion = redirect(reverse('denuncia'))
-		return redirecion
+			redirecion = redirect(reverse('denuncia'))
+			return redirecion
 
 	return render(request,'core/create-denuncia.html',{'form':form,'form2':form2})
 

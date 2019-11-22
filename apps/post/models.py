@@ -5,7 +5,7 @@ from .utils import TipoDenunciaEnum, TipoPostEnum
 from apps.usuario.models import User
 
 class PostBase(models.Model):
-	created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+	created_by = models.ForeignKey(User, on_delete=models.CASCADE, blank = True, null = True)
 	titulo = models.CharField(max_length=100)
 	creation_date = models.DateTimeField(auto_now_add=True)
 	post_type = models.CharField(max_length=25)
