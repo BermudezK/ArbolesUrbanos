@@ -24,7 +24,3 @@ class PostImg(models.Model):
 	nombre = models.CharField(null=True, max_length=25)
 	img = models.ImageField(blank=True, null=True)
 	post = models.ForeignKey(PostBase, on_delete=models.CASCADE)
-
-
-
-
