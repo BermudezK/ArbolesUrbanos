@@ -75,27 +75,18 @@
 				<div class="row justify-content-center">
 
 					<form action="" method="POST" class="needs-validation mb-2" novalidate>{% csrf_token %}
-						{% if user.is_authenticated %}
-						<!-- SI EL USUARIO ESTA LOGUEADO CARGA LOS DATOS DESDE SU INFORMACION DE CUENTA -->
-						<div class="form-row mt-3">
-							<div class="col-md-6 col-sm-12">
-								<label for="username">Nombre: </label>
-								{{request.user.first_name}}
-							</div>
-						</div>
-						<div class="form-row mt-3">
-							<div class="col-md-6 col-sm-12">
-								<label for="surname">Apellido: </label>
-								{{request.user.last_name}}
-							</div>
-						</div>
-						<div class="form-row mt-3">
-							<div class="col-md-12 col-sm-12">
-								<label for="email">Email: </label>
-								{{request.user.email}}
-							</div>
-						</div>
-						{% else %}
+						{% if form.errors %}
+							{% for field in form %}
+								{% for error in field.errors %}
+									{{field.label}}: {{ error|safe }}
+								{% endfor %}
+							{% endfor %}
+
+							{% for error in form.non_field_errors %}
+								{field.label}: {{ error|escape }}
+							{% endfor %}
+						{% endif %}
+						
 						<!-- SI EL USUARIO NO ESTÁ LOGUEADO CARGA LOS DATOS DESDE LOS IMPUTS -->
 						<div class="form-row mt-3">
 							<label class='required' for='username'>Nombre </label>
@@ -121,7 +112,7 @@
 							</div>
 							{{form.email.errors}}
 						</div>
-						{% endif %}
+					
 						<div class="form-row mt-3">
 							<div class="col-md-12 col-sm-12">
 								<label class='required' for='subject'>Asunto</label>

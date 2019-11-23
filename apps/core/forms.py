@@ -20,3 +20,22 @@ class ContactForm(forms.Form):
     content = forms.CharField(label="Contenido", required=True, widget=forms.Textarea(
       attrs={'class':'form-control', 'rows':4, 'placeholder':'Escribe tu Mensaje','id':'content'}  
     ), min_length=5, max_length=250)
+
+    def __init__(self, user=None, is_post=False,*args, **kwargs):
+        super(ContactForm, self).__init__(*args, **kwargs)
+        if user:
+            self.fields['name'].initial = user['name']
+            self.fields['name'].widget.attrs['readonly'] = True
+
+            self.fields['surname'].initial = user['surname']
+            self.fields['surname'].widget.attrs['readonly'] = True
+
+            self.fields['email'].initial = user['email']
+            self.fields['email'].widget.attrs['readonly'] = True
+
+            if is_post:
+                self.fields['subject'].initial = user['subject']
+                self.fields['subject'].widget.attrs['readonly'] = True
+
+                self.fields['content'].initial = user['content']
+                self.fields['content'].widget.attrs['readonly'] = True
