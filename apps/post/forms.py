@@ -6,7 +6,7 @@ from .utils import TipoDenunciaEnum
 
 class CreateDenuncia(forms.ModelForm):
 	tipo = forms.ChoiceField(choices=TipoDenunciaEnum.choices())
-	text = forms.CharField(max_length=500)
+	text = forms.CharField(max_length=500, widget=forms.Textarea(attrs={"class":"form-control"}))
 	# falta definir el titulo para los posts
 	class Meta:
 		model = Denuncia
@@ -20,13 +20,12 @@ class CreatePostInformativo(forms.ModelForm):
 
 	def __init__(self, *args, **kwargs):
 	 super(CreateDenuncia, self).__init__(*args, **kwargs)
-
 	 self.fields['tipo'].widget = forms.ChoiceField(
-		 attrs={'label':'Tipo de denuncia'})
+		 attrs={'class':'form-control'})
 	 self.fields['text'].widget = forms.CharField(
-		 attrs={'label':'Descripción'})
+		 attrs={'class':'form-control'})
 	 self.fields['img'].widget = forms.ImageField(
-		 attrs={'label':'Ingrese una imagen'})
+		 attrs={'class':'form-control'})
 
 
 
