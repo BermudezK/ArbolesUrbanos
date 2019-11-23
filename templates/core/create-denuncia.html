@@ -10,28 +10,61 @@
 
 
 {% block content %}
-<div class="mt-3 ml-3">
+<div>
   <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-    <h3><img src="{% static 'img/iconos/denuncia.png'%}" alt="">Nueva denuncia</h3>
-    <div class="form-group">
-      <label for="tipo">Seleccione el tipo de denuncia</label> 
-      {{form.tipo}}
-    </div>
-    <div class="form-group">
-      <label for="text">Descripción</label>
-      {{form.text}}
-    </div>
-    <div class="form-group">
-      <label for="img">Imagen</label>
-      {{form.img}}
-    </div>
-    <div class="form-group">
+    <!-- {{form.as_p}} -->
 
+    <div>
+    	<label>Nombre:</label>
+    	<input type="text" name="nombre">
     </div>
-    <input class="btn btn-primary enviar" type="submit" value="Enviar">
-    
-    
-  </form>
+	   <div>
+    	<label>Apellido:</label>
+    	<input type="text" name="apellido">
+    </div>
+    <div>
+    	<label>Titulo:</label>
+    	<input type="text" name="titulo">
+    </div>
+    <div>
+    	<label>Tipo:</label>
+    	<select name="tipo">
+    		<option value="PODA">Poda</option>
+    		<option value="FALTA_CANTERO">Falta Cantero</option>
+    		<option value="EXTRACCION">Extraccion</option>
+    		<option value="ARBOL_EXISTENTE">Arbol Existente</option>
+    		<option value="MANTENIMIENTO">Mantenimiento</option>
+    	</select>
+    </div>
+    <div>
+    	<label>Text:</label>
+    	<input type="text" name="text">
+    </div>
+        <form2 action ="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div>
+               	<label>Img1:</label>
+            	<input type="file" name="img">
+            </div>
+            <div>
+                <label>Img2:</label>
+                <input type="file" name="img2">
+            </div>
+            <div>
+                <label>Img3:</label>
+                <input type="file" name="img3">
+            </div>
+            <div>
+                <label>Img4:</label>
+                <input type="file" name="img4">
+            </div>
+            <div>
+                <label>Img5:</label>
+                <input type="file" name="img5">
+            </div>
+        </form2>
+
+
+    <input type="submit" value="OK">
+</form>
 </div>
-
 {% endblock content %}
