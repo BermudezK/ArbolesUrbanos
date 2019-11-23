@@ -9,6 +9,7 @@ from .forms import CreateDenunciaForm, CreatePostInformativo, ImagenForm
 from .models import Denuncia, PostInformativo
 from apps.arbol.models import Tree
 from apps.usuario.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -80,6 +81,7 @@ def CreateDenunciaa(request):
 			redirecion = redirect(reverse('denuncia'))
 			return redirecion
 
+	# Si no es un usuario registrado ejecuta esta funcion
 	else:
 		if request.method == 'GET':
 			form = CreateDenunciaForm()
@@ -136,15 +138,82 @@ def CreateDenunciaa(request):
 	return render(request,'core/create-denuncia.html',{'form':form,'form2':form2})
 
 
-class CreatePostInformativo(CreateView):
-	form_class = CreatePostInformativo
-	template_name = 'core/create-info.html'
-	success_utl = reverse_lazy('home')
+def CreatePostInfor(request):
 
-	def form_valid(self, form):
-		obj = form.save(commit=False)
-		obj.created_by = self.request.user
-		return super(CreatePostInformativo, self).form_valid(form)
+	if request.user.is_authenticated:
+		usuario = User.objects.get(email = request.user)
+
+		if request.method == 'GET':
+			form = CreatePostInformativo()
+			form2 = ImagenForm()
+		else:
+			form = CreatePostInformativo(request.POST)
+			form2 = ImagenForm(request.POST, request.FILES)
+			print(form.is_valid())
+			print(form2.is_valid())
+
+			if form.is_valid() and form2.is_valid():
+				d = form.save(commit = False)
+				d.created_by = usuario
+				d.titulo = request.POST.get('titulo')
+				d.text = request.POST.get('text')
+				d.post_type = "INFORMATIVO"
+				d.save()
+
+				informacion = PostInformativo.objects.get(pk = d.pk)
+				if request.POST.get('img') != '':	
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = informacion
+					i.img = request.FILES.get('img')
+					i.save()
+
+				if request.POST.get('img2') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = informacion
+					i.img = request.FILES.get('img2')
+					i.save()
+
+				if request.POST.get('img3') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = informacion
+					i.img = request.FILES.get('img3')
+					i.save()
+
+				if request.POST.get('img4') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = informacion
+					i.img = request.FILES.get('img4')
+					i.save()
+
+				if request.POST.get('img5') != '':
+					form2 = ImagenForm(request.POST, request.FILES)
+					i = form2.save(commit = False)
+					i.post = informacion
+					i.img = request.FILES.get('img5')
+					i.save()
+
+			redirecion = redirect(reverse('info'))
+			return redirecion
+	else:
+		redirecion = redirect(reverse('login'))
+		return redirecion
+
+	return render(request,'core/create-info.html',{'form':form,'form2':form2})
+
+
+# class CreatePostInformativo(CreateView):
+# 	form_class = CreatePostInformativo
+# 	template_name = 'core/create-info.html'
+# 	success_utl = reverse_lazy('home')
+
+# 	def form_valid(self, form):
+# 		obj = form.save(commit=False)
+# 		obj.created_by = self.request.user
+# 		return super(CreatePostInformativo, self).form_valid(form)
 
 
 def listar(request):

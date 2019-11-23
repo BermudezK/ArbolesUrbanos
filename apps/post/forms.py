@@ -19,7 +19,7 @@ class ImagenForm(forms.ModelForm):
 		fields = ['img']
 
 class CreatePostInformativo(forms.ModelForm):
-	text = forms.CharField(max_length=1000)
+	
 	class Meta:
 		model = PostInformativo
 		fields = ['text']

@@ -14,7 +14,6 @@ class PostBase(models.Model):
 class Denuncia(PostBase):
 	tipo = models.CharField(choices=TipoDenunciaEnum.choices(), max_length=25)
 	text = models.TextField(max_length=500)
-	# img = models.ForeignKey(PostImg, on_delete=models.CASCADE)
 
 
 class PostInformativo(PostBase):
@@ -22,5 +21,5 @@ class PostInformativo(PostBase):
 
 class PostImg(models.Model):
 	nombre = models.CharField(null=True, max_length=25)
-	img = models.ImageField(blank=True, null=True)
 	post = models.ForeignKey(PostBase, on_delete=models.CASCADE)
+	img = models.ImageField(blank=True, null=True)
