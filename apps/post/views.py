@@ -40,6 +40,7 @@ def CreateDenunciaa(request):
 				d.titulo = request.POST.get('titulo')
 				d.tipo = request.POST.get('tipo')
 				d.text = request.POST.get('text')
+				d.email = usuario.email
 				d.save()
 
 				denuncia = Denuncia.objects.get(pk = d.pk)
@@ -93,6 +94,7 @@ def CreateDenunciaa(request):
 				d.titulo = request.POST.get('titulo')
 				d.tipo = request.POST.get('tipo')
 				d.text = request.POST.get('text')
+				d.email = request.POST.get('email')
 				d.save()
 
 				denuncia = Denuncia.objects.get(pk = d.pk)

@@ -10,7 +10,7 @@ class CreateDenunciaForm(forms.ModelForm):
 	# falta definir el titulo para los posts
 	class Meta:
 		model = Denuncia
-		fields = ['titulo','tipo', 'text']
+		fields = ['titulo','tipo', 'text','email']
 
 class ImagenForm(forms.ModelForm):
 
