@@ -16,6 +16,14 @@ def Inicio(request):
     return render(request, 'core/home.html', context)
 
 
+def landing(request):
+    # AGREGUE LAS 3 LINEAS SIGUIENTES DE CODIGO PARA PODER OBTENER EN TODO MOMENTO LA CANTIDAD DE ARBOLES PNATADOS POR LA ONG
+    context = {}
+    p = Tree.objects.get(pk=1)
+    context['arbol'] = p
+    return render(request, 'core/landing.html', context)
+
+
 def contacto(request):
     data = None
     if request.user.is_authenticated:

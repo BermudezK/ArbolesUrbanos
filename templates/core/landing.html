@@ -1,0 +1,397 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+        <title>Arboles Urbanos</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <header class="blog-header py-3">
+                <div class="row flex-nowrap justify-content-between align-items-center">
+                    <div class="d-none d-md-block col-md-5 text-right display-4 text-muted ">
+                        <H1 class="display-md-4 ">
+                            ARBOLES
+                        </H1>
+                    </div>
+                    <div class="col-sm-12 col-md-2 text-center">
+                        <img class="img-responsive" width="100" height="100" src="{% static 'img/logoarboles3.png' %}"
+                            alt="">
+                    </div>
+                    <div class="d-none d-md-block col-md-5 text-left display-4 text-muted ">
+                        <H1 class="display-md-4 ">
+                            URBANOS
+                        </H1>
+                    </div>
+                </div>
+            </header>
+            <div class="nav-scroller py-1 mb-2">
+                <nav class="d-flex justify-content-between">
+                    <a href="#sobreNosotros" class="p-2 text-muted">Sobre Nosotros</a>
+                    <a href="#actividades" class="p-2 text-muted">Actividades</a>
+                    <a href="#colaboradores" class="p-2 text-muted">Nuestros Colaboradores</a>
+                    <a href="#comunidad" class="p-2 text-muted">Comunidad</a>
+                    <a href="#contacto" class="p-2 btn contact">Contactanos</a>
+                </nav>
+            </div>
+            <main role="main" class="">
+                <div class="jumbotron p-4 p-md-5 text-white redounded banner">
+                    <div class="col-xs-12 col-md-6 px-auto display-5">
+                        <p class="lead my-2">
+                            "Desde ecologistas Árboles Urbanos nos hemos basado en un interesante conjunto de principios
+                            éticos y de adoración, que juegan un papel importante en lo que se denomina la
+                            Arboricultura"
+                        </p>
+                        <p class="small">
+                            <a href="#">
+                                <!-- HAY QUE AGREGAR UN MODAL QUE MUESTRE MAS INFO  -->
+                                Francis Hallé
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <h3 class="pb-4 mb-4 border-bottom" id="sobreNosotros">
+                    Sobre Nosotros...
+                </h3>
+                <p>
+                    El colectivo Árboles Urbanos (Resistencia Chaco) nace un 22 de diciembre del 2010 ante el
+                    inclumplimiento de las normas por parte del organismo responsable competente a través de la
+                    Ordenanza 3394 de Municipio de Resistencia y la falta de protección que requerían a las
+                    especies árboreas de la ciudad.
+                    <blockquote>
+                        Hoy Árboles Urbanos
+                        <strong>
+                            visibiliza, protege, conserva educa, capacita y planta en temporadas adecuadas
+                        </strong>
+                        con distintos sectores de la comunidad.
+                    </blockquote>
+                    Desde ecologistas Árboles Urbanos nos hemos basado en un interesante conjunto de principios
+                    éticos y de adoración, que juegan un papel importante en lo que se denomina la
+                    Arboricultura.
+                </p>
+                <div class="jumbotron redounded idea">
+                    <div class="container">
+                        <p class="lead text-white text-center">
+                            El árbol como elemento fundamental para mejorar nuestra Calidad de Vida, aporta
+                            oxígeno, su sombra permite el ahorro de energia, el follaje absorbe ruidos y
+                            embellece la vista disminuyendo el estrés. En esta ciudad son importante para
+                            combatir las altas temperaturas
+                        </p>
+                    </div>
+                </div>
+                <h3 class="mt-4 pb-4 mb-4 border-bottom" id="actividades">
+                    Nuestras Actividades...
+                </h3>
+                <p>
+                    Como parte de nuestras actividades recibimos a diario Registros fotográficos, denuncias,
+                    realizamos encuentro, nos manifestamos por reclamos y compartimos información necesaria para
+                    conservar el medio ambiente mediante la militancia por el respeto a nuestra naturaleza.
+
+                    <blockquote class="text-center lead">
+                        <strong>
+                            "Defendemos a nuestros árboles y escuchamos a la madre tierra."
+                        </strong>
+                    </blockquote>
+                    <strong>
+                        Te ayudamos...
+                    </strong>
+                    <div id="carouselExampleIndicators" class="carousel slide mt-3 mb-3" data-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        <img src="https://picsum.photos/1800/1000/?blur=2" width="30" height="200"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">
+                                                Nombramiento de árboles historicos
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img src="https://picsum.photos/1800/1000/?blur=2" width="30" height="200"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">Guía y coordinación para la
+                                                entrega de
+                                                plantines de árboles
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img src="https://picsum.photos/1800/1000/?blur=2" width="30" height="200"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">Denuncia por extracción, poda,
+                                                corte de
+                                                raíces.
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        <img src="https://picsum.photos/1800/1000/?blur=2" width="30" height="200"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">
+                                                Charlas
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img src="https://picsum.photos/1800/1000/?blur=2" width="30" height="200"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">
+                                                Capacitaciones
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img src="https://picsum.photos/1800/1000/?blur=2" width="30" height="200"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">
+                                                Relevamientos, planes y proyectos para la correcta plantación
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        <img src="https://picsum.photos/1800/1000/?blur=2" width="30" height="200"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">
+                                                Inspección e informe por inconvenientes con raices, troncos o
+                                                copas.
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img src="https://picsum.photos/1800/1000/?blur=2" width="30" height="200"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">
+                                                Reglamentacion de Árboles Urbanos
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img src="https://picsum.photos/1800/1000/?blur=2" width="30" height="200"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">
+                                                Ley Provincial
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+
+                </p>
+                <h3 class="mt-4 pb-4 mb-4 border-bottom" id="colaboradores">
+                    Colaboradores...
+                </h3>
+                <p>
+                    En este colectivo forman parte algunos responsables que se dedican a la administración de la
+                    página de Facebook y correo electronico (arbolesurbanosresistencia@gmail.com), como también
+                    publicaciones diarias y respuesta como guías a todo tipo de inquietudes, información y
+                    capacitación e inconvenientes que requiera resolver la ciudadanía.
+                </p>
+                <h4 class="mt-2 pb-2 mb-2" id="colaboradores">
+                    Miembros...
+                </h4>
+                <div class="row">
+                    <div class="col-lg-4 text-center">
+                        <img src="{% static 'img/landing/Vanina Abras.JPG'%}" width="200" height="220"
+                            class="responsive members" alt="">
+                        <h5> Vanina Abras</h5>
+                        <p>
+                            Me dedico a la tarea de ambientalista.
+                            <br>
+                            Hace 9 años trabajo con esta ONG en defensa del árbol urbano haciendo periodismo,
+                            cartas de lectores, capacitandome con grandes maestros para compartir lo aprendido.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 text-center">
+                        <img src="{% static 'img/landing/Vanina Abras.JPG'%}" width="200" height="220"
+                            class="responsive members" alt="">
+                        <h5>Otra Persona</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia delectus ipsam
+                            dolorum reprehenderit sint enim alias cum quibusdam quisquam facere consequuntur, ad
+                            voluptas vel doloribus eius suscipit. At, quae ex!
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <img src="{% static 'img/landing/Vanina Abras.JPG'%}" width="200" height="220"
+                            class="responsive members" alt="">
+                        <h5>Otra Persona</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia delectus ipsam
+                            dolorum reprehenderit sint enim alias cum quibusdam quisquam facere consequuntur, ad
+                            voluptas vel doloribus eius suscipit. At, quae ex!
+                        </p>
+                    </div>
+                </div>
+
+                <h4 class="mt-2 pb-2 mb-2" id="colaboradores">
+                    Instituciones...
+                </h4>
+                <h3 class="mt-4 pb-4 mb-4 border-bottom" id="comunidad">
+                    Comunidad...
+                </h3>
+                <p>
+                    Hoy gracias a las redes sociales, utilizadas como herramientas, somos más de 10000 personas
+                    y es un factor clave para la comunicacion entre vecinos.
+                </p>
+                <div class="card-columns">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Empece a notar que la ciudad esta cambiando, en cuanto al patrimonio, en
+                                especial con la vida del arbolado, por causa del crecimiento inmobiliario y
+                                comercial, la falta de control de las ordenanzas y la falta de información de
+                                nuestros trabajadores públicos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card p-3">
+                        <blockquote class="blockquote mb-0 card-body">
+                            <p>
+                                Un 22 de noviembre un amigo publico que los árboles estaban desapareciendo, son
+                                mal tratados y eso estaba transformdo la ciudad en un insoportable caos, de
+                                ruidos, de calor, contaminación y descontrol.
+                            </p>
+
+                        </blockquote>
+                    </div>
+                    <div class="card text-white text-center p-3 contact">
+                        <blockquote class="blockquote mb-0">
+                            <p>
+                                Las extracciones y mal tratos nos impulsa a interesarnos por todos los árboles y
+                                a conectarnos con las demas organizaciones, como ambiente total, escuela de
+                                jardinería, encuentro por la vida y maestros arboristas del mundo.
+                            </p>
+                            <footer class="blockquote-footer text-white">
+                                <small>
+                                    <cite title="Source Title">Jose Ruchesi, Francis Halle, Daniel ZanZi</cite>
+                                </small>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <h3 class="mt-4 pb-4 mb-4 border-bottom" id="contacto">
+                    Contactanos...
+                </h3>
+                <div class="row justify-content-center ">
+                    <div class="col-md-6 contacto">
+                        <form action="" method="POST" class="needs-validation mb-2" novalidate>
+                            <div class="form-row mt-3">
+                                <label class='required' for='username'>Nombre </label>
+                                <input type="text" class="form-control" placeholder="Nombre">
+                                <div class="invalid-feedback">
+                                    Este campo es requerido
+                                </div>
+                            </div>
+                            <div class="form-row mt-3">
+                                <label class='required' for='surname'>Apellido</label class='required'>
+                                <input type="text" class="form-control" placeholder="Apellido">
+                                <div class="invalid-feedback">
+                                    Este campo es requerido
+                                </div>
+                            </div>
+                            <div class="form-row mt-3">
+                                <label class='required' for='email'>Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="Ingrese su email">
+                                <div class="invalid-feedback">
+                                    Ingrese un email válido
+                                </div>
+                            </div>
+                            <div class="form-row mt-3">
+                                <div class="col-md-12 col-sm-12">
+                                    <label class='required' for='subject'>Asunto</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <input type="submit" class="mx-auto mt-3 btn enviar" value="Enviar">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <div class="row align-items-center">
+
+                            <p class="lead text-grey text-center p-2">
+                                Recibimos a diario registros fotográficos, denuncias, realizamos encuentros, nos
+                                manifestamos or reclamos y compartimos informacion necesaria para conservar el medio
+                                ambiente mediante la militancia por el respeto a nuestra naturaleza.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <footer class="landing-footer text-white mt-3">
+
+            <p>
+                Seguinos en
+                <a href="https://www.facebook.com/Arboles-Urbanos-Resistencia-Chaco-191103000985552/">
+                    <img class="img-responsive" width="30" height="30" src="{%static 'img/iconos/facebook.png' %}"
+                        alt="Facebook">
+                </a>
+            </p>
+            <p>
+                Hecho por Software Movement 2.0
+            </p>
+        </footer>
+        <!-- Footer -->
+
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    </body>
+
+</html>
