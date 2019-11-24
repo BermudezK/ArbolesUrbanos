@@ -14,7 +14,7 @@
 
 <div class="row">
 
-	<div class="col-md-6 col-sm-12 align-self-center arbol ">
+	<div class="col-md-6 col-sm-12 align-self-center arbol">
 		<div class="row justify-content-center">
 			<h1 class="display-4 mt-4">Bienvenido</h1>
 			<p class=" lead text-center mt-3">Unete a nuestra comunidad y enterate de todo lo que sucede en
@@ -93,6 +93,7 @@
 					</div>
 					{{form.name.errors}}
 				</div>
+
 				<div class="form-row mt-3">
 					<label class='required' for='surname'>Apellido</label class='required'>
 					{{form.surname}}
@@ -101,6 +102,7 @@
 					</div>
 					{{form.surname.errors}}
 				</div>
+
 				<div class="form-row mt-3">
 					<label class='required' for='email'>Email</label>
 					{{form.email}}
@@ -120,9 +122,7 @@
 					</div>
 					{{form.subject.errors}}
 				</div>
-		</div>
-		{{form.subject.errors}}
-	</div>
+
 				<div class="form-row mt-3">
 					<div class="col-md-12 col-sm-12">
 
@@ -134,14 +134,16 @@
 					</div>
 					{{form.content.errors}}
 				</div>
+
 				<div class="form-group row">
 					<input type="submit" class="mx-auto mt-3 btn enviar" value="Enviar">
 				</div>
 			</form>
 		</div>
-		<!-- Fin formulario de contacto -->
 	</div>
+		<!-- Fin formulario de contacto -->
 </div>
+
 <style>
 	.required:after {
 		content: ' *';
