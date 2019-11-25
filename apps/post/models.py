@@ -15,6 +15,7 @@ class Denuncia(PostBase):
 	tipo = models.CharField(choices=TipoDenunciaEnum.choices(), max_length=25)
 	text = models.TextField(max_length=500)
 	# img = models.ForeignKey(PostImg, on_delete=models.CASCADE)
+	# falta el campo email
 
 
 class PostInformativo(PostBase):

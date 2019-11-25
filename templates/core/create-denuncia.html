@@ -10,61 +10,89 @@
 
 
 {% block content %}
-<div>
+<main class="col-8 ml-5 mt-5">
+  <div class="row ml-5">
+      <h3><img src="{% static 'img/iconos/denuncia.png'%}" alt=""> Nueva denuncia</h3>
+  </div>
   <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-    <!-- {{form.as_p}} -->
-
-    <div>
-    	<label>Nombre:</label>
-    	<input type="text" name="nombre">
+    {% if user.is_authenticated %}
+    <div class="row ml-5 mt-5">
+      <div class="form-group col-md-6">
+        <label>Nombre:</label>
+        {{request.user.first_name}}
+        <!-- <input class="form-control" type="text" name="nombre" placeholder="Nombre"> -->
+      </div>
+      <div class="form-group col-md-6">
+        <label>Apellido:</label>
+        {{request.user.last_name}}
+        <!-- <input class="form-control" type="text" name="apellido" placeholder="Apellido"> -->
+      </div>
     </div>
-	   <div>
-    	<label>Apellido:</label>
-    	<input type="text" name="apellido">
+    <div class="row ml-5 mt-3">
+      <label for='email'>Email: </label>
+      {{request.user.email}}
+      <div class="invalid-feedback">
+        Ingrese un email válido
+      </div>
+      {{form.email.errors}}
     </div>
-    <div>
-    	<label>Titulo:</label>
-    	<input type="text" name="titulo">
+    {% endif %}
+    <div class="row ml-5 mt-3">
+      <div class="form-group col-md-6">
+        <label class="required">Título</label>
+        <input class="form-control" type="text" name="titulo" placeholder="Título de la denuncia">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="required">Razón de la denuncia</label>
+        <select name="tipo" class="form-control">
+          <option value="PODA">Poda</option>
+          <option value="FALTA_CANTERO">Falta Cantero</option>
+          <option value="EXTRACCION">Extracción</option>
+          <option value="ARBOL_EXISTENTE">Arbol Existente</option>
+          <option value="MANTENIMIENTO">Mantenimiento</option>
+        </select>
+      </div>
     </div>
-    <div>
-    	<label>Tipo:</label>
-    	<select name="tipo">
-    		<option value="PODA">Poda</option>
-    		<option value="FALTA_CANTERO">Falta Cantero</option>
-    		<option value="EXTRACCION">Extraccion</option>
-    		<option value="ARBOL_EXISTENTE">Arbol Existente</option>
-    		<option value="MANTENIMIENTO">Mantenimiento</option>
-    	</select>
+    <div class="row ml-5 mt-5">
+      <div class="form-group col-md-12">
+        <label class="required">Descripción</label>
+        <!-- para impedir que se cambie el tamaño del textarea en el css uso la propiedad resize: none; -->
+        <textarea class="form-control" cols="30" rows="10" name="text"
+          placeholder="Descripción de la denuncia"></textarea>
+      </div>
     </div>
-    <div>
-    	<label>Text:</label>
-    	<input type="text" name="text">
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+      <div class="row mt-3 ml-5">
+        <div class="form-group">
+          <label>Imagen 1</label>
+          <!-- si quiero subir multiples archivos uso multiple en el input -->
+          <input class="form-control-file" type="file" name="img">
+        </div>
+        <div class="form-group ml-5">
+          <label>Imagen 2</label>
+          <input class="form-control-file" type="file" name="img2">
+        </div>
+        <div class="row mt-3 ml-1">
+          <div class="form-group">
+            <label>Imagen 3</label>
+            <input class="form-control-file" type="file" name="img3">
+          </div>
+        </div>
+        <div class="form-group mt-3 ml-5">
+          <label>Imagen 4</label>
+          <input class="form-control-file" type="file" name="img4">
+        </div>
+      </div>
+      <div class="form-group mt-3 ml-5">
+        <label>Imagen 5</label>
+        <input class="form-control-file" type="file" name="img5">
+      </div>
+    </form>
+    <div class="row">
+      <div class="form-group mt-3 ml-5">
+        <button class="btn btn-primary enviar" type="submit" value="OK">Enviar</button>
+      </div>
     </div>
-        <form2 action ="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-            <div>
-               	<label>Img1:</label>
-            	<input type="file" name="img">
-            </div>
-            <div>
-                <label>Img2:</label>
-                <input type="file" name="img2">
-            </div>
-            <div>
-                <label>Img3:</label>
-                <input type="file" name="img3">
-            </div>
-            <div>
-                <label>Img4:</label>
-                <input type="file" name="img4">
-            </div>
-            <div>
-                <label>Img5:</label>
-                <input type="file" name="img5">
-            </div>
-        </form2>
-
-
-    <input type="submit" value="OK">
-</form>
-</div>
+  </form>
+</main>
 {% endblock content %}
