@@ -14,7 +14,7 @@ class PostBase(models.Model):
 class Denuncia(PostBase):
 	tipo = models.CharField(choices=TipoDenunciaEnum.choices(), max_length=25)
 	text = models.TextField(max_length=500)
-	email = models.EmailField(max_length=100)
+	email = models.EmailField(max_length=100 ,unique = False)
 
 
 class PostInformativo(PostBase):
