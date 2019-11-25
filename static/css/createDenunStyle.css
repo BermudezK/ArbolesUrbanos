@@ -8,3 +8,8 @@
 .enviar:hover {
     background: #155E63;
 }
+
+.required:after {
+    content: ' *';
+    color: red;
+}
