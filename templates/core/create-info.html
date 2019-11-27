@@ -14,24 +14,45 @@
 {% block content %}
 <!-- <div class="container"> -->
 <div class="col col-lg-10 align-self-center overflow-auto">
-  <div class="row justify-content-center mt-3 mb-5">
-    <img class="img-responsive img-icon p-2"  width="70" height="70" src="{%static 'img/iconos/info.png'%}" alt="Nueva Información">
-    <div class="display-4">Nueva Información</div>
-  </div>
-  <div class="row justify-content-center mt-3 mb-5">
+   <div class="row justify-content-center mt-3 mb-5">
+      <img class="img-responsive img-icon p-2" width="70" height="70" src="{%static 'img/iconos/info.png'%}"
+         alt="Nueva Información">
+      <div class="display-4">Nueva Información</div>
+   </div>
+   <div class="row justify-content-center mt-3 mb-5">
       <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-         <div>
-            <label for="usuario">Usuario: {{request.user.username}}</label>
+         <div class="form-group row mb-0">
+            <label for="Name" class="col-sm-2 col-form-label">Nombre:</label>
+            <div class="col-sm-10">
+               <input type="text" readonly class="form-control-plaintext" id="Name" value='{{request.user.first_name}}'>
+            </div>
          </div>
-         <div>
-            <label>Titulo:</label>
-            <input type="text" name="titulo">
+         <div class="form-group row mb-0">
+            <label for="Apellido" class="col-sm-2 col-form-label">Apellido:</label>
+            <div class="col-sm-10">
+               <input type="text" readonly class="form-control-plaintext" id="Apellido"
+                  value='{{request.user.last_name}}'>
+            </div>
          </div>
-         <div>
-            <label>Descripcion:</label>
-            <input type="text" name="text">
+         <div class="form-group row">
+            <label for="Email" class="col-sm-2 col-form-label">Email:</label>
+            <div class="col-sm-10">
+               <input type="text" readonly class="form-control-plaintext" id="Email" value='{{request.user}}'>
+            </div>
          </div>
-         <form2 action ="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+         <div class="form-group row">
+            <label for="titulo" class="col-sm-2 col-form-label">Titulo:</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" placeholder="Titulo de la publicación" id="titulo">
+            </div>
+         </div>
+         <div class="form-group">
+            <label for="descripcion" class="">Descripción:</label>
+            <div class="">
+               <textarea type="text" class="form-control" placeholder="Descripción de la publicación" rows="10" id="descripcion"></textarea>
+            </div>
+         </div>
+         <form2 action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
             <div>
                <label>Img1:</label>
                <input type="file" name="img">
@@ -57,6 +78,6 @@
          <input type="submit" value="OK">
 
       </form>
-  </div>
+   </div>
 </div>
 {% endblock content %}
