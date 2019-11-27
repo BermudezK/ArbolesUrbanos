@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from .forms import CreateDenunciaForm, CreatePostInformativo, ImagenForm
-from .models import Denuncia, PostInformativo
+from .models import Denuncia, PostInformativo, PostImg
 from apps.arbol.models import Tree
 from apps.usuario.models import User
 
@@ -154,11 +154,24 @@ def listar(request):
 	de = Denuncia.objects.order_by('-creation_date')
 	lp = PostInformativo.objects.order_by('-creation_date')
 	p = Tree.objects.get(pk=1)
+	img = PostImg.objects.distinct('post_id')
 	context['arbol'] = p
 	context['denuncias'] = de
 	context['informativo'] = lp
+	context['imagen'] = img
 
 	return render(request, 'core/home.html', context)
+
+
+def ListarPostDenuncia(request):
+	context = {}
+	objdenuncia = Denuncia.objects.order_by('-creation_date')
+	p = Tree.objects.get(pk=1)
+	img = PostImg.objects.distinct('post_id')
+	context['denuncias'] = objdenuncia
+	context['imagen'] = img
+
+	return render(request, 'core/denuncias.html', context)
 
 
 

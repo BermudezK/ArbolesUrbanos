@@ -29,15 +29,13 @@
       </div>
     </div>
     <div class="row ml-5 mt-3">
-      <label for='email'>Email: </label>
-      {{request.user.email}}
+      <label for='email' value="">Email: </label>
+      <input type="email" name="email" value="{{request.user.email}}" readonly="readonly">
       <div class="invalid-feedback">
         Ingrese un email válido
       </div>
       {{form.email.errors}}
     </div>
-<<<<<<< HEAD
-=======
     {% endif %}
     <div class="row ml-5 mt-3">
       <div class="form-group col-md-6">
@@ -54,7 +52,6 @@
           <option value="MANTENIMIENTO">Mantenimiento</option>
         </select>
       </div>
->>>>>>> 0dfc0c8cbe8e93229e83eb82d39ea914d62c2999
     </div>
     <div class="row ml-5 mt-5">
       <div class="form-group col-md-12">
@@ -64,7 +61,7 @@
           placeholder="Descripción de la denuncia"></textarea>
       </div>
     </div>
-    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <form2 action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
       <div class="row mt-3 ml-5">
         <div class="form-group">
           <label>Imagen 1</label>
@@ -90,7 +87,7 @@
         <label>Imagen 5</label>
         <input class="form-control-file" type="file" name="img5">
       </div>
-    </form>
+    </form2>
     <div class="row">
       <div class="form-group mt-3 ml-5">
         <button class="btn btn-primary enviar" type="submit" value="OK">Enviar</button>
