@@ -11,7 +11,7 @@ urlpatterns = [
 
 	# Urls to lists posts
 	path('', views.listar, name='denuncia-home'),
-	path('informacion/', views.ListPostInformativo, name='info'),
+	path('informacion/', views.ListPostInformativo, name='informacion'),
 	path('denuncias/', views.ListarPostDenuncia, name='denuncia'),
 	path('eventos/', views.ListPostEventos.as_view(), name='evento-home'),
 
