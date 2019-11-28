@@ -23,6 +23,7 @@ from apps.usuario.models import User
 # 		return super(CreateDenuncia, self).form_valid(form)
 
 def CreateDenunciaa(request):
+	print('entre')
 
 	if request.user.is_authenticated:
 		usuario = User.objects.get(email = request.user)
@@ -85,9 +86,12 @@ def CreateDenunciaa(request):
 		if request.method == 'GET':
 			form = CreateDenunciaForm()
 			form2 = ImagenForm()
+			print('GET')
 		else:
 			form = CreateDenunciaForm(request.POST)
 			form2 = ImagenForm(request.POST, request.FILES)
+			print(form.is_valid())
+			print(form2.is_valid())
 			if form.is_valid() and form2.is_valid():
 				d = form.save(commit = False)
 				
