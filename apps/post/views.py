@@ -13,6 +13,7 @@ from apps.usuario.models import User
 
 
 def CreateDenunciaa(request):
+	print('entre')
 
 	# Trae el numero de arboles
 	context = {}
@@ -91,15 +92,18 @@ def CreateDenunciaa(request):
 			# print('get')
 			form = CreateDenunciaForm()
 			form2 = ImagenForm()
+			print('GET')
 		else:
 			# (test) Descomentar para verificar si envia como post
 			# print('post')
 			form = CreateDenunciaForm(request.POST)
 			form2 = ImagenForm(request.POST, request.FILES)
+
 			# (test) Descomentar para ver si son validos los formularios. 
 			# En caso de ser False, problema de html
 			# print(form.is_valid())
 			# print(form2.is_valid())
+			
 			if form.is_valid() and form2.is_valid():
 				d = form.save(commit = False)
 				
