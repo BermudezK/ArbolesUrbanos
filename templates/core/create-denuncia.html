@@ -29,8 +29,8 @@
       </div>
     </div>
     <div class="row ml-5 mt-3">
-      <label for='email'>Email: </label>
-      {{request.user.email}}
+      <label for='email' value="">Email: </label>
+      <input type="email" name="email" value="{{request.user.email}}" readonly="readonly">
       <div class="invalid-feedback">
         Ingrese un email válido
       </div>
