@@ -25,18 +25,18 @@ def CreateDenunciaa(request):
 
 		if request.method == 'GET':
 			# (test) Descomentar para verificar si envia como get
-			# print('get')
+			print('get')
 			form = CreateDenunciaForm()
 			form2 = ImagenForm()
 		else:
 			# (test) Descomentar para verificar si envia como post
-			# print('post')
+			print('post')
 			form = CreateDenunciaForm(request.POST)
 			form2 = ImagenForm(request.POST, request.FILES)
 			# (test) Descomentar para ver si son validos los formularios. 
 			# En caso de ser False, problema de html
-			# print(form.is_valid())
-			# print(form2.is_valid())
+			print(form.is_valid())
+			print(form2.is_valid())
 
 			if form.is_valid() and form2.is_valid():
 				d = form.save(commit = False)
@@ -103,7 +103,7 @@ def CreateDenunciaa(request):
 			# En caso de ser False, problema de html
 			# print(form.is_valid())
 			# print(form2.is_valid())
-			
+
 			if form.is_valid() and form2.is_valid():
 				d = form.save(commit = False)
 				
