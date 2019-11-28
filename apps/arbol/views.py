@@ -12,7 +12,6 @@ def show_tree(request):
 	context = {}
 	p = Tree.objects.get(pk=1)
 	context['arbol'] = p
-
 	return render(request,'arbol/visualizacion.html',context)
 
 # Vista del Usuario
@@ -22,8 +21,6 @@ def show_tree_user(request):
 	context['arbol'] = p
 
 	return render(request,'arbol/visualizacionUsuario.html',context)
-
-
 def edit_tree(request):
 	if request.POST:
 		qty = int(request.POST.get("quantity"))
