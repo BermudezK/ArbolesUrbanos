@@ -12,27 +12,31 @@ from apps.usuario.models import User
 
 
 
-# class CreateDenuncia(CreateView):
-# 	form_class = CreateDenunciaForm
-# 	template_name = 'core/create-denuncia.html'
-# 	success_url = reverse_lazy('denuncia-home')
-
-# 	def form_valid(self, form):
-# 		obj = form.save(commit=False)
-# 		obj.created_by = self.request.user
-# 		return super(CreateDenuncia, self).form_valid(form)
-
 def CreateDenunciaa(request):
+
+	# Trae el numero de arboles
+	context = {}
+	p = Tree.objects.get(pk=1)
+	context['arbol'] = p
 
 	if request.user.is_authenticated:
 		usuario = User.objects.get(email = request.user)
 
 		if request.method == 'GET':
+			# (test) Descomentar para verificar si envia como get
+			# print('get')
 			form = CreateDenunciaForm()
 			form2 = ImagenForm()
 		else:
+			# (test) Descomentar para verificar si envia como post
+			# print('post')
 			form = CreateDenunciaForm(request.POST)
 			form2 = ImagenForm(request.POST, request.FILES)
+			# (test) Descomentar para ver si son validos los formularios. 
+			# En caso de ser False, problema de html
+			# print(form.is_valid())
+			# print(form2.is_valid())
+
 			if form.is_valid() and form2.is_valid():
 				d = form.save(commit = False)
 				
@@ -83,11 +87,19 @@ def CreateDenunciaa(request):
 
 	else:
 		if request.method == 'GET':
+			# (test) Descomentar para verificar si envia como get
+			# print('get')
 			form = CreateDenunciaForm()
 			form2 = ImagenForm()
 		else:
+			# (test) Descomentar para verificar si envia como post
+			# print('post')
 			form = CreateDenunciaForm(request.POST)
 			form2 = ImagenForm(request.POST, request.FILES)
+			# (test) Descomentar para ver si son validos los formularios. 
+			# En caso de ser False, problema de html
+			# print(form.is_valid())
+			# print(form2.is_valid())
 			if form.is_valid() and form2.is_valid():
 				d = form.save(commit = False)
 				
@@ -135,7 +147,7 @@ def CreateDenunciaa(request):
 			redirecion = redirect(reverse('denuncia'))
 			return redirecion
 
-	return render(request,'core/create-denuncia.html',{'form':form,'form2':form2})
+	return render(request,'core/create-denuncia.html',context,{'form':form,'form2':form2})
 
 
 class CreatePostInformativo(CreateView):
