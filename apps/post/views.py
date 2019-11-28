@@ -184,7 +184,7 @@ def CreatePostInfor(request):
 					i.img = request.FILES.get('img5')
 					i.save()
 
-			redirecion = redirect(reverse('info'))
+			redirecion = redirect(reverse('informacion'))
 			return redirecion
 
 	else:
