@@ -12,7 +12,8 @@ urlpatterns = [
 	# Urls to lists posts
 	path('', views.listar, name='denuncia-home'),
 	path('informacion/', views.ListPostInformativo.as_view(), name='info'),
-	path('denuncias/', views.ListPostDenuncia.as_view(), name='denuncia'),
+	# path('denuncias/', views.ListPostDenuncia.as_view(), name='denuncia'),
+	path('denuncias/', views.ListarPostDenuncia, name='denuncia'),
 	path('eventos/', views.ListPostEventos.as_view(), name='evento-home'),
 
 ]
