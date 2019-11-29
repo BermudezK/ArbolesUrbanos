@@ -69,7 +69,7 @@ def CreateDenunciaa(request):
 					i.img = request.FILES.get('img5')
 					i.save()
 
-			redirecion = redirect(reverse('denuncia'))
+			redirecion = redirect(reverse('home'))
 			return redirecion
 
 	else:
@@ -123,7 +123,7 @@ def CreateDenunciaa(request):
 					i.img = request.FILES.get('img5')
 					i.save()
 
-			redirecion = redirect(reverse('denuncia'))
+			redirecion = redirect(reverse('home'))
 			return redirecion
 
 	return render(request,'core/create-denuncia.html',{'form':form,'form2':form2})
@@ -190,7 +190,7 @@ def CreatePostInfor(request):
 					i.img = request.FILES.get('img5')
 					i.save()
 
-			redirecion = redirect(reverse('informacion'))
+			redirecion = redirect(reverse('home'))
 			return redirecion
 
 	else:
