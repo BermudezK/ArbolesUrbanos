@@ -15,69 +15,109 @@
 <!-- <div class="container"> -->
 <div class="col col-lg-10 align-self-center overflow-auto">
    <div class="row justify-content-center mt-3 mb-5">
-      <img class="img-responsive img-icon p-2" width="70" height="70" src="{%static 'img/iconos/info.png'%}"
+      <img class="img-responsive img-icon p-2 mr-4" width="70" height="70" src="{%static 'img/iconos/info.png'%}"
          alt="Nueva Información">
       <div class="display-4">Nueva Información</div>
    </div>
-   <div class="row justify-content-center mt-3 mb-5">
-      <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-         <div class="form-group row mb-0">
-            <label for="Name" class="col-sm-2 col-form-label">Nombre:</label>
-            <div class="col-sm-10">
-               <input type="text" readonly class="form-control-plaintext" id="Name" value='{{request.user.first_name}}'>
-            </div>
+   <form action="" method="POST" class="needs-validations ml-5 mr-5 pl-5 pr-5" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- <div class="form-group row mb-0">
+         <label for="Name" class="col-sm-2 col-form-label">Nombre:</label>
+         <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="Name" value='{{request.user.first_name}}'>
          </div>
-         <div class="form-group row mb-0">
-            <label for="Apellido" class="col-sm-2 col-form-label">Apellido:</label>
-            <div class="col-sm-10">
-               <input type="text" readonly class="form-control-plaintext" id="Apellido"
-                  value='{{request.user.last_name}}'>
-            </div>
+      </div>
+      <div class="form-group row mb-0">
+         <label for="Apellido" class="col-sm-2 col-form-label">Apellido:</label>
+         <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="Apellido" value='{{request.user.last_name}}'>
          </div>
-         <div class="form-group row">
-            <label for="Email" class="col-sm-2 col-form-label">Email:</label>
-            <div class="col-sm-10">
-               <input type="text" readonly class="form-control-plaintext" id="Email" value='{{request.user}}'>
-            </div>
+      </div>
+      <div class="form-group row">
+         <label for="Email" class="col-sm-2 col-form-label">Email:</label>
+         <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="Email" value='{{request.user}}'>
          </div>
-         <div class="form-group row">
-            <label for="titulo" class="col-sm-2 col-form-label">Titulo:</label>
-            <div class="col-sm-10">
-               <input type="text" class="form-control" placeholder="Titulo de la publicación" id="titulo">
-            </div>
+      </div> -->
+      <div class="form-group row mb-0">
+         <label for="Name" class="col-sm-2 col-form-label">Usuario:</label>
+         <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="Name" value='{{request.user.username}}'>
          </div>
-         <div class="form-group">
-            <label for="descripcion" class="">Descripción:</label>
-            <div class="">
-               <textarea type="text" class="form-control" placeholder="Descripción de la publicación" rows="10" id="descripcion"></textarea>
-            </div>
+      </div>
+      <div class="form-group row">
+         <label for="titulo" class="col-sm-2 col-form-label required">Titulo:</label>
+         <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Titulo de la publicación" id="titulo" required name='titulo'>
+            <small id="first_nameHelpText" class="text-muted">
+               Debe asignarle un titulo al post
+            </small>
          </div>
-         <form2 action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-            <div>
-               <label>Img1:</label>
-               <input type="file" name="img">
-            </div>
-            <div>
-               <label>Img2:</label>
-               <input type="file" name="img2">
-            </div>
-            <div>
-               <label>Img3:</label>
-               <input type="file" name="img3">
-            </div>
-            <div>
-               <label>Img4:</label>
-               <input type="file" name="img4">
-            </div>
-            <div>
-               <label>Img5:</label>
-               <input type="file" name="img5">
-            </div>
-         </form2>
+      </div>
+      <div class="form-group">
+         <label for="descripcion" class="col-form-label required">Descripción:</label>
+         <div class="">
+            <textarea type="text" required class="form-control" placeholder="Descripción de la publicación" rows="10" id="descripcion" name="text"></textarea>
+            <small id="first_nameHelpText" class="text-muted">
+               El post debe contener una descripcion
+            </small>
+         </div>
+      </div>
+      <form2 action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+         <div>
+            <label for="img1" class="col-form-label">Img1:</label>
+            <input type="file" name="img">
+         </div>
+         <div>
+            <label for="img2" class="col-form-label">Img2:</label>
+            <input type="file" name="img2">
+         </div>
+         <div>
+            <label for="img3" class="col-form-label">Img3:</label>
+            <input type="file" name="img3">
+         </div>
+         <div>
+            <label for="img4" class="col-form-label">Img4:</label>
+            <input type="file" name="img4">
+         </div>
+         <div>
+            <label for="img5" class="col-form-label">Img5:</label>
+            <input type="file" name="img5">
+         </div>
+      </form2>
 
-         <input type="submit" value="OK">
+      <div class="form-group row justify-content-center">
+         <button type="submit" id="btnRegistro" class="btn btn-lg mt-2 enviar">
+            Enviar
+         </button>
+      </div>
 
-      </form>
-   </div>
+   </form>
 </div>
+<style>
+   .required:after {
+      content: ' *';
+      color: red;
+   }
+
+</style>
+<script>
+   (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+         var forms = document.getElementsByClassName('needs-validation');
+         // Loop over them and prevent submission
+         var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+               if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+               }
+               form.classList.add('was-validated');
+            }, false);
+         });
+      }, false);
+   })();
+</script>
 {% endblock content %}
