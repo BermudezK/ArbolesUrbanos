@@ -26,18 +26,17 @@
                     <div class="card mb-3 cards1">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                {% if o.img %}
-                                <img src="{{o.img.url}}" width="179px" height="240px" classobject_lists="card-img"
-                                    alt="..." style="margin-left: 0px !important;">
-                                {% else %}
-                                <img src="..." class="card-img-top" alt="...">
-                                {% endif %}
+                                {% for i in imagen %}
+                                    {% if i.post_id == o.pk %}
+                                        <img src="{{i.img.url}}" width="179px" height="240px" classobject_lists="card-img" alt="..." style="margin-left: 0px !important;">
+                                    {% endif %}
+                                {% endfor %}
                                 <img src="{% static 'img/iconos/denun.png' %}" class="iconos" alt="">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <strong class="d-inline-block mb-2 text-warning">Denuncias</strong>
-                                    <h5 class="card-title">Titulo</h5>
+                                    <h5 class="card-title">{{o.titulo}}</h5>
                                     <div class="mb-1 text-muted">{{o.creation_date}}</div>
                                     <p class="card-text limitar">{{o.text}} <a href="#">Ver más</a></p>
                                 </div>
@@ -50,13 +49,17 @@
                     <div class="card mb-3 cards1">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="{{i.img.url}}" width="179px" height="240px" class="card-img" alt="...">
+                                {% for z in imagen %}
+                                    {% if z.post_id == i.pk %}
+                                        <img src="{{z.img.url}}" width="179px" height="240px" classobject_lists="card-img" alt="..." style="margin-left: 0px !important;">
+                                    {% endif %}
+                                {% endfor %}
                                 <img src="{% static 'img/iconos/informacion.png' %}" class="iconos" alt="">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <strong class="d-inline-block mb-2 text-danger">Información</strong>
-                                    <h5 class="card-title">Título</h5>
+                                    <h5 class="card-title">{{i.titulo}}</h5>
                                     <div class="mb-1 text-muted"> {{i.creation_date}}</div>
                                     <p class="card-text limitar">{{i.text}}<a href="#">Ver más</a></p>
                                 </div>
