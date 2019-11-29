@@ -2,3 +2,17 @@
     border-radius: 50px;
     background-color: #155e63;
 }
+.col-form-label{
+    color: #155e63;
+}
+
+.enviar {
+    font-size: large;
+    background-color: #155e63;
+    border-radius: 25px;
+    border: 1px solid #155e63;
+    color: #f9f8eb;
+}
+.enviar:hover {
+    background-color: #76b39d;
+}
