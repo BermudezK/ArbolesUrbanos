@@ -43,8 +43,8 @@
     {% else %}
     <!-- si el usuario no está logueado -->
     <div class="row mt-3 ml-5">
+      <div class="form-group col-md-6">
         <label class='required contacto' for='name'>Nombre </label>
-        <!-- {{form.first_name}} -->
         <input class="form-control" type="text" name="name" placeholder="Nombre" minlength="3" maxlength="30" required>
         <div class="invalid-feedback">
           Este campo es requerido
@@ -59,39 +59,38 @@
         </div>
       </div>
     </div>
-        <div class="row ml-5 mt-3">
-          <div class="form-group col-md-6">
-            <label class='required contacto' for='email'>Email </label>
-            <input class="form-control" type="text" name="email" placeholder="ejemplo@gmail.com"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-            <div class="invalid-feedback">
-              Este campo es requerido
-            </div>
-          </div>
+    <div class="row ml-5 mt-3">
+      <div class="form-group col-md-6">
+        <label class='required contacto' for='email'>Email </label>
+        <input class="form-control" type="text" name="email" placeholder="ejemplo@gmail.com"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+        <div class="invalid-feedback">
+          Este campo es requerido
         </div>
-        {% endif %}
-        <div class="row ml-5 mt-3" style="margin-top: 10px;">
-          <div class="form-group col-md-6">
-            <label class="required contacto">Título</label>
-            <input class="form-control" type="text" name="titulo" placeholder="Título de la denuncia">
-          </div>
-          <div class="form-group col-md-6">
-            <label class="required contacto">Razón de la denuncia</label>
-            <select name="tipo" class="form-control">
-              <option value="PODA">Poda</option>
-              <option value="FALTA_CANTERO">Falta Cantero</option>
-              <option value="EXTRACCION">Extracción</option>
-              <option value="ARBOL_EXISTENTE">Arbol Existente</option>
-              <option value="MANTENIMIENTO">Mantenimiento</option>
-            </select>
-          </div>
-        </div>
-        <div class="row ml-5 mt-5">
-          <div class="form-group col-md-12">
-            <label class="required contacto">Descripción</label>
-            <!-- para impedir que se cambie el tamaño del textarea en el css uso la propiedad resize: none; -->
-            <textarea class="form-control" cols="30" rows="10" name="text"
-              placeholder="Descripción de la denuncia"></textarea required>
+      </div>
+    </div>
+    {% endif %}
+    <div class="row ml-5 mt-3" style="margin-top: 10px;">
+      <div class="form-group col-md-6">
+        <label class="required contacto">Título</label>
+        <input class="form-control" type="text" name="titulo" placeholder="Título de la denuncia">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="required contacto">Razón de la denuncia</label>
+        <select name="tipo" class="form-control">
+          <option value="PODA">Poda</option>
+          <option value="FALTA_CANTERO">Falta Cantero</option>
+          <option value="EXTRACCION">Extracción</option>
+          <option value="ARBOL_EXISTENTE">Arbol Existente</option>
+          <option value="MANTENIMIENTO">Mantenimiento</option>
+        </select>
+      </div>
+    </div>
+    <div class="row ml-5 mt-5">
+      <div class="form-group col-md-12">
+        <label class="required contacto">Descripción</label>
+        <!-- para impedir que se cambie el tamaño del textarea en el css uso la propiedad resize: none; -->
+        <textarea class="form-control" cols="30" rows="10" name="text" placeholder="Descripción de la denuncia"></textarea required>
           </div>
         </div>
         <form2 action="" method="POST" enctype="multipart/form-data" novalidate>{% csrf_token %}
