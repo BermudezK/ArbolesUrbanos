@@ -36,6 +36,27 @@
       </div>
       {{form.email.errors}}
     </div>
+    {% else %}
+      <div class="row ml-5 mt-5">
+      <div class="form-group col-md-6">
+        <label>Nombre:</label>
+        <!-- {{request.user.first_name}} -->
+        <input class="form-control" type="text" name="nombre" placeholder="Nombre">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Apellido:</label>
+       <!--  {{request.user.last_name}} -->
+        <input class="form-control" type="text" name="apellido" placeholder="Apellido">
+      </div>
+    </div>
+    <div class="row ml-5 mt-3">
+      <label for='email' value="">Email: </label>
+      <input class="form-control" type="email" name="email" value="{{request.user.email}}">
+      <div class="invalid-feedback">
+        Ingrese un email válido
+      </div>
+      {{form.email.errors}}
+    </div>
     {% endif %}
     <div class="row ml-5 mt-3" style="margin-top: 10px;">
       <div class="form-group col-md-6">
