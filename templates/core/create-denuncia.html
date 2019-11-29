@@ -10,9 +10,11 @@
 
 
 {% block content %}
-<main class="col-8 ml-5 mt-5">
-  <div class="row ml-5">
-      <h3><img src="{% static 'img/iconos/denuncia.png'%}" alt=""> Nueva denuncia</h3>
+<main class="col col-lg-10 align-self-center overflow-auto">
+  <div class="row justify-content-center mt-3 mb-5">
+    <img class="img-responsive img-icon p-2 mr-4" width="70" height="70" src="{%static 'img/iconos/denuncia.png'%}"
+      alt="Nueva Información">
+    <div class="display-4">Nueva denuncia</div>
   </div>
   <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
     {% if user.is_authenticated %}
@@ -28,40 +30,44 @@
         <!-- <input class="form-control" type="text" name="apellido" placeholder="Apellido"> -->
       </div>
     </div>
-    <div class="row ml-5 mt-3">
-      <label for='email' value="">Email: </label>
-      <input type="email" name="email" value="{{request.user.email}}" readonly="readonly">
+    <div class="form-group row ml-5 mt-3">
+      <label for='email' class="col-sm-1 col-form-label" value="">Email: </label>
+      <div class="col-sm-10">
+        <input type="email" name="email" value="{{request.user.email}}" readonly class="form-control-plaintext">
+      </div>
       <div class="invalid-feedback">
         Ingrese un email válido
       </div>
       {{form.email.errors}}
     </div>
     {% else %}
-      <div class="row ml-5 mt-5">
+    <div class="row ml-5 mt-5">
       <div class="form-group col-md-6">
-        <label>Nombre:</label>
+        <label class="required">Nombre:</label>
         <!-- {{request.user.first_name}} -->
-        <input class="form-control" type="text" name="nombre" placeholder="Nombre">
+        <input required class="form-control" type="text" name="nombre" placeholder="Nombre">
       </div>
       <div class="form-group col-md-6">
-        <label>Apellido:</label>
-       <!--  {{request.user.last_name}} -->
-        <input class="form-control" type="text" name="apellido" placeholder="Apellido">
+        <label class="required">Apellido:</label>
+        <!--  {{request.user.last_name}} -->
+        <input required class="form-control" type="text" name="apellido" placeholder="Apellido">
       </div>
     </div>
     <div class="row ml-5 mt-3">
-      <label for='email' value="">Email: </label>
-      <input class="form-control" type="email" name="email" value="{{request.user.email}}">
-      <div class="invalid-feedback">
-        Ingrese un email válido
+      <div class="form-group col-md-12">
+        <label for='email' class="required">Email: </label>
+        <input required class="form-control" type="email" name="email" placeholder="Email">
+        <div class="invalid-feedback">
+          Ingrese un email válido
+        </div>
+        {{form.email.errors}}
       </div>
-      {{form.email.errors}}
     </div>
     {% endif %}
     <div class="row ml-5 mt-3" style="margin-top: 10px;">
       <div class="form-group col-md-6">
         <label class="required">Título</label>
-        <input class="form-control" type="text" name="titulo" placeholder="Título de la denuncia">
+        <input class="form-control" type="text" name="titulo" placeholder="Título de la denuncia" required>
       </div>
       <div class="form-group col-md-6">
         <label class="required">Razón de la denuncia</label>
@@ -78,8 +84,8 @@
       <div class="form-group col-md-12">
         <label class="required">Descripción</label>
         <!-- para impedir que se cambie el tamaño del textarea en el css uso la propiedad resize: none; -->
-        <textarea class="form-control" cols="30" rows="10" name="text"
-          placeholder="Descripción de la denuncia"></textarea>
+        <textarea class="form-control" cols="30" rows="10" name="text" placeholder="Descripción de la denuncia"
+          required></textarea>
       </div>
     </div>
     <form2 action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
@@ -109,11 +115,37 @@
         <input class="form-control-file" type="file" name="img5">
       </div>
     </form2>
-    <div class="row">
-      <div class="form-group mt-3 ml-5">
-        <button class="btn btn-primary enviar" type="submit" value="OK">Enviar</button>
-      </div>
+    <div class="form-group row justify-content-center">
+      <button type="submit" id="btnRegistro" class="btn btn-lg mt-2 enviar">
+        Enviar
+      </button>
     </div>
   </form>
 </main>
+<style>
+  .required:after {
+    content: ' *';
+    color: red;
+  }
+
+</style>
+<script>
+  (function () {
+    'use strict';
+    window.addEventListener('load', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
 {% endblock content %}

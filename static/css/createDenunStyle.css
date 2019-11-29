@@ -3,10 +3,12 @@
     background: #76B39D;
     border-radius: 25px;
     border: 1px solid #76b39d;
+    color: white;
 }
 
 .enviar:hover {
     background: #155E63;
+    color: white;
 }
 
 .required:after {
