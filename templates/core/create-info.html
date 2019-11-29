@@ -43,13 +43,13 @@
          <div class="form-group row">
             <label for="titulo" class="col-sm-2 col-form-label">Titulo:</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control" placeholder="Titulo de la publicación" id="titulo">
+               <input type="text" class="form-control" placeholder="Titulo de la publicación" id="titulo" name='titulo'>
             </div>
          </div>
          <div class="form-group">
-            <label for="descripcion" class="">Descripción:</label>
+            <label for="text" class="">Descripción:</label>
             <div class="">
-               <textarea type="text" class="form-control" placeholder="Descripción de la publicación" rows="10" id="descripcion"></textarea>
+               <textarea type="text" class="form-control" placeholder="Descripción de la publicación" rows="10" id="text" name="text"></textarea>
             </div>
          </div>
          <form2 action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
