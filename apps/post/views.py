@@ -143,8 +143,8 @@ def CreatePostInfor(request):
 			print('post')
 			form = CreatePostInformativo(request.POST)
 			form2 = ImagenForm(request.POST, request.FILES)
-			print(form.is_valid())
-			print(form2.is_valid())
+			# print(form.is_valid())
+			# print(form2.is_valid())
 			print(form.is_valid)
 			if form.is_valid() and form2.is_valid():
 				d = form.save(commit = False)
