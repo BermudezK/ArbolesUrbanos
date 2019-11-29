@@ -12,89 +12,120 @@
 {% block content %}
 <main class="col-8 ml-5 mt-5">
   <div class="row ml-5">
-      <h3><img src="{% static 'img/iconos/denuncia.png'%}" alt=""> Nueva denuncia</h3>
+    <h3 class="mx-auto"><img src="{% static 'img/iconos/denuncia.png'%}" alt=""> Nueva denuncia</h3>
   </div>
-  <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+  <form action="" class="needs-validation" method="POST" enctype="multipart/form-data" novalidate>{% csrf_token %}
     {% if user.is_authenticated %}
     <div class="row ml-5 mt-5">
       <div class="form-group col-md-6">
         <!-- <label>Nombre:</label> -->
-        <label for="Name">Nombre: </label>
+        <label class="contacto" for="Name">Nombre: </label>
         <input type="text" readonly class="form-control-plaintext" id="Name" value='{{request.user.first_name}}'>
         <!-- <input class="form-control" type="text" name="nombre" placeholder="Nombre"> -->
       </div>
       <div class="form-group col-md-6">
         <!-- <label>Apellido:</label> -->
-        <label for="Apellido">Apellido: </label>
+        <label class="contacto" for="Apellido">Apellido: </label>
         <input type="text" readonly class="form-control-plaintext" id="Apellido" value='{{request.user.last_name}}'>
         <!-- <input class="form-control" type="text" name="apellido" placeholder="Apellido"> -->
       </div>
     </div>
     <div class="row ml-5 mt-3">
-      <label for='email' value="">Email: </label>
-      <input type="email" readonly class="form-control-plaintext" name="email" value="{{request.user.email}}">
-      <div class="invalid-feedback">
-        Ingrese un email válido
-      </div>
-      {{form.email.errors}}
-    </div>
-    {% endif %}
-    <div class="row ml-5 mt-3" style="margin-top: 10px;">
       <div class="form-group col-md-6">
-        <label class="required">Título</label>
-        <input class="form-control" type="text" name="titulo" placeholder="Título de la denuncia">
+        <label class="contacto" for='email' value="">Email: </label>
+        <input type="email" readonly class="form-control-plaintext" name="email" value="{{request.user.email}}">
+        <div class="invalid-feedback">
+          Ingrese un email válido
+        </div>
+        {{form.email.errors}}
+      </div>
+    </div>
+    {% else %}
+    <!-- si el usuario no está logueado -->
+    <div class="row mt-3 ml-5">
+        <label class='required contacto' for='name'>Nombre </label>
+        <!-- {{form.first_name}} -->
+        <input class="form-control" type="text" name="name" placeholder="Nombre" minlength="3" maxlength="30" required>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
       </div>
       <div class="form-group col-md-6">
-        <label class="required">Razón de la denuncia</label>
-        <select name="tipo" class="form-control">
-          <option value="PODA">Poda</option>
-          <option value="FALTA_CANTERO">Falta Cantero</option>
-          <option value="EXTRACCION">Extracción</option>
-          <option value="ARBOL_EXISTENTE">Arbol Existente</option>
-          <option value="MANTENIMIENTO">Mantenimiento</option>
-        </select>
+        <label class='required contacto' for='surname'>Apellido </label>
+        <input class="form-control" type="text" name="surname" placeholder="Apellido" minlength="3" maxlength="30"
+          required>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
       </div>
     </div>
-    <div class="row ml-5 mt-5">
-      <div class="form-group col-md-12">
-        <label class="required">Descripción</label>
-        <!-- para impedir que se cambie el tamaño del textarea en el css uso la propiedad resize: none; -->
-        <textarea class="form-control" cols="30" rows="10" name="text"
-          placeholder="Descripción de la denuncia"></textarea>
-      </div>
-    </div>
-    <form2 action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-      <div class="row mt-3 ml-5">
-        <div class="form-group">
-          <label>Imagen 1</label>
-          <!-- si quiero subir multiples archivos uso multiple en el input -->
-          <input class="form-control-file" type="file" name="img">
-        </div>
-        <div class="form-group ml-5">
-          <label>Imagen 2</label>
-          <input class="form-control-file" type="file" name="img2">
-        </div>
-        <div class="row mt-3 ml-1">
-          <div class="form-group">
-            <label>Imagen 3</label>
-            <input class="form-control-file" type="file" name="img3">
+        <div class="row ml-5 mt-3">
+          <div class="form-group col-md-6">
+            <label class='required contacto' for='email'>Email </label>
+            <input class="form-control" type="text" name="email" placeholder="ejemplo@gmail.com"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+            <div class="invalid-feedback">
+              Este campo es requerido
+            </div>
           </div>
         </div>
-        <div class="form-group mt-3 ml-5">
-          <label>Imagen 4</label>
-          <input class="form-control-file" type="file" name="img4">
+        {% endif %}
+        <div class="row ml-5 mt-3" style="margin-top: 10px;">
+          <div class="form-group col-md-6">
+            <label class="required contacto">Título</label>
+            <input class="form-control" type="text" name="titulo" placeholder="Título de la denuncia">
+          </div>
+          <div class="form-group col-md-6">
+            <label class="required contacto">Razón de la denuncia</label>
+            <select name="tipo" class="form-control">
+              <option value="PODA">Poda</option>
+              <option value="FALTA_CANTERO">Falta Cantero</option>
+              <option value="EXTRACCION">Extracción</option>
+              <option value="ARBOL_EXISTENTE">Arbol Existente</option>
+              <option value="MANTENIMIENTO">Mantenimiento</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="form-group mt-3 ml-5">
-        <label>Imagen 5</label>
-        <input class="form-control-file" type="file" name="img5">
-      </div>
-    </form2>
-    <div class="row">
-      <div class="form-group mt-3 ml-5">
-        <button class="btn btn-primary enviar" type="submit" value="OK">Enviar</button>
-      </div>
-    </div>
+        <div class="row ml-5 mt-5">
+          <div class="form-group col-md-12">
+            <label class="required contacto">Descripción</label>
+            <!-- para impedir que se cambie el tamaño del textarea en el css uso la propiedad resize: none; -->
+            <textarea class="form-control" cols="30" rows="10" name="text"
+              placeholder="Descripción de la denuncia"></textarea required>
+          </div>
+        </div>
+        <form2 action="" method="POST" enctype="multipart/form-data" novalidate>{% csrf_token %}
+          <div class="row mt-3 ml-5">
+            <div class="form-group">
+              <label class="contacto">Imagen 1</label>
+              <!-- si quiero subir multiples archivos uso multiple en el input -->
+              <input class="form-control-file" type="file" name="img">
+            </div>
+            <div class="form-group ml-5">
+              <label class="contacto">Imagen 2</label>
+              <input class="form-control-file" type="file" name="img2">
+            </div>
+            <div class="row mt-3 ml-1">
+              <div class="form-group">
+                <label class="contacto">Imagen 3</label>
+                <input class="form-control-file" type="file" name="img3">
+              </div>
+            </div>
+            <div class="form-group mt-3 ml-5">
+              <label class="contacto">Imagen 4</label>
+              <input class="form-control-file" type="file" name="img4">
+            </div>
+          </div>
+          <div class="form-group mt-3 ml-5">
+            <label class="contacto">Imagen 5</label>
+            <input class="form-control-file" type="file" name="img5">
+          </div>
+        </form2>
+        <div class="row">
+          <div class="form-group mt-3 ml-5">
+            <button class="btn btn-primary enviar" type="submit" value="OK">Enviar</button>
+          </div>
+        </div>
   </form>
 </main>
 {% endblock content %}
