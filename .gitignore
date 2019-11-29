@@ -1,6 +1,6 @@
 #Local Settings
 ./arbolesurbanos/settings/local.py 
-
+./media/
 # bostrap cdn
 ./static/css/css boostrap/*.css
 
